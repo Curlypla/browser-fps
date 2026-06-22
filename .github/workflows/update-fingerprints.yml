@@ -41,7 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/discover.py \
-            --browsers "${{ github.event.inputs.browsers || 'chrome' }}" \
+            --browsers "${{ github.event.inputs.browsers || 'chrome,edge,brave,firefox' }}" \
             --batch "${{ github.event.inputs.batch || '12' }}" \
             ${{ github.event.inputs.retry_errors == 'true' && '--retry-errors' || '' }} \
             --out "$GITHUB_OUTPUT"
