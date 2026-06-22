@@ -7,6 +7,7 @@ text we can read straight off the page (preserving the navigation header order).
 import argparse
 import json
 import os
+import shutil
 import time
 
 from selenium import webdriver
@@ -25,7 +26,9 @@ def make_driver(binary):
     # make sure HTTP/3 is allowed
     opts.set_preference("network.http.http3.enable", True)
     # add a cookie-rich, referer-bearing context later via JS
-    service = Service(executable_path=os.environ.get("GECKODRIVER", "geckodriver"))
+    driver_path = (os.environ.get("GECKODRIVER") or shutil.which("geckodriver")
+                   or "/usr/local/bin/geckodriver")
+    service = Service(executable_path=driver_path)
     return webdriver.Firefox(options=opts, service=service)
 
 

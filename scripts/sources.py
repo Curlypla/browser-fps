@@ -98,7 +98,7 @@ def brave_versions(token=None, max_pages=8):
         ver = r["tag_name"].lstrip("v")
         cm = re.search(r"Chromium\s+([0-9.]+)", r.get("name", ""))
         out.append({"version": ver, "url": deb["browser_download_url"], "kind": "deb",
-                    "engine": "chromium", "binary": "/opt/brave.com/brave/brave-browser",
+                    "engine": "chromium", "binary": "/usr/bin/brave-browser",
                     "chromium": cm.group(1) if cm else None})
     return out
 

@@ -69,11 +69,21 @@ jobs:
           sudo apt-get install -y -qq libgtk-3-0 libdbus-glib-1-2 libasound2 || true
       - name: geckodriver (gecko)
         if: matrix.engine == 'gecko'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          GV=$(curl -sSL https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep -oP '"tag_name": "\K[^"]+')
+          set -euo pipefail
+          GV=$(curl -sSL -H "Authorization: Bearer $GH_TOKEN" \
+               https://api.github.com/repos/mozilla/geckodriver/releases/latest \
+               | python3 -c "import sys,json;print(json.load(sys.stdin)['tag_name'])")
+          echo "geckodriver version: $GV"
           curl -sSL -o gd.tar.gz "https://github.com/mozilla/geckodriver/releases/download/${GV}/geckodriver-${GV}-linux64.tar.gz"
-          tar xf gd.tar.gz && sudo mv geckodriver /usr/local/bin/
+          tar xf gd.tar.gz
+          sudo install -m 0755 geckodriver /usr/local/bin/geckodriver
+          geckodriver --version
       - name: Capture
+        env:
+          GECKODRIVER: /usr/local/bin/geckodriver
         run: |
           python3 scripts/capture.py \
             --browser "${{ matrix.browser }}" \
