@@ -1,0 +1,33 @@
+{
+  "browsers": {
+    "chrome": {
+      "149.0.7827.114-1": {
+        "captured_at": "27985079861",
+        "engine": "chromium",
+        "errors": [
+          "h2: could not connect to CDP: Handshake status 403 Forbidden -+-+- {'content-length': '239', 'content-type': 'text/html'} -+-+- b'Rejected an incoming WebSocket connection from the http://127.0.0.1:9222 origin. Use the command line flag --remote-allow-origins=http://127.0.0.1:9222 to allow connections from this origin or --remote-allow-origins=* to allow all origins.'",
+          "h3: could not connect to CDP: Handshake status 403 Forbidden -+-+- {'content-length': '239', 'content-type': 'text/html'} -+-+- b'Rejected an incoming WebSocket connection from the http://127.0.0.1:9333 origin. Use the command line flag --remote-allow-origins=http://127.0.0.1:9333 to allow connections from this origin or --remote-allow-origins=* to allow all origins.'"
+        ],
+        "h2": null,
+        "h3": null,
+        "major": "149"
+      },
+      "149.0.7827.155-1": {
+        "captured_at": "27985079861",
+        "engine": "chromium",
+        "errors": [
+          "h2: could not connect to CDP: Handshake status 403 Forbidden -+-+- {'content-length': '239', 'content-type': 'text/html'} -+-+- b'Rejected an incoming WebSocket connection from the http://127.0.0.1:9222 origin. Use the command line flag --remote-allow-origins=http://127.0.0.1:9222 to allow connections from this origin or --remote-allow-origins=* to allow all origins.'",
+          "h3: could not connect to CDP: Handshake status 403 Forbidden -+-+- {'content-length': '239', 'content-type': 'text/html'} -+-+- b'Rejected an incoming WebSocket connection from the http://127.0.0.1:9333 origin. Use the command line flag --remote-allow-origins=http://127.0.0.1:9333 to allow connections from this origin or --remote-allow-origins=* to allow all origins.'"
+        ],
+        "h2": null,
+        "h3": null,
+        "major": "149"
+      }
+    }
+  },
+  "counts": {
+    "chrome": 2
+  },
+  "generated_at": "2026-06-22T21:27:25Z",
+  "schema": 1
+}
