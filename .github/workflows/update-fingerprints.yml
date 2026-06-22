@@ -115,19 +115,28 @@ jobs:
           path: results
           pattern: result-*
           merge-multiple: true
-      - name: Merge into store
+      - name: Merge into store and commit
         run: |
           ls -la results || true
-          TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-          python3 scripts/merge.py --results results --captured-at "$TS"
-      - name: Commit
-        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fingerprints.json data/fingerprints.sqlite
-          if git diff --cached --quiet; then
-            echo "no changes"
-          else
-            git commit -m "data: update fingerprints ($(date -u +%F))"
-            git push
-          fi
+          # results/ is gitignored, so it survives `git reset --hard`. We rebase
+          # onto the freshest committed store and re-apply our results each try,
+          # so concurrent merges / pushes can't clobber each other.
+          for attempt in 1 2 3 4 5 6; do
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+            python3 scripts/merge.py --results results --captured-at "$TS"
+            git add data/fingerprints.json data/fingerprints.sqlite
+            if git diff --cached --quiet; then
+              echo "no changes to commit"; exit 0
+            fi
+            git commit -q -m "data: update fingerprints ($(date -u +%F))"
+            if git push origin main; then
+              echo "pushed on attempt $attempt"; exit 0
+            fi
+            echo "push rejected, retrying ($attempt)"
+            sleep $(( (RANDOM % 6) + 2 ))
+          done
+          echo "failed to push after retries"; exit 1
