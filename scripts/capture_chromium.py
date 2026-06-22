@@ -74,7 +74,12 @@ def header_keys(peet_json):
                     keys.append(":" + h.split(": ", 1)[0].lstrip(":"))
                 else:
                     keys.append(h.split(": ", 1)[0])
-            return keys
+            # collapse consecutive duplicate keys (e.g. multiple cookie lines)
+            collapsed = []
+            for k in keys:
+                if not collapsed or collapsed[-1] != k:
+                    collapsed.append(k)
+            return collapsed
     # http/1.1 fallback
     if "http1" in peet_json:
         return [h.split(":", 1)[0] for h in peet_json["http1"].get("headers", [])]
