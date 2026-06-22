@@ -161,14 +161,32 @@ def download(url, dest):
     return dest
 
 
+def _ensure_brave_keyring():
+    """brave-browser debs depend on the brave-keyring package, which only lives
+    in brave's apt repo. Install it so dpkg of a pinned version configures."""
+    key = "/usr/share/keyrings/brave-browser-archive-keyring.gpg"
+    subprocess.run(["sudo", "curl", "-fsSL", "-o", key,
+                    "https://brave-browser-apt-release.s3.brave.com/"
+                    "brave-browser-archive-keyring.gpg"])
+    listline = ("deb [signed-by=%s] https://brave-browser-apt-release.s3.brave.com/ "
+                "stable main" % key)
+    subprocess.run("echo '%s' | sudo tee /etc/apt/sources.list.d/brave.list" % listline,
+                   shell=True)
+    subprocess.run(["sudo", "apt-get", "update", "-qq"])
+    subprocess.run(["sudo", "apt-get", "install", "-y", "-qq", "brave-keyring"])
+
+
 def install(entry, workdir="/tmp/bfp"):
     os.makedirs(workdir, exist_ok=True)
     if entry["kind"] == "deb":
+        if "brave" in entry["binary"]:
+            _ensure_brave_keyring()
         deb = download(entry["url"], os.path.join(workdir, "browser.deb"))
         # dpkg then resolve deps
         r = subprocess.run(["sudo", "dpkg", "-i", deb])
         if r.returncode != 0:
             _run(["sudo", "apt-get", "-f", "install", "-y"])
+            subprocess.run(["sudo", "dpkg", "-i", deb])
         return entry["binary"]
     if entry["kind"] == "tar":
         tar = download(entry["url"], os.path.join(workdir, "browser.tar.xz"))
