@@ -1,6 +1,1440 @@
 {
   "browsers": {
     "brave": {
+      "1.91.172": {
+        "captured_at": "27986112815",
+        "engine": "chromium",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+          "akamai_fingerprint_hash": "52d84b11737d980aef856699f885ca86",
+          "header_order": [
+            ":method",
+            ":authority",
+            ":scheme",
+            ":path",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent",
+            "accept",
+            "sec-gpc",
+            "accept-language",
+            "sec-fetch-site",
+            "sec-fetch-mode",
+            "sec-fetch-dest",
+            "referer",
+            "accept-encoding",
+            "cookie",
+            "priority"
+          ],
+          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,17613-43-35-18-23-45-27-13-5-16-0-11-65281-10-51-65037-41,4588-29-23-24,0",
+          "ja3_hash": "54b03d2c5961b3204afc792abbc03872",
+          "ja4": "t13d1517h2_8daaf6152771_b6f405a00624",
+          "ja4_r": "t13d1517h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,002d,0033,44cd,fe0d,ff01_0403,0804,0401,0503,0805,0501,0806,0601",
+          "peetprint": "GREASE-772-771|2-1.1|GREASE-4588-29-23-24|1027-2052-1025-1283-2053-1281-2054-1537|1|2|GREASE-4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53|0-10-11-13-16-17613-18-23-27-35-41-43-45-5-51-65037-65281-GREASE-GREASE",
+          "peetprint_hash": "d44d68f0fce54cd423d6792272a242b8",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+          "protocol": "h3",
+          "raw": {
+            "h3_hash": "049704d97f9b",
+            "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 52651378920,
+                    "name": "GREASE",
+                    "value": 3535861418
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:45:48.922",
+              "dcid": "ada68fd517c75416",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    6
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "padding_length": 301,
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "11f9cf0e",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 2,
+                "disable_active_migration": false,
+                "initial_max_data": 15728640,
+                "initial_max_stream_data_bidi_local": 6291456,
+                "initial_max_stream_data_bidi_remote": 6291456,
+                "initial_max_stream_data_uni": 6291456,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 103,
+                "max_ack_delay_ms": 25,
+                "max_datagram_frame_size": 65536,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 1472
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  17613,
+                  0,
+                  65037,
+                  51,
+                  45,
+                  27,
+                  43,
+                  57,
+                  16,
+                  13,
+                  10
+                ],
+                "transport_params": [
+                  {
+                    "id": 12584,
+                    "raw": "T1JJRw=="
+                  },
+                  {
+                    "id": 4,
+                    "raw": "gPAAAA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 6,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 3,
+                    "raw": "RcA="
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAQAAAAG6OurK"
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 9,
+                    "raw": "QGc="
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAEAAA=="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                }
+              ],
+              "ech": {
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
+              },
+              "extensions": [
+                {
+                  "id": 17613,
+                  "name": "application_settings_new_codepoint"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                }
+              ],
+              "random": "335d750f11e94aa097d0f33afd2951a211206c9a1bb24cf3616065dd74560f55",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 8,
+                "initial_ttl": 64,
+                "link_type": "QUIC Minimum",
+                "mtu": 1278
+              },
+              "ip_df": true,
+              "ip_id": 11014,
+              "ip_tos": 0,
+              "ip_ttl": 56,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+          }
+        },
+        "major": "1",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+      },
+      "1.91.173": {
+        "captured_at": "27986112815",
+        "engine": "chromium",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+          "akamai_fingerprint_hash": "52d84b11737d980aef856699f885ca86",
+          "header_order": [
+            ":method",
+            ":authority",
+            ":scheme",
+            ":path",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent",
+            "accept",
+            "sec-gpc",
+            "accept-language",
+            "sec-fetch-site",
+            "sec-fetch-mode",
+            "sec-fetch-dest",
+            "referer",
+            "accept-encoding",
+            "cookie",
+            "priority"
+          ],
+          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,10-51-65037-45-17613-13-5-23-43-65281-11-16-18-27-0-35-41,4588-29-23-24,0",
+          "ja3_hash": "d53f0b3a5809f255aab699fca4686b3d",
+          "ja4": "t13d1517h2_8daaf6152771_b6f405a00624",
+          "ja4_r": "t13d1517h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,002d,0033,44cd,fe0d,ff01_0403,0804,0401,0503,0805,0501,0806,0601",
+          "peetprint": "GREASE-772-771|2-1.1|GREASE-4588-29-23-24|1027-2052-1025-1283-2053-1281-2054-1537|1|2|GREASE-4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53|0-10-11-13-16-17613-18-23-27-35-41-43-45-5-51-65037-65281-GREASE-GREASE",
+          "peetprint_hash": "d44d68f0fce54cd423d6792272a242b8",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+          "protocol": "h3",
+          "raw": {
+            "h3_hash": "049704d97f9b",
+            "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 77879542116,
+                    "name": "GREASE",
+                    "value": 2159945726
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:45:47.823",
+              "dcid": "9ac3135c45b2f4b4",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    1,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    6,
+                    1,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "padding_length": 302,
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "24b066d1",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 2,
+                "disable_active_migration": false,
+                "initial_max_data": 15728640,
+                "initial_max_stream_data_bidi_local": 6291456,
+                "initial_max_stream_data_bidi_remote": 6291456,
+                "initial_max_stream_data_uni": 6291456,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 103,
+                "max_ack_delay_ms": 25,
+                "max_datagram_frame_size": 65536,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 1472
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  45,
+                  16,
+                  43,
+                  0,
+                  51,
+                  57,
+                  27,
+                  13,
+                  10,
+                  65037,
+                  17613
+                ],
+                "transport_params": [
+                  {
+                    "id": 3,
+                    "raw": "RcA="
+                  },
+                  {
+                    "id": 4,
+                    "raw": "gPAAAA=="
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAEAAA=="
+                  },
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 12584,
+                    "raw": "T1JJRw=="
+                  },
+                  {
+                    "id": 6,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAQAAAAEaeqp6"
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 9,
+                    "raw": "QGc="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                }
+              ],
+              "ech": {
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
+              },
+              "extensions": [
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                },
+                {
+                  "id": 17613,
+                  "name": "application_settings_new_codepoint"
+                }
+              ],
+              "random": "e640cb0867412f614178460b69e9e6f3b2862f40ded0dfac1c5323a5ac35ca05",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 9,
+                "initial_ttl": 64,
+                "link_type": "QUIC Minimum",
+                "mtu": 1278
+              },
+              "ip_df": true,
+              "ip_id": 8619,
+              "ip_tos": 0,
+              "ip_ttl": 55,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+          }
+        },
+        "major": "1",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+      },
       "1.91.175": {
         "captured_at": "27985771204",
         "engine": "chromium",
@@ -734,6 +2168,694 @@
       }
     },
     "chrome": {
+      "149.0.7827.102-1": {
+        "captured_at": "27986112815",
+        "engine": "chromium",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+          "akamai_fingerprint_hash": "52d84b11737d980aef856699f885ca86",
+          "header_order": [
+            ":method",
+            ":authority",
+            ":scheme",
+            ":path",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent",
+            "accept",
+            "sec-fetch-site",
+            "sec-fetch-mode",
+            "sec-fetch-dest",
+            "referer",
+            "accept-encoding",
+            "accept-language",
+            "cookie",
+            "priority"
+          ],
+          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,45-65281-13-27-0-18-17613-51-65037-23-10-5-16-43-35-11-41,4588-29-23-24,0",
+          "ja3_hash": "ae369d941a6b20b2d29337c737fa41c9",
+          "ja4": "t13d1517h2_8daaf6152771_b6f405a00624",
+          "ja4_r": "t13d1517h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,002d,0033,44cd,fe0d,ff01_0403,0804,0401,0503,0805,0501,0806,0601",
+          "peetprint": "GREASE-772-771|2-1.1|GREASE-4588-29-23-24|1027-2052-1025-1283-2053-1281-2054-1537|1|2|GREASE-4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53|0-10-11-13-16-17613-18-23-27-35-41-43-45-5-51-65037-65281-GREASE-GREASE",
+          "peetprint_hash": "d44d68f0fce54cd423d6792272a242b8",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+          "protocol": "h3",
+          "raw": {
+            "h3_hash": "049704d97f9b",
+            "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 6879446284,
+                    "name": "GREASE",
+                    "value": 3421409176
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:45:39.937",
+              "dcid": "e92253348c2940dc",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    1,
+                    6,
+                    1,
+                    6,
+                    6,
+                    6,
+                    6,
+                    1,
+                    6,
+                    6,
+                    1,
+                    6,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    6
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "padding_length": 268,
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "ebe244a5",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 2,
+                "disable_active_migration": false,
+                "initial_max_data": 15728640,
+                "initial_max_stream_data_bidi_local": 6291456,
+                "initial_max_stream_data_bidi_remote": 6291456,
+                "initial_max_stream_data_uni": 6291456,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 103,
+                "max_ack_delay_ms": 25,
+                "max_datagram_frame_size": 65536,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 1472
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  0,
+                  57,
+                  16,
+                  65037,
+                  51,
+                  10,
+                  13,
+                  17613,
+                  45,
+                  43,
+                  27
+                ],
+                "transport_params": [
+                  {
+                    "id": 6,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAQAAAAEautqa"
+                  },
+                  {
+                    "id": 3,
+                    "raw": "RcA="
+                  },
+                  {
+                    "id": 9,
+                    "raw": "QGc="
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 12584,
+                    "raw": "T1JJRw=="
+                  },
+                  {
+                    "id": 4,
+                    "raw": "gPAAAA=="
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAEAAA=="
+                  },
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                }
+              ],
+              "ech": {
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
+              },
+              "extensions": [
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "id": 17613,
+                  "name": "application_settings_new_codepoint"
+                },
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                }
+              ],
+              "random": "b3db0d26a8c5cd4a5193e7f986ed8db700fdc28153eae6f6ddfff66de3173d23",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 10,
+                "initial_ttl": 64,
+                "link_type": "QUIC Minimum",
+                "mtu": 1278
+              },
+              "ip_df": true,
+              "ip_id": 127,
+              "ip_tos": 0,
+              "ip_ttl": 54,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+          }
+        },
+        "major": "149",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+      },
       "149.0.7827.114-1": {
         "captured_at": "27985234146",
         "engine": "chromium",
@@ -2254,9 +4376,2134 @@
         },
         "major": "149",
         "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+      },
+      "149.0.7827.53-1": {
+        "captured_at": "27986112815",
+        "engine": "chromium",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+          "akamai_fingerprint_hash": "52d84b11737d980aef856699f885ca86",
+          "header_order": [
+            ":method",
+            ":authority",
+            ":scheme",
+            ":path",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent",
+            "accept",
+            "sec-fetch-site",
+            "sec-fetch-mode",
+            "sec-fetch-dest",
+            "referer",
+            "accept-encoding",
+            "accept-language",
+            "cookie",
+            "priority"
+          ],
+          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,16-65281-13-27-35-43-45-11-51-65037-23-10-17613-0-18-5-41,4588-29-23-24,0",
+          "ja3_hash": "6c88baa9d5d4e7674e809e9e95542bf7",
+          "ja4": "t13d1517h2_8daaf6152771_b6f405a00624",
+          "ja4_r": "t13d1517h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,002d,0033,44cd,fe0d,ff01_0403,0804,0401,0503,0805,0501,0806,0601",
+          "peetprint": "GREASE-772-771|2-1.1|GREASE-4588-29-23-24|1027-2052-1025-1283-2053-1281-2054-1537|1|2|GREASE-4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53|0-10-11-13-16-17613-18-23-27-35-41-43-45-5-51-65037-65281-GREASE-GREASE",
+          "peetprint_hash": "d44d68f0fce54cd423d6792272a242b8",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+          "protocol": "h3",
+          "raw": {
+            "h3_hash": "049704d97f9b",
+            "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 127479869042,
+                    "name": "GREASE",
+                    "value": 3974197006
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:45:41.058",
+              "dcid": "50177ad86765c1ee",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    0,
+                    0,
+                    6,
+                    6,
+                    6,
+                    6,
+                    1,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    1,
+                    1
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "padding_length": 289,
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "5bcd4726",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 2,
+                "disable_active_migration": false,
+                "initial_max_data": 15728640,
+                "initial_max_stream_data_bidi_local": 6291456,
+                "initial_max_stream_data_bidi_remote": 6291456,
+                "initial_max_stream_data_uni": 6291456,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 103,
+                "max_ack_delay_ms": 25,
+                "max_datagram_frame_size": 65536,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 1472
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  27,
+                  43,
+                  45,
+                  51,
+                  13,
+                  17613,
+                  16,
+                  57,
+                  65037,
+                  0,
+                  10
+                ],
+                "transport_params": [
+                  {
+                    "id": 12584,
+                    "raw": "T1JJRw=="
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 4,
+                    "raw": "gPAAAA=="
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAEAAA=="
+                  },
+                  {
+                    "id": 3,
+                    "raw": "RcA="
+                  },
+                  {
+                    "id": 9,
+                    "raw": "QGc="
+                  },
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 6,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAYpK+soAAAAB"
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gGAAAA=="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                }
+              ],
+              "ech": {
+                "ech_success": true
+              },
+              "extensions": [
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "id": 17613,
+                  "name": "application_settings_new_codepoint"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                }
+              ],
+              "random": "5e2a301b03696bc1ab08a5269a2a3c1732628dfc4656540835d36a4a43b15766",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 8,
+                "initial_ttl": 64,
+                "link_type": "QUIC Minimum",
+                "mtu": 1278
+              },
+              "ip_df": true,
+              "ip_id": 48542,
+              "ip_tos": 0,
+              "ip_ttl": 56,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
+          }
+        },
+        "major": "149",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
       }
     },
     "edge": {
+      "149.0.4022.62-1": {
+        "captured_at": "27986112815",
+        "engine": "chromium",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+          "akamai_fingerprint_hash": "52d84b11737d980aef856699f885ca86",
+          "header_order": [
+            ":method",
+            ":authority",
+            ":scheme",
+            ":path",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent",
+            "accept",
+            "sec-fetch-site",
+            "sec-fetch-mode",
+            "sec-fetch-dest",
+            "referer",
+            "accept-encoding",
+            "accept-language",
+            "cookie",
+            "priority"
+          ],
+          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,45-18-10-16-35-65037-65281-27-0-17613-5-43-13-23-11-51-41,4588-29-23-24,0",
+          "ja3_hash": "763d05c4a860970f79a45d9506b0813c",
+          "ja4": "t13d1517h2_8daaf6152771_b6f405a00624",
+          "ja4_r": "t13d1517h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,002d,0033,44cd,fe0d,ff01_0403,0804,0401,0503,0805,0501,0806,0601",
+          "peetprint": "GREASE-772-771|2-1.1|GREASE-4588-29-23-24|1027-2052-1025-1283-2053-1281-2054-1537|1|2|GREASE-4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53|0-10-11-13-16-17613-18-23-27-35-41-43-45-5-51-65037-65281-GREASE-GREASE",
+          "peetprint_hash": "d44d68f0fce54cd423d6792272a242b8",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+          "protocol": "h3",
+          "raw": {
+            "h3_hash": "049704d97f9b",
+            "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 28223668646,
+                    "name": "GREASE",
+                    "value": 3447728469
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:45:44.354",
+              "dcid": "674c164a94373b76",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    6,
+                    6,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    1,
+                    1,
+                    6,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "padding_length": 295,
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "50269cab",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 2,
+                "disable_active_migration": false,
+                "initial_max_data": 15728640,
+                "initial_max_stream_data_bidi_local": 6291456,
+                "initial_max_stream_data_bidi_remote": 6291456,
+                "initial_max_stream_data_uni": 6291456,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 103,
+                "max_ack_delay_ms": 25,
+                "max_datagram_frame_size": 65536,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 1472
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  27,
+                  51,
+                  13,
+                  43,
+                  0,
+                  10,
+                  17613,
+                  45,
+                  16,
+                  57,
+                  65037
+                ],
+                "transport_params": [
+                  {
+                    "id": 9,
+                    "raw": "QGc="
+                  },
+                  {
+                    "id": 4,
+                    "raw": "gPAAAA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAQAAAAGauspK"
+                  },
+                  {
+                    "id": 3,
+                    "raw": "RcA="
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAEAAA=="
+                  },
+                  {
+                    "id": 12584,
+                    "raw": "T1JJRw=="
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 6,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                }
+              ],
+              "ech": {
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
+              },
+              "extensions": [
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                },
+                {
+                  "id": 17613,
+                  "name": "application_settings_new_codepoint"
+                },
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                }
+              ],
+              "random": "82335f0f7b6480a29f94cb3ca4a1db70597e3930da79f32c2efafbac2d5cd04d",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 7,
+                "initial_ttl": 64,
+                "link_type": "QUIC Minimum",
+                "mtu": 1278
+              },
+              "ip_df": true,
+              "ip_id": 23822,
+              "ip_tos": 0,
+              "ip_ttl": 57,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+          }
+        },
+        "major": "149",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+      },
+      "149.0.4022.69-1": {
+        "captured_at": "27986112815",
+        "engine": "chromium",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+          "akamai_fingerprint_hash": "52d84b11737d980aef856699f885ca86",
+          "header_order": [
+            ":method",
+            ":authority",
+            ":scheme",
+            ":path",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent",
+            "accept",
+            "sec-fetch-site",
+            "sec-fetch-mode",
+            "sec-fetch-dest",
+            "referer",
+            "accept-encoding",
+            "accept-language",
+            "cookie",
+            "priority"
+          ],
+          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,17613-27-18-45-65281-35-43-51-16-13-0-5-10-23-65037-11-41,4588-29-23-24,0",
+          "ja3_hash": "10bcf15561086aec52a7c89061055422",
+          "ja4": "t13d1517h2_8daaf6152771_b6f405a00624",
+          "ja4_r": "t13d1517h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,002d,0033,44cd,fe0d,ff01_0403,0804,0401,0503,0805,0501,0806,0601",
+          "peetprint": "GREASE-772-771|2-1.1|GREASE-4588-29-23-24|1027-2052-1025-1283-2053-1281-2054-1537|1|2|GREASE-4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53|0-10-11-13-16-17613-18-23-27-35-41-43-45-5-51-65037-65281-GREASE-GREASE",
+          "peetprint_hash": "d44d68f0fce54cd423d6792272a242b8",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+          "protocol": "h3",
+          "raw": {
+            "h3_hash": "049704d97f9b",
+            "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 86181326182,
+                    "name": "GREASE",
+                    "value": 2088110571
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:45:47.167",
+              "dcid": "8f2fe24fdca61465",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    6,
+                    6,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "padding_length": 303,
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "a5b84481",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 2,
+                "disable_active_migration": false,
+                "initial_max_data": 15728640,
+                "initial_max_stream_data_bidi_local": 6291456,
+                "initial_max_stream_data_bidi_remote": 6291456,
+                "initial_max_stream_data_uni": 6291456,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 103,
+                "max_ack_delay_ms": 25,
+                "max_datagram_frame_size": 65536,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 1472
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  45,
+                  10,
+                  51,
+                  16,
+                  0,
+                  13,
+                  17613,
+                  27,
+                  57,
+                  43,
+                  65037
+                ],
+                "transport_params": [
+                  {
+                    "id": 9,
+                    "raw": "QGc="
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 3,
+                    "raw": "RcA="
+                  },
+                  {
+                    "id": 12584,
+                    "raw": "T1JJRw=="
+                  },
+                  {
+                    "id": 4,
+                    "raw": "gPAAAA=="
+                  },
+                  {
+                    "id": 6,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAVq6mooAAAAB"
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAEAAA=="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                }
+              ],
+              "ech": {
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
+              },
+              "extensions": [
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "id": 17613,
+                  "name": "application_settings_new_codepoint"
+                },
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                }
+              ],
+              "random": "5c5eec63da642c3eaff15b039e9de4c7fc1928a234a82afc06fd48d509f640e8",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 10,
+                "initial_ttl": 64,
+                "link_type": "QUIC Minimum",
+                "mtu": 1278
+              },
+              "ip_df": true,
+              "ip_id": 62512,
+              "ip_tos": 0,
+              "ip_ttl": 54,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+          }
+        },
+        "major": "149",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+      },
       "149.0.4022.80-1": {
         "captured_at": "27985340860",
         "engine": "chromium",
@@ -2978,6 +7225,900 @@
       }
     },
     "firefox": {
+      "151.0.4": {
+        "captured_at": "27986112815",
+        "engine": "gecko",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:131072;5:16384|12517377|0|m,p,a,s",
+          "akamai_fingerprint_hash": "6ea73faa8fc5aac76bded7bd238f6433",
+          "header_order": [
+            ":method",
+            ":path",
+            ":authority",
+            ":scheme",
+            "user-agent",
+            "accept",
+            "accept-language",
+            "accept-encoding",
+            "cookie",
+            "upgrade-insecure-requests",
+            "sec-fetch-dest",
+            "sec-fetch-mode",
+            "sec-fetch-site",
+            "sec-fetch-user",
+            "priority",
+            "te"
+          ],
+          "ja3": "771,4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49171-49172-156-157-47-53,0-23-65281-10-11-16-5-34-18-51-43-13-45-28-27-65037-41,4588-29-23-24-25-256-257,0",
+          "ja3_hash": "f19d54c853fffdd9eeab77ae607448e9",
+          "ja4": "t13d1617h2_86a278354501_e6dcd7ae0a9e",
+          "ja4_r": "t13d1617h2_002f,0035,009c,009d,1301,1302,1303,c00a,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,001c,0022,0029,002b,002d,0033,fe0d,ff01_0403,0503,0603,0804,0805,0806,0401,0501,0601,0203,0201",
+          "peetprint": "772-771|2-1.1|4588-29-23-24-25-256-257|1027-1283-1539-2052-2053-2054-1025-1281-1537-515-513|1|1-2-3|4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49171-49172-156-157-47-53|0-10-11-13-16-18-23-27-28-34-41-43-45-5-51-65037-65281",
+          "peetprint_hash": "7af17c143655a95d8c55aab02cd6cf9b",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:151.0) Gecko/20100101 Firefox/151.0"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0315h3_55b375c5d22e_9cac0a2e6d46",
+            "ja4_hash": "aed78de26df6",
+            "ja4_r": "q13d0315h3_1301,1302,1303_0005,000a,000d,0017,001b,001c,0022,002b,002d,0033,0039,fe0d,ff01_0201,0203,0401,0403,0501,0503,0601,0603,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0315h3_55b375c5d22e_9cac0a2e6d46",
+          "ja4_r": "q13d0315h3_1301,1302,1303_0005,000a,000d,0017,001b,001c,0022,002b,002d,0033,0039,fe0d,ff01_0201,0203,0401,0403,0501,0503,0601,0603,0804,0805,0806",
+          "protocol": null,
+          "raw": {
+            "h3_hash": "ae2c42da46ea",
+            "h3_text": "1:65536;7:20;8:1;51:1;GREASE;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 20
+                  },
+                  {
+                    "id": 8,
+                    "name": "SETTINGS_ENABLE_CONNECT_PROTOCOL",
+                    "value": 1
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 16765559,
+                    "name": "GREASE",
+                    "value": 1
+                  },
+                  {
+                    "id": 727725890,
+                    "name": "GREASE",
+                    "value": 0
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0315h3_55b375c5d22e_9cac0a2e6d46",
+            "ja4_hash": "aed78de26df6",
+            "ja4_r": "q13d0315h3_1301,1302,1303_0005,000a,000d,0017,001b,001c,0022,002b,002d,0033,0039,fe0d,ff01_0201,0203,0401,0403,0501,0503,0601,0603,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:46:22.213",
+              "dcid": "60dd44ae3e252359",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    6,
+                    6
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "cc10dc19",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 8,
+                "disable_active_migration": false,
+                "initial_max_data": 25165824,
+                "initial_max_stream_data_bidi_local": 12582912,
+                "initial_max_stream_data_bidi_remote": 1048576,
+                "initial_max_stream_data_uni": 1048576,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 100,
+                "max_ack_delay_ms": 20,
+                "max_datagram_frame_size": 65535,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 4611686018427387903
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 7,
+                    "value": 20
+                  },
+                  {
+                    "id": 8,
+                    "value": 1
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  10,
+                  28,
+                  43,
+                  5,
+                  27,
+                  34,
+                  16,
+                  13,
+                  23,
+                  51,
+                  0,
+                  65281,
+                  45,
+                  57,
+                  65037
+                ],
+                "transport_params": [
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  },
+                  {
+                    "id": 4,
+                    "raw": "gYAAAA=="
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gMAAAA=="
+                  },
+                  {
+                    "id": 6,
+                    "raw": "gBAAAA=="
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gBAAAA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 9,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 11,
+                    "raw": "FA=="
+                  },
+                  {
+                    "id": 14,
+                    "raw": "CA=="
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAXpqykoAAAAB"
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAD//w=="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                }
+              ],
+              "ech": {
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
+              },
+              "extensions": [
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    },
+                    {
+                      "id": 25,
+                      "name": "secp521r1 (25)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                },
+                {
+                  "id": 28,
+                  "name": "record_size_limit"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "id": 5,
+                  "name": "status_request"
+                },
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                },
+                {
+                  "id": 34,
+                  "name": "delegated_credentials"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 1539,
+                      "name": "ecdsa_secp521r1_sha512"
+                    },
+                    {
+                      "id": 515,
+                      "name": "ecdsa_sha1"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "id": 23,
+                  "name": "extended_master_secret"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "id": 65281,
+                  "name": "renegotiation_info"
+                },
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                }
+              ],
+              "random": "325e20573dae711db7b63e59cbb12103027171d64bae719bd7925c7408bbbe3a",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 8,
+                "initial_ttl": 64,
+                "link_type": "VPN/Encrypted Tunnel",
+                "mtu": 1280
+              },
+              "ip_df": true,
+              "ip_id": 0,
+              "ip_tos": 0,
+              "ip_ttl": 56,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:151.0) Gecko/20100101 Firefox/151.0"
+          }
+        },
+        "major": "151",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:151.0) Gecko/20100101 Firefox/151.0"
+      },
+      "152.0": {
+        "captured_at": "27986112815",
+        "engine": "gecko",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:131072;5:16384|12517377|0|m,p,a,s",
+          "akamai_fingerprint_hash": "6ea73faa8fc5aac76bded7bd238f6433",
+          "header_order": [
+            ":method",
+            ":path",
+            ":authority",
+            ":scheme",
+            "user-agent",
+            "accept",
+            "accept-language",
+            "accept-encoding",
+            "cookie",
+            "upgrade-insecure-requests",
+            "sec-fetch-dest",
+            "sec-fetch-mode",
+            "sec-fetch-site",
+            "sec-fetch-user",
+            "priority",
+            "te"
+          ],
+          "ja3": "771,4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49171-49172-156-157-47-53,0-23-65281-10-11-16-5-34-18-51-43-13-45-28-27-65037-41,4588-29-23-24-25-256-257,0",
+          "ja3_hash": "f19d54c853fffdd9eeab77ae607448e9",
+          "ja4": "t13d1617h2_86a278354501_e6dcd7ae0a9e",
+          "ja4_r": "t13d1617h2_002f,0035,009c,009d,1301,1302,1303,c00a,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,001c,0022,0029,002b,002d,0033,fe0d,ff01_0403,0503,0603,0804,0805,0806,0401,0501,0601,0203,0201",
+          "peetprint": "772-771|2-1.1|4588-29-23-24-25-256-257|1027-1283-1539-2052-2053-2054-1025-1281-1537-515-513|1|1-2-3|4865-4867-4866-49195-49199-52393-52392-49196-49200-49162-49171-49172-156-157-47-53|0-10-11-13-16-18-23-27-28-34-41-43-45-5-51-65037-65281",
+          "peetprint_hash": "7af17c143655a95d8c55aab02cd6cf9b",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:152.0) Gecko/20100101 Firefox/152.0"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0315h3_55b375c5d22e_9cac0a2e6d46",
+            "ja4_hash": "aed78de26df6",
+            "ja4_r": "q13d0315h3_1301,1302,1303_0005,000a,000d,0017,001b,001c,0022,002b,002d,0033,0039,fe0d,ff01_0201,0203,0401,0403,0501,0503,0601,0603,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0315h3_55b375c5d22e_9cac0a2e6d46",
+          "ja4_r": "q13d0315h3_1301,1302,1303_0005,000a,000d,0017,001b,001c,0022,002b,002d,0033,0039,fe0d,ff01_0201,0203,0401,0403,0501,0503,0601,0603,0804,0805,0806",
+          "protocol": null,
+          "raw": {
+            "h3_hash": "ae2c42da46ea",
+            "h3_text": "1:65536;7:20;8:1;51:1;GREASE;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 20
+                  },
+                  {
+                    "id": 8,
+                    "name": "SETTINGS_ENABLE_CONNECT_PROTOCOL",
+                    "value": 1
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 16765559,
+                    "name": "GREASE",
+                    "value": 1
+                  },
+                  {
+                    "id": 727725890,
+                    "name": "GREASE",
+                    "value": 0
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0315h3_55b375c5d22e_9cac0a2e6d46",
+            "ja4_hash": "aed78de26df6",
+            "ja4_r": "q13d0315h3_1301,1302,1303_0005,000a,000d,0017,001b,001c,0022,002b,002d,0033,0039,fe0d,ff01_0201,0203,0401,0403,0501,0503,0601,0603,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:46:26.887",
+              "dcid": "06c0cff787c52494",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    6,
+                    6
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "5567cbb6",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 8,
+                "disable_active_migration": false,
+                "initial_max_data": 25165824,
+                "initial_max_stream_data_bidi_local": 12582912,
+                "initial_max_stream_data_bidi_remote": 1048576,
+                "initial_max_stream_data_uni": 1048576,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 100,
+                "max_ack_delay_ms": 20,
+                "max_datagram_frame_size": 65535,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 4611686018427387903
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 7,
+                    "value": 20
+                  },
+                  {
+                    "id": 8,
+                    "value": 1
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  51,
+                  23,
+                  10,
+                  0,
+                  65281,
+                  16,
+                  13,
+                  27,
+                  34,
+                  45,
+                  5,
+                  28,
+                  43,
+                  57,
+                  65037
+                ],
+                "transport_params": [
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  },
+                  {
+                    "id": 4,
+                    "raw": "gYAAAA=="
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gMAAAA=="
+                  },
+                  {
+                    "id": 6,
+                    "raw": "gBAAAA=="
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gBAAAA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 9,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 11,
+                    "raw": "FA=="
+                  },
+                  {
+                    "id": 14,
+                    "raw": "CA=="
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAASpqOnoAAAAB"
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAD//w=="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                }
+              ],
+              "ech": {
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
+              },
+              "extensions": [
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "id": 23,
+                  "name": "extended_master_secret"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    },
+                    {
+                      "id": 25,
+                      "name": "secp521r1 (25)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "id": 65281,
+                  "name": "renegotiation_info"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 1539,
+                      "name": "ecdsa_secp521r1_sha512"
+                    },
+                    {
+                      "id": 515,
+                      "name": "ecdsa_sha1"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                },
+                {
+                  "id": 34,
+                  "name": "delegated_credentials"
+                },
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "id": 5,
+                  "name": "status_request"
+                },
+                {
+                  "id": 28,
+                  "name": "record_size_limit"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                }
+              ],
+              "random": "7f44b00f93f4b1de4bafb21f388a469211555dec43be210b60df7dce6ec45827",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 9,
+                "initial_ttl": 64,
+                "link_type": "VPN/Encrypted Tunnel",
+                "mtu": 1280
+              },
+              "ip_df": true,
+              "ip_id": 0,
+              "ip_tos": 0,
+              "ip_ttl": 55,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:152.0) Gecko/20100101 Firefox/152.0"
+          }
+        },
+        "major": "152",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:152.0) Gecko/20100101 Firefox/152.0"
+      },
       "152.0.1": {
         "captured_at": "27985771204",
         "engine": "gecko",
@@ -3428,11 +8569,11 @@
     }
   },
   "counts": {
-    "brave": 1,
-    "chrome": 2,
-    "edge": 1,
-    "firefox": 1
+    "brave": 3,
+    "chrome": 4,
+    "edge": 3,
+    "firefox": 3
   },
-  "generated_at": "2026-06-22T21:39:40Z",
+  "generated_at": "2026-06-22T21:46:37Z",
   "schema": 1
 }
