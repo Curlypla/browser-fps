@@ -86,6 +86,9 @@ def launch(binary, port, extra_flags=None, user_data_dir=None):
         binary,
         "--remote-debugging-port=%d" % port,
         "--remote-debugging-address=127.0.0.1",
+        # Chrome 111+ rejects DevTools websocket connections unless the origin
+        # is explicitly allowed.
+        "--remote-allow-origins=*",
         "--user-data-dir=%s" % (user_data_dir or "/tmp/cdp-profile-%d" % port),
         "--no-sandbox",
         "--no-first-run",
