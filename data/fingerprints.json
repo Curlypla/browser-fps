@@ -1,5 +1,18 @@
 {
   "browsers": {
+    "brave": {
+      "1.91.175": {
+        "captured_at": "27985340860",
+        "engine": "chromium",
+        "errors": [
+          "h2: [Errno 2] No such file or directory: '/opt/brave.com/brave/brave-browser'",
+          "h3: [Errno 2] No such file or directory: '/opt/brave.com/brave/brave-browser'"
+        ],
+        "h2": null,
+        "h3": null,
+        "major": "1"
+      }
+    },
     "chrome": {
       "149.0.7827.114-1": {
         "captured_at": "27985234146",
@@ -1522,11 +1535,748 @@
         "major": "149",
         "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
       }
+    },
+    "edge": {
+      "149.0.4022.80-1": {
+        "captured_at": "27985340860",
+        "engine": "chromium",
+        "errors": [],
+        "h2": {
+          "akamai_fingerprint": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+          "akamai_fingerprint_hash": "52d84b11737d980aef856699f885ca86",
+          "header_order": [
+            ":method",
+            ":authority",
+            ":scheme",
+            ":path",
+            "sec-ch-ua",
+            "sec-ch-ua-mobile",
+            "sec-ch-ua-platform",
+            "upgrade-insecure-requests",
+            "user-agent",
+            "accept",
+            "sec-fetch-site",
+            "sec-fetch-mode",
+            "sec-fetch-dest",
+            "referer",
+            "accept-encoding",
+            "accept-language",
+            "cookie",
+            "priority"
+          ],
+          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,18-17613-5-0-51-27-11-43-16-10-65037-23-45-35-13-65281-41,4588-29-23-24,0",
+          "ja3_hash": "b0f45e25cec94db0edbfdef3231d5195",
+          "ja4": "t13d1517h2_8daaf6152771_b6f405a00624",
+          "ja4_r": "t13d1517h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,002d,0033,44cd,fe0d,ff01_0403,0804,0401,0503,0805,0501,0806,0601",
+          "peetprint": "GREASE-772-771|2-1.1|GREASE-4588-29-23-24|1027-2052-1025-1283-2053-1281-2054-1537|1|2|GREASE-4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53|0-10-11-13-16-17613-18-23-27-35-41-43-45-5-51-65037-65281-GREASE-GREASE",
+          "peetprint_hash": "d44d68f0fce54cd423d6792272a242b8",
+          "protocol": "h2",
+          "raw_tls_version": "772",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+        },
+        "h3": {
+          "extracted": {
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806"
+          },
+          "http3_supported": null,
+          "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+          "protocol": "h3",
+          "raw": {
+            "h3_hash": "049704d97f9b",
+            "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+            "http3": [
+              {
+                "id": 4,
+                "name": "SETTINGS",
+                "settings": [
+                  {
+                    "id": 1,
+                    "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "name": "SETTINGS_H3_DATAGRAM",
+                    "value": 1
+                  },
+                  {
+                    "id": 14409989503,
+                    "name": "GREASE",
+                    "value": 310415951
+                  }
+                ],
+                "stream_id": 2
+              }
+            ],
+            "ja4": "q13d0311h3_55b375c5d22e_1ed0f58e016d",
+            "ja4_hash": "47b0a4f9e4ad",
+            "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
+            "quic": {
+              "0-rtt": false,
+              "conn_creation_time": "2026-06-22 21:31:26.267",
+              "dcid": "1799ff3674df0896",
+              "dcid_length": 8,
+              "initial_packets": [
+                {
+                  "frames": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    1,
+                    6,
+                    0,
+                    0,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    6,
+                    6,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    6,
+                    6,
+                    0,
+                    0,
+                    1,
+                    1
+                  ],
+                  "has_token": false,
+                  "packet_length": 0,
+                  "packet_number": 1,
+                  "packet_number_length": 0,
+                  "packet_number_raw": "",
+                  "padding_length": 305,
+                  "version": {
+                    "id": 1,
+                    "name": "QUICv1"
+                  }
+                }
+              ],
+              "scid": "f74be9ed",
+              "scid_length": 4,
+              "transport_parameters": {
+                "ack_delay_exponent": 3,
+                "active_connection_id_limit": 2,
+                "disable_active_migration": false,
+                "initial_max_data": 15728640,
+                "initial_max_stream_data_bidi_local": 6291456,
+                "initial_max_stream_data_bidi_remote": 6291456,
+                "initial_max_stream_data_uni": 6291456,
+                "initial_max_streams_bidi": 100,
+                "initial_max_streams_uni": 103,
+                "max_ack_delay_ms": 25,
+                "max_datagram_frame_size": 65536,
+                "max_idle_timeout_ms": 30000,
+                "max_udp_payload_size": 1472
+              },
+              "version": {
+                "id": 1,
+                "name": "QUICv1"
+              }
+            },
+            "reproduction": {
+              "http3": {
+                "settings": [
+                  {
+                    "id": 1,
+                    "value": 65536
+                  },
+                  {
+                    "id": 6,
+                    "value": 262144
+                  },
+                  {
+                    "id": 7,
+                    "value": 100
+                  },
+                  {
+                    "id": 51,
+                    "value": 1
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true,
+                    "value": 0
+                  }
+                ]
+              },
+              "quic": {
+                "dcid_length": 8,
+                "grease": {
+                  "addend": 33,
+                  "multiplier": 31
+                },
+                "initial_packet_size": 1250,
+                "tls_extension_order": [
+                  16,
+                  0,
+                  10,
+                  27,
+                  57,
+                  13,
+                  43,
+                  45,
+                  65037,
+                  17613,
+                  51
+                ],
+                "transport_params": [
+                  {
+                    "id": 4,
+                    "raw": "gPAAAA=="
+                  },
+                  {
+                    "id": 1,
+                    "raw": "gAB1MA=="
+                  },
+                  {
+                    "id": 6,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 5,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 3,
+                    "raw": "RcA="
+                  },
+                  {
+                    "id": 15
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAQAAAAHqKkra"
+                  },
+                  {
+                    "id": 7,
+                    "raw": "gGAAAA=="
+                  },
+                  {
+                    "id": 8,
+                    "raw": "QGQ="
+                  },
+                  {
+                    "id": 32,
+                    "raw": "gAEAAA=="
+                  },
+                  {
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 9,
+                    "raw": "QGc="
+                  },
+                  {
+                    "id": 12584,
+                    "raw": "T1JJRw=="
+                  }
+                ]
+              }
+            },
+            "tls": {
+              "cipher_suite": {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              "cipher_suites": [
+                {
+                  "id": 4865,
+                  "name": "TLS_AES_128_GCM_SHA256"
+                },
+                {
+                  "id": 4866,
+                  "name": "TLS_AES_256_GCM_SHA384"
+                },
+                {
+                  "id": 4867,
+                  "name": "TLS_CHACHA20_POLY1305_SHA256"
+                }
+              ],
+              "ech": {
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
+              },
+              "extensions": [
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                },
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ],
+                  "id": 13,
+                  "name": "signature_algorithms"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                },
+                {
+                  "id": 17613,
+                  "name": "application_settings_new_codepoint"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                }
+              ],
+              "random": "a622d7784061ca4b9a5f1188b547eb1589b9a99abff00591da571d97b57c4d35",
+              "selected_version": {
+                "id": 772,
+                "name": "TLS 1.3"
+              }
+            },
+            "udp_ip": {
+              "estimated": {
+                "distance_hops": 8,
+                "initial_ttl": 64,
+                "link_type": "QUIC Minimum",
+                "mtu": 1278
+              },
+              "ip_df": true,
+              "ip_id": 59952,
+              "ip_tos": 0,
+              "ip_ttl": 56,
+              "ip_version": 4
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+          }
+        },
+        "major": "149",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0"
+      }
+    },
+    "firefox": {
+      "152.0.1": {
+        "captured_at": "27985340860",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location\n",
+          "h3: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location\n"
+        ],
+        "h2": null,
+        "h3": null,
+        "major": "152"
+      }
     }
   },
   "counts": {
-    "chrome": 2
+    "brave": 1,
+    "chrome": 2,
+    "edge": 1,
+    "firefox": 1
   },
-  "generated_at": "2026-06-22T21:29:01Z",
+  "generated_at": "2026-06-22T21:31:38Z",
   "schema": 1
 }
