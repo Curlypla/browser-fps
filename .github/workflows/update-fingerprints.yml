@@ -1,0 +1,123 @@
+name: update-fingerprints
+
+on:
+  schedule:
+    # every 6 hours: pick up new browser releases and backfill old ones
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      browsers:
+        description: "comma-separated browsers (chrome,edge,brave,firefox)"
+        default: "chrome"
+      batch:
+        description: "max versions per browser per run"
+        default: "12"
+      retry_errors:
+        description: "re-attempt versions previously recorded with errors"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-fingerprints
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.disc.outputs.matrix }}
+      empty: ${{ steps.disc.outputs.empty }}
+      count: ${{ steps.disc.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: disc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/discover.py \
+            --browsers "${{ github.event.inputs.browsers || 'chrome' }}" \
+            --batch "${{ github.event.inputs.batch || '12' }}" \
+            ${{ github.event.inputs.retry_errors == 'true' && '--retry-errors' || '' }} \
+            --out "$GITHUB_OUTPUT"
+
+  capture:
+    needs: discover
+    if: needs.discover.outputs.empty == 'false'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Python deps
+        run: pip install --quiet websocket-client selenium
+      - name: System libs (gecko)
+        if: matrix.engine == 'gecko'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libgtk-3-0 libdbus-glib-1-2 libasound2t64 || \
+          sudo apt-get install -y -qq libgtk-3-0 libdbus-glib-1-2 libasound2 || true
+      - name: geckodriver (gecko)
+        if: matrix.engine == 'gecko'
+        run: |
+          GV=$(curl -sSL https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep -oP '"tag_name": "\K[^"]+')
+          curl -sSL -o gd.tar.gz "https://github.com/mozilla/geckodriver/releases/download/${GV}/geckodriver-${GV}-linux64.tar.gz"
+          tar xf gd.tar.gz && sudo mv geckodriver /usr/local/bin/
+      - name: Capture
+        run: |
+          python3 scripts/capture.py \
+            --browser "${{ matrix.browser }}" \
+            --version "${{ matrix.version }}" \
+            --url "${{ matrix.url }}" \
+            --kind "${{ matrix.kind }}" \
+            --engine "${{ matrix.engine }}" \
+            --binary "${{ matrix.binary }}" \
+            --captured-at "${{ github.run_id }}"
+      - name: Show result
+        run: cat results/*.json || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: result-${{ matrix.browser }}-${{ matrix.version }}
+          path: results/*.json
+          retention-days: 3
+
+  merge:
+    needs: [discover, capture]
+    if: always() && needs.discover.outputs.empty == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          path: results
+          pattern: result-*
+          merge-multiple: true
+      - name: Merge into store
+        run: |
+          ls -la results || true
+          TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          python3 scripts/merge.py --results results --captured-at "$TS"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/fingerprints.json data/fingerprints.sqlite
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "data: update fingerprints ($(date -u +%F))"
+            git push
+          fi
