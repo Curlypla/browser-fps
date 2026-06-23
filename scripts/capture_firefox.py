@@ -100,9 +100,6 @@ def main():
             "akamai_fingerprint": h2.get("akamai_fingerprint"),
             "akamai_fingerprint_hash": h2.get("akamai_fingerprint_hash"),
             "raw_tls_version": tls.get("tls_version_negotiated"),
-            "header_order": orders.get("navigate"),
-            "header_order_post": orders.get("xhr_post"),
-            "method_post": "POST",
             "orders_kind": "v4",
             "header_orders": orders,
         }
