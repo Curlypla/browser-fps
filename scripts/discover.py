@@ -49,9 +49,9 @@ def main():
             # treat a record without a captured h2 as not-done when retrying errors
             if existing and args.retry_errors and not existing.get("h2"):
                 done = False
-            # backfill: a record captured before POST support lacks this key, so
-            # re-capture it once to add the POST header order.
-            if existing and existing.get("h2") and "header_order_post" not in existing["h2"]:
+            # backfill: re-capture once if the record predates POST support, or
+            # captured POST a different way than the current fetch-based method.
+            if existing and existing.get("h2") and existing["h2"].get("post_kind") != "fetch":
                 done = False
             if not done:
                 pending.append(entry)

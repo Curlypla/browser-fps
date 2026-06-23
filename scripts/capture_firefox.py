@@ -81,17 +81,18 @@ def main():
             "header_order": header_keys(data),
             "raw_tls_version": tls.get("tls_version_negotiated"),
         }
-        # POST: submit a real form so we capture the POST header order too.
+        # POST: a real same-origin fetch POST with a JSON body (cors-mode order:
+        # content-type application/json, origin, sec-fetch-mode cors ...).
+        result["h2"]["post_kind"] = "fetch"
         try:
-            driver.execute_script(
-                "var f=document.createElement('form');f.method='POST';"
-                "f.action=arguments[0];var i=document.createElement('input');"
-                "i.name='fp';i.value='1';f.appendChild(i);"
-                "document.body.appendChild(f);f.submit();", PEET_API)
-            time.sleep(1.5)
-            pdata = json.loads(
-                driver.find_element("tag name", "pre").text if _has_pre(driver)
-                else driver.execute_script("return document.body.innerText"))
+            ptext = driver.execute_async_script(
+                "var cb=arguments[arguments.length-1];"
+                "fetch(arguments[0],{method:'POST',"
+                "headers:{'Content-Type':'application/json'},"
+                "body:'{\"fp\":1}',credentials:'include'})"
+                ".then(r=>r.text()).then(t=>cb(t)).catch(e=>cb('ERR:'+e));",
+                PEET_API)
+            pdata = json.loads(ptext)
             result["h2"]["method_post"] = pdata.get("method")
             result["h2"]["header_order_post"] = header_keys(pdata)
         except Exception as e:  # noqa: BLE001

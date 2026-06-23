@@ -157,15 +157,17 @@ def capture_h2(binary, port, profile, hflags):
             "header_order": header_keys(data),
             "raw_tls_version": tls.get("tls_version_negotiated"),
         }
-        # POST: submit a real form so we capture the (different) header order a
-        # browser emits for POST navigations (adds content-type/content-length).
+        # POST: issue a real same-origin fetch POST with a JSON body, which is
+        # what scripts/APIs actually send. This produces the cors-mode POST
+        # header order (content-type: application/json, origin, sec-fetch-mode:
+        # cors, sec-fetch-dest: empty, accept: */* ...) rather than a navigation.
+        result["post_kind"] = "fetch"
         try:
             _drain(cdp, 0.4)
             post_js = (
-                "var f=document.createElement('form');f.method='POST';"
-                "f.action=%r;var i=document.createElement('input');"
-                "i.name='fp';i.value='1';f.appendChild(i);"
-                "document.body.appendChild(f);f.submit();" % PEET_API
+                "fetch(%r,{method:'POST',"
+                "headers:{'Content-Type':'application/json'},"
+                "body:'{\"fp\":1}',credentials:'include'});" % PEET_API
             )
             pbody, _ = get_body(
                 cdp, lambda: cdp.send("Runtime.evaluate", {"expression": post_js}),
