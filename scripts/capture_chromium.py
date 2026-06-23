@@ -143,7 +143,7 @@ def capture_h2(binary, port, profile, hflags):
         data = json.loads(body)
         tls = data.get("tls", {})
         h2 = data.get("http2", {})
-        return {
+        result = {
             "protocol": data.get("http_version") or proto,
             "user_agent": data.get("user_agent"),
             "ja3": tls.get("ja3"),
@@ -157,6 +157,27 @@ def capture_h2(binary, port, profile, hflags):
             "header_order": header_keys(data),
             "raw_tls_version": tls.get("tls_version_negotiated"),
         }
+        # POST: submit a real form so we capture the (different) header order a
+        # browser emits for POST navigations (adds content-type/content-length).
+        try:
+            _drain(cdp, 0.4)
+            post_js = (
+                "var f=document.createElement('form');f.method='POST';"
+                "f.action=%r;var i=document.createElement('input');"
+                "i.name='fp';i.value='1';f.appendChild(i);"
+                "document.body.appendChild(f);f.submit();" % PEET_API
+            )
+            pbody, _ = get_body(
+                cdp, lambda: cdp.send("Runtime.evaluate", {"expression": post_js}),
+                lambda u: u == PEET_API, timeout=40,
+            )
+            pdata = json.loads(pbody)
+            result["method_post"] = pdata.get("method")
+            result["header_order_post"] = header_keys(pdata)
+        except Exception as e:  # noqa: BLE001
+            result["header_order_post"] = None
+            result["post_error"] = str(e)
+        return result
     finally:
         cdp.close()
         proc.terminate()

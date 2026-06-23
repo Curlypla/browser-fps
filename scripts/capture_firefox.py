@@ -81,6 +81,22 @@ def main():
             "header_order": header_keys(data),
             "raw_tls_version": tls.get("tls_version_negotiated"),
         }
+        # POST: submit a real form so we capture the POST header order too.
+        try:
+            driver.execute_script(
+                "var f=document.createElement('form');f.method='POST';"
+                "f.action=arguments[0];var i=document.createElement('input');"
+                "i.name='fp';i.value='1';f.appendChild(i);"
+                "document.body.appendChild(f);f.submit();", PEET_API)
+            time.sleep(1.5)
+            pdata = json.loads(
+                driver.find_element("tag name", "pre").text if _has_pre(driver)
+                else driver.execute_script("return document.body.innerText"))
+            result["h2"]["method_post"] = pdata.get("method")
+            result["h2"]["header_order_post"] = header_keys(pdata)
+        except Exception as e:  # noqa: BLE001
+            result["h2"]["header_order_post"] = None
+            result["h2"]["post_error"] = str(e)
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h2: %s" % e)
         result["h2"] = None
