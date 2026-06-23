@@ -21619,7 +21619,7 @@
         "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
       },
       "149.0.7827.155-1": {
-        "captured_at": "28018562085",
+        "captured_at": "28019040298",
         "engine": "chromium",
         "errors": [],
         "h2": {
@@ -21630,8 +21630,6 @@
             ":authority",
             ":scheme",
             ":path",
-            "pragma",
-            "cache-control",
             "sec-ch-ua",
             "sec-ch-ua-mobile",
             "sec-ch-ua-platform",
@@ -21653,8 +21651,6 @@
             ":scheme",
             ":path",
             "content-length",
-            "pragma",
-            "cache-control",
             "sec-ch-ua-platform",
             "user-agent",
             "sec-ch-ua",
@@ -21672,19 +21668,12 @@
             "priority"
           ],
           "header_orders": {
-            "_errors": {
-              "image": "Expecting value: line 1 column 1 (char 0)",
-              "preflight": "Network.getResponseBody -> {'code': -32000, 'message': 'No resource with given identifier found'}",
-              "xhr_get_crosssite": "loadingFailed: net::ERR_FAILED"
-            },
             "beacon": [
               ":method",
               ":authority",
               ":scheme",
               ":path",
               "content-length",
-              "pragma",
-              "cache-control",
               "sec-ch-ua-platform",
               "user-agent",
               "sec-ch-ua",
@@ -21701,14 +21690,11 @@
               "cookie",
               "priority"
             ],
-            "image": null,
             "navigate": [
               ":method",
               ":authority",
               ":scheme",
               ":path",
-              "pragma",
-              "cache-control",
               "sec-ch-ua",
               "sec-ch-ua-mobile",
               "sec-ch-ua-platform",
@@ -21724,14 +21710,11 @@
               "cookie",
               "priority"
             ],
-            "preflight": null,
             "script": [
               ":method",
               ":authority",
               ":scheme",
               ":path",
-              "pragma",
-              "cache-control",
               "sec-ch-ua-platform",
               "user-agent",
               "sec-ch-ua",
@@ -21750,8 +21733,6 @@
               ":authority",
               ":scheme",
               ":path",
-              "pragma",
-              "cache-control",
               "sec-ch-ua-platform",
               "user-agent",
               "sec-ch-ua",
@@ -21771,8 +21752,6 @@
               ":authority",
               ":scheme",
               ":path",
-              "pragma",
-              "cache-control",
               "sec-ch-ua-platform",
               "user-agent",
               "sec-ch-ua",
@@ -21787,15 +21766,12 @@
               "cookie",
               "priority"
             ],
-            "xhr_get_crosssite": null,
             "xhr_post": [
               ":method",
               ":authority",
               ":scheme",
               ":path",
               "content-length",
-              "pragma",
-              "cache-control",
               "sec-ch-ua-platform",
               "user-agent",
               "sec-ch-ua",
@@ -21813,12 +21789,12 @@
               "priority"
             ]
           },
-          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,10-18-5-23-27-0-16-43-51-65281-13-11-35-65037-17613-45-41,4588-29-23-24,0",
-          "ja3_hash": "c02ab29b2546adda1f976d3d39138f1f",
+          "ja3": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,10-11-65037-51-16-0-35-43-27-65281-45-5-23-17613-18-13-41,4588-29-23-24,0",
+          "ja3_hash": "289b2430c9013a721d1e37d4040148fa",
           "ja4": "t13d1517h2_8daaf6152771_b6f405a00624",
           "ja4_r": "t13d1517h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,0029,002b,002d,0033,44cd,fe0d,ff01_0403,0804,0401,0503,0805,0501,0806,0601",
           "method_post": "POST",
-          "orders_kind": "v2",
+          "orders_kind": "v3",
           "peetprint": "GREASE-772-771|2-1.1|GREASE-4588-29-23-24|1027-2052-1025-1283-2053-1281-2054-1537|1|2|GREASE-4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53|0-10-11-13-16-17613-18-23-27-35-41-43-45-5-51-65037-65281-GREASE-GREASE",
           "peetprint_hash": "d44d68f0fce54cd423d6792272a242b8",
           "protocol": "h2",
@@ -21864,9 +21840,9 @@
                     "value": 1
                   },
                   {
-                    "id": 82709308729,
+                    "id": 90713817489,
                     "name": "GREASE",
-                    "value": 2871501338
+                    "value": 1397640901
                   }
                 ],
                 "stream_id": 2
@@ -21877,12 +21853,181 @@
             "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0201,0401,0403,0501,0503,0601,0804,0805,0806",
             "quic": {
               "0-rtt": false,
-              "conn_creation_time": "2026-06-23 10:10:50.464",
-              "dcid": "7b4512f59871f71a",
+              "conn_creation_time": "2026-06-23 10:16:50.695",
+              "dcid": "20118950e64e6009",
               "dcid_length": 8,
               "initial_packets": [
                 {
                   "frames": [
+                    6,
+                    1,
+                    1,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
                     1,
                     6,
                     6,
@@ -21925,90 +22070,9 @@
                     0,
                     0,
                     0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
                     6,
                     6,
-                    1,
-                    1,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
+                    6,
                     0,
                     0,
                     0,
@@ -22130,77 +22194,29 @@
                     0,
                     0,
                     0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
                     6,
-                    6,
-                    6,
-                    6,
-                    6,
-                    1,
                     0,
                     0,
-                    6,
-                    6
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
                   ],
                   "has_token": false,
                   "packet_length": 0,
                   "packet_number": 1,
                   "packet_number_length": 0,
                   "packet_number_raw": "",
-                  "padding_length": 288,
+                  "padding_length": 331,
                   "version": {
                     "id": 1,
                     "name": "QUICv1"
                   }
                 }
               ],
-              "scid": "c484879d",
+              "scid": "b2d11f88",
               "scid_length": 4,
               "transport_parameters": {
                 "ack_delay_exponent": 3,
@@ -22256,69 +22272,69 @@
                 },
                 "initial_packet_size": 1250,
                 "tls_extension_order": [
-                  10,
-                  43,
+                  13,
                   57,
+                  0,
+                  51,
+                  16,
+                  10,
                   45,
                   65037,
-                  51,
                   17613,
-                  16,
-                  27,
-                  0,
-                  13
+                  43,
+                  27
                 ],
                 "transport_params": [
                   {
-                    "id": 32,
-                    "raw": "gAEAAA=="
-                  },
-                  {
-                    "id": 6,
+                    "id": 5,
                     "raw": "gGAAAA=="
-                  },
-                  {
-                    "id": 8,
-                    "raw": "QGQ="
                   },
                   {
                     "id": 3,
                     "raw": "RcA="
                   },
                   {
-                    "id": 12584,
-                    "raw": "T1JJRw=="
+                    "id": 7,
+                    "raw": "gGAAAA=="
                   },
                   {
-                    "id": 9,
-                    "raw": "QGc="
+                    "id": 0,
+                    "is_grease": true
+                  },
+                  {
+                    "id": 17,
+                    "raw": "AAAAAQAAAAG6apoK"
                   },
                   {
                     "id": 4,
                     "raw": "gPAAAA=="
                   },
                   {
-                    "id": 7,
-                    "raw": "gGAAAA=="
-                  },
-                  {
                     "id": 1,
                     "raw": "gAB1MA=="
                   },
                   {
-                    "id": 15
+                    "id": 8,
+                    "raw": "QGQ="
                   },
                   {
-                    "id": 17,
-                    "raw": "AAAAARpauloAAAAB"
+                    "id": 9,
+                    "raw": "QGc="
                   },
                   {
-                    "id": 5,
+                    "id": 32,
+                    "raw": "gAEAAA=="
+                  },
+                  {
+                    "id": 12584,
+                    "raw": "T1JJRw=="
+                  },
+                  {
+                    "id": 6,
                     "raw": "gGAAAA=="
                   },
                   {
-                    "id": 0,
-                    "is_grease": true
+                    "id": 15
                   }
                 ]
               }
@@ -22343,88 +22359,10 @@
                 }
               ],
               "ech": {
-                "ech_success": true
+                "ech_success": true,
+                "outer_sni": "quic.tools.scrapfly.io"
               },
               "extensions": [
-                {
-                  "data": [
-                    {
-                      "id": 4588,
-                      "name": "X25519MLKEM768 (4588)"
-                    },
-                    {
-                      "id": 29,
-                      "name": "X25519 (29)"
-                    },
-                    {
-                      "id": 23,
-                      "name": "secp256r1 (23)"
-                    },
-                    {
-                      "id": 24,
-                      "name": "secp384r1 (24)"
-                    }
-                  ],
-                  "id": 10,
-                  "name": "supported_groups"
-                },
-                {
-                  "data": [
-                    772
-                  ],
-                  "id": 43,
-                  "name": "supported_versions"
-                },
-                {
-                  "id": 57,
-                  "name": "quic_transport_parameters"
-                },
-                {
-                  "id": 45,
-                  "name": "psk_key_exchange_modes"
-                },
-                {
-                  "id": 65037,
-                  "name": "encrypted_client_hello"
-                },
-                {
-                  "data": [
-                    {
-                      "id": 4588,
-                      "name": "X25519MLKEM768 (4588)"
-                    },
-                    {
-                      "id": 29,
-                      "name": "X25519 (29)"
-                    }
-                  ],
-                  "id": 51,
-                  "name": "key_share"
-                },
-                {
-                  "id": 17613,
-                  "name": "application_settings_new_codepoint"
-                },
-                {
-                  "data": {
-                    "protocol_name_list": [
-                      "h3"
-                    ]
-                  },
-                  "id": 16,
-                  "name": "application_layer_protocol_negotiation"
-                },
-                {
-                  "id": 27,
-                  "name": "compress_certificate"
-                },
-                {
-                  "data": {
-                    "server_name": "quic.tools.scrapfly.io"
-                  },
-                  "id": 0,
-                  "name": "server_name"
-                },
                 {
                   "data": [
                     {
@@ -22466,9 +22404,88 @@
                   ],
                   "id": 13,
                   "name": "signature_algorithms"
+                },
+                {
+                  "id": 57,
+                  "name": "quic_transport_parameters"
+                },
+                {
+                  "data": {
+                    "server_name": "quic.tools.scrapfly.io"
+                  },
+                  "id": 0,
+                  "name": "server_name"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    }
+                  ],
+                  "id": 51,
+                  "name": "key_share"
+                },
+                {
+                  "data": {
+                    "protocol_name_list": [
+                      "h3"
+                    ]
+                  },
+                  "id": 16,
+                  "name": "application_layer_protocol_negotiation"
+                },
+                {
+                  "data": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768 (4588)"
+                    },
+                    {
+                      "id": 29,
+                      "name": "X25519 (29)"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1 (23)"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1 (24)"
+                    }
+                  ],
+                  "id": 10,
+                  "name": "supported_groups"
+                },
+                {
+                  "id": 45,
+                  "name": "psk_key_exchange_modes"
+                },
+                {
+                  "id": 65037,
+                  "name": "encrypted_client_hello"
+                },
+                {
+                  "id": 17613,
+                  "name": "application_settings_new_codepoint"
+                },
+                {
+                  "data": [
+                    772
+                  ],
+                  "id": 43,
+                  "name": "supported_versions"
+                },
+                {
+                  "id": 27,
+                  "name": "compress_certificate"
                 }
               ],
-              "random": "c9fe7b0462abf280d3a2ae9d02b896f1da2a9a65d172c7da3790f655e8ed6a63",
+              "random": "0c672615fa8b7c38d0ceef6d86a95cef5a6475237430a8026d2a0f94dda55b50",
               "selected_version": {
                 "id": 772,
                 "name": "TLS 1.3"
@@ -22476,15 +22493,15 @@
             },
             "udp_ip": {
               "estimated": {
-                "distance_hops": 9,
+                "distance_hops": 8,
                 "initial_ttl": 64,
                 "link_type": "QUIC Minimum",
                 "mtu": 1278
               },
               "ip_df": true,
-              "ip_id": 43495,
+              "ip_id": 51623,
               "ip_tos": 0,
-              "ip_ttl": 55,
+              "ip_ttl": 56,
               "ip_version": 4
             },
             "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36"
@@ -41356,6 +41373,6 @@
     "edge": 15,
     "firefox": 15
   },
-  "generated_at": "2026-06-23T10:14:02Z",
+  "generated_at": "2026-06-23T10:17:47Z",
   "schema": 1
 }
