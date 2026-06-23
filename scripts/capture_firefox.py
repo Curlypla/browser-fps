@@ -102,7 +102,7 @@ def main():
             "header_order": orders.get("navigate"),
             "header_order_post": orders.get("xhr_post"),
             "method_post": "POST",
-            "orders_kind": "v2",
+            "orders_kind": "v3",
             "header_orders": orders,
         }
     except Exception as e:  # noqa: BLE001

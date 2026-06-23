@@ -126,20 +126,17 @@ INITIATORS = [
      "body:'{\"fp\":1}',credentials:'include'});", "POST"),
     ("script",
      "var s=document.createElement('script');s.src=%r;document.body.appendChild(s);", "GET"),
-    ("image",
-     "var i=document.createElement('img');i.src=%r;document.body.appendChild(i);", "GET"),
     ("stylesheet",
      "var l=document.createElement('link');l.rel='stylesheet';l.href=%r;"
      "document.head.appendChild(l);", "GET"),
     ("beacon",
      "navigator.sendBeacon(%r,'fp=1');", "POST"),
 ]
-# replayed from a different origin so the requests are cross-site. no-cors so
-# the opaque response doesn't trip CORS (the body is still readable via CDP).
-CROSS_INITIATORS = [
-    ("xhr_get_crosssite",
-     "fetch(%r,{mode:'no-cors',credentials:'omit'});", "GET"),
-]
+# Note: `image` (<img>) and cross-site/preflight orders aren't capturable
+# headless — an <img> body never decodes (so CDP discards it) and cross-site
+# opaque/preflight responses aren't exposed. The `image` order is identical to
+# `script` (both no-cors subresource GET); cross-site only adds an `origin`
+# header to the `xhr_get` order.
 
 
 def capture_h2(binary, port, profile, hflags):
@@ -195,16 +192,6 @@ def capture_h2(binary, port, profile, hflags):
         data = json.loads(nav_body)
         orders["navigate"] = header_keys(data)
 
-        # cross-site initiators: move to a different origin, then hit peet
-        try:
-            get_body(cdp, lambda: cdp.send("Page.navigate", {"url": "https://example.com/"}),
-                     lambda u: u.rstrip("/") == "https://example.com", timeout=30)
-            _drain(cdp, 0.4)
-            for key, js, meth in CROSS_INITIATORS:
-                replay(key, js, meth)
-        except Exception as e:  # noqa: BLE001
-            orders.setdefault("_errors", {})["crosssite"] = str(e)
-
         tls = data.get("tls", {})
         h2 = data.get("http2", {})
         return {
@@ -223,7 +210,7 @@ def capture_h2(binary, port, profile, hflags):
             "header_order": orders.get("navigate"),
             "header_order_post": orders.get("xhr_post"),
             "method_post": "POST",
-            "orders_kind": "v2",
+            "orders_kind": "v3",
             "header_orders": orders,
         }
     finally:

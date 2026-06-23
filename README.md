@@ -15,7 +15,8 @@ fingerprinting endpoints, and records what the server actually observed:
     Chrome emits a different order depending on the initiator
     (`sec-fetch-dest`/mode), not just which headers are present:
     `navigate` (document), `xhr_get`, `xhr_post` (JSON fetch), `script`,
-    `image`, `stylesheet`, `beacon`, `xhr_get_crosssite`, `preflight` (OPTIONS).
+    `stylesheet`, `beacon`. (`image` ≈ `script`; cross-site only adds `origin`;
+    `preflight`/`image` bodies aren't readable headless, so they're omitted.)
     `header_order` (= `navigate`) and `header_order_post` (= `xhr_post`) are
     kept as aliases. Cookies and a referer are injected to enrich the order.
     Firefox only records the JS-readable types (`navigate`, `xhr_get`,
