@@ -80,7 +80,7 @@ def main():
                 txt = driver.execute_async_script(
                     "var cb=arguments[arguments.length-1];"
                     "fetch(arguments[0],%s).then(r=>r.text()).then(t=>cb(t))"
-                    ".catch(e=>cb('ERR:'+e));" % opts, PEET_API)
+                    ".catch(e=>cb('ERR:'+e));" % opts, PEET_API + "?k=" + key)
                 orders[key] = header_keys(json.loads(txt))
             except Exception as e:  # noqa: BLE001
                 orders[key] = None

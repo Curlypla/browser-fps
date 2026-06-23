@@ -134,12 +134,11 @@ INITIATORS = [
     ("beacon",
      "navigator.sendBeacon(%r,'fp=1');", "POST"),
 ]
-# replayed from a different origin so the requests are cross-site
+# replayed from a different origin so the requests are cross-site. no-cors so
+# the opaque response doesn't trip CORS (the body is still readable via CDP).
 CROSS_INITIATORS = [
     ("xhr_get_crosssite",
-     "fetch(%r,{credentials:'omit'});", "GET"),
-    ("preflight",
-     "fetch(%r,{headers:{'x-fp-probe':'1'},credentials:'include'}).catch(()=>0);", "OPTIONS"),
+     "fetch(%r,{mode:'no-cors',credentials:'omit'});", "GET"),
 ]
 
 
@@ -150,11 +149,9 @@ def capture_h2(binary, port, profile, hflags):
         cdp.connect(timeout=40)
         cdp.call("Network.enable")
         cdp.call("Page.enable")
-        # disable cache so every same-URL replay is a real network request
-        try:
-            cdp.call("Network.setCacheDisabled", {"cacheDisabled": True})
-        except Exception:  # noqa: BLE001
-            pass
+        # NB: we deliberately do NOT use Network.setCacheDisabled — it injects
+        # `pragma`/`cache-control` into every request and pollutes the order.
+        # Instead each replay uses a unique ?k= URL so it never hits the cache.
         # cookies enrich the header set (a `cookie` header in its natural slot)
         for name in ("fp_session", "fp_consent", "fp_prefs", "fp_id"):
             try:
@@ -172,11 +169,14 @@ def capture_h2(binary, port, profile, hflags):
         orders = {}
 
         def replay(key, js, meth):
+            # unique URL per type → fresh network request (no cache), and an
+            # unambiguous match for get_body.
+            url = PEET_API + "?k=" + key
             try:
                 _drain(cdp, 0.3)
                 body, _ = get_body(
-                    cdp, lambda: cdp.send("Runtime.evaluate", {"expression": js % PEET_API}),
-                    lambda u: u.split("#")[0] == PEET_API, timeout=35, method=meth)
+                    cdp, lambda: cdp.send("Runtime.evaluate", {"expression": js % url}),
+                    lambda u: u.split("#")[0] == url, timeout=35, method=meth)
                 orders[key] = header_keys(json.loads(body))
             except Exception as e:  # noqa: BLE001
                 orders[key] = None
