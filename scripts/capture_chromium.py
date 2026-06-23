@@ -32,9 +32,9 @@ def _drain(cdp, seconds=0.3):
     cdp.ws.settimeout(60)
 
 
-def get_body(cdp, trigger, url_match, timeout=45):
+def get_body(cdp, trigger, url_match, timeout=45, method=None):
     """Run trigger() then collect the response body + protocol for the first
-    network request whose URL matches url_match."""
+    network request whose URL matches url_match (and HTTP method, if given)."""
     target = None
     protocol = None
     trigger()
@@ -47,7 +47,8 @@ def get_body(cdp, trigger, url_match, timeout=45):
         m = msg.get("method")
         p = msg.get("params", {})
         if m == "Network.requestWillBeSent" and target is None:
-            if url_match(p.get("request", {}).get("url", "")):
+            req = p.get("request", {})
+            if url_match(req.get("url", "")) and (method is None or req.get("method") == method):
                 target = p.get("requestId")
         elif m == "Network.responseReceived" and p.get("requestId") == target:
             protocol = p.get("response", {}).get("protocol")
@@ -112,6 +113,36 @@ def headless_flags(version):
     return ["--headless=new"] if major >= 109 else ["--headless"]
 
 
+# Each request "type" Chrome emits a distinct header order for. The order is
+# driven by the request initiator (sec-fetch-dest) and mode, not just by which
+# headers are present, so we replay every type from the browser and record what
+# tls.peet.ws reflects back. JS snippets take the target URL as %r.
+INITIATORS = [
+    # key, javascript that triggers the request, method to match
+    ("xhr_get",
+     "fetch(%r,{credentials:'include'});", "GET"),
+    ("xhr_post",
+     "fetch(%r,{method:'POST',headers:{'Content-Type':'application/json'},"
+     "body:'{\"fp\":1}',credentials:'include'});", "POST"),
+    ("script",
+     "var s=document.createElement('script');s.src=%r;document.body.appendChild(s);", "GET"),
+    ("image",
+     "var i=document.createElement('img');i.src=%r;document.body.appendChild(i);", "GET"),
+    ("stylesheet",
+     "var l=document.createElement('link');l.rel='stylesheet';l.href=%r;"
+     "document.head.appendChild(l);", "GET"),
+    ("beacon",
+     "navigator.sendBeacon(%r,'fp=1');", "POST"),
+]
+# replayed from a different origin so the requests are cross-site
+CROSS_INITIATORS = [
+    ("xhr_get_crosssite",
+     "fetch(%r,{credentials:'omit'});", "GET"),
+    ("preflight",
+     "fetch(%r,{headers:{'x-fp-probe':'1'},credentials:'include'}).catch(()=>0);", "OPTIONS"),
+]
+
+
 def capture_h2(binary, port, profile, hflags):
     proc = cdplib.launch(binary, port, extra_flags=list(hflags), user_data_dir=profile)
     cdp = cdplib.CDP(port)
@@ -119,9 +150,12 @@ def capture_h2(binary, port, profile, hflags):
         cdp.connect(timeout=40)
         cdp.call("Network.enable")
         cdp.call("Page.enable")
-        # Enrich the header set so the captured header order is as rich as
-        # possible: cookies add a `cookie` header, the warm-up navigation makes
-        # the api request carry a `referer`.
+        # disable cache so every same-URL replay is a real network request
+        try:
+            cdp.call("Network.setCacheDisabled", {"cacheDisabled": True})
+        except Exception:  # noqa: BLE001
+            pass
+        # cookies enrich the header set (a `cookie` header in its natural slot)
         for name in ("fp_session", "fp_consent", "fp_prefs", "fp_id"):
             try:
                 cdp.call("Network.setCookie", {
@@ -130,20 +164,50 @@ def capture_h2(binary, port, profile, hflags):
                 })
             except Exception:  # noqa: BLE001
                 pass
-        # warm up base page
+        # warm up base page (sets the origin; api requests then carry a referer)
         get_body(cdp, lambda: cdp.send("Page.navigate", {"url": PEET_BASE}),
                  lambda u: u.rstrip("/") == PEET_BASE.rstrip("/"), timeout=30)
         _drain(cdp, 0.5)
-        # navigate to the api FROM the page so a referer is attached
-        body, proto = get_body(
+
+        orders = {}
+
+        def replay(key, js, meth):
+            try:
+                _drain(cdp, 0.3)
+                body, _ = get_body(
+                    cdp, lambda: cdp.send("Runtime.evaluate", {"expression": js % PEET_API}),
+                    lambda u: u.split("#")[0] == PEET_API, timeout=35, method=meth)
+                orders[key] = header_keys(json.loads(body))
+            except Exception as e:  # noqa: BLE001
+                orders[key] = None
+                orders.setdefault("_errors", {})[key] = str(e)
+
+        # same-origin subresource / fetch initiators (run from the base page)
+        for key, js, meth in INITIATORS:
+            replay(key, js, meth)
+
+        # capture the main TLS/h2 fingerprint via the document navigation, which
+        # is also the canonical "navigate" header order.
+        nav_body, proto = get_body(
             cdp,
             lambda: cdp.send("Runtime.evaluate", {"expression": "location.href=%r" % PEET_API}),
-            lambda u: u == PEET_API, timeout=40,
-        )
-        data = json.loads(body)
+            lambda u: u == PEET_API, timeout=40, method="GET")
+        data = json.loads(nav_body)
+        orders["navigate"] = header_keys(data)
+
+        # cross-site initiators: move to a different origin, then hit peet
+        try:
+            get_body(cdp, lambda: cdp.send("Page.navigate", {"url": "https://example.com/"}),
+                     lambda u: u.rstrip("/") == "https://example.com", timeout=30)
+            _drain(cdp, 0.4)
+            for key, js, meth in CROSS_INITIATORS:
+                replay(key, js, meth)
+        except Exception as e:  # noqa: BLE001
+            orders.setdefault("_errors", {})["crosssite"] = str(e)
+
         tls = data.get("tls", {})
         h2 = data.get("http2", {})
-        result = {
+        return {
             "protocol": data.get("http_version") or proto,
             "user_agent": data.get("user_agent"),
             "ja3": tls.get("ja3"),
@@ -154,32 +218,14 @@ def capture_h2(binary, port, profile, hflags):
             "peetprint_hash": tls.get("peetprint_hash"),
             "akamai_fingerprint": h2.get("akamai_fingerprint"),
             "akamai_fingerprint_hash": h2.get("akamai_fingerprint_hash"),
-            "header_order": header_keys(data),
             "raw_tls_version": tls.get("tls_version_negotiated"),
+            # canonical aliases kept for compatibility
+            "header_order": orders.get("navigate"),
+            "header_order_post": orders.get("xhr_post"),
+            "method_post": "POST",
+            "orders_kind": "v2",
+            "header_orders": orders,
         }
-        # POST: issue a real same-origin fetch POST with a JSON body, which is
-        # what scripts/APIs actually send. This produces the cors-mode POST
-        # header order (content-type: application/json, origin, sec-fetch-mode:
-        # cors, sec-fetch-dest: empty, accept: */* ...) rather than a navigation.
-        result["post_kind"] = "fetch"
-        try:
-            _drain(cdp, 0.4)
-            post_js = (
-                "fetch(%r,{method:'POST',"
-                "headers:{'Content-Type':'application/json'},"
-                "body:'{\"fp\":1}',credentials:'include'});" % PEET_API
-            )
-            pbody, _ = get_body(
-                cdp, lambda: cdp.send("Runtime.evaluate", {"expression": post_js}),
-                lambda u: u == PEET_API, timeout=40,
-            )
-            pdata = json.loads(pbody)
-            result["method_post"] = pdata.get("method")
-            result["header_order_post"] = header_keys(pdata)
-        except Exception as e:  # noqa: BLE001
-            result["header_order_post"] = None
-            result["post_error"] = str(e)
-        return result
     finally:
         cdp.close()
         proc.terminate()

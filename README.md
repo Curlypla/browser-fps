@@ -11,10 +11,15 @@ fingerprinting endpoints, and records what the server actually observed:
   - `akamai_fingerprint` (+ hash)
   - `peetprint` (+ hash)
   - the **exact ordered list of header keys** the browser sent (incl. HTTP/2
-    pseudo-headers), for **both GET and POST** (`header_order` /
-    `header_order_post` — POST adds `content-type`/`content-length` and reorders).
-    Cookies and a referer are injected so the captured order is as complete as
-    possible; the POST order comes from a real form-submit navigation.
+    pseudo-headers), captured **per request type** in `header_orders` because
+    Chrome emits a different order depending on the initiator
+    (`sec-fetch-dest`/mode), not just which headers are present:
+    `navigate` (document), `xhr_get`, `xhr_post` (JSON fetch), `script`,
+    `image`, `stylesheet`, `beacon`, `xhr_get_crosssite`, `preflight` (OPTIONS).
+    `header_order` (= `navigate`) and `header_order_post` (= `xhr_post`) are
+    kept as aliases. Cookies and a referer are injected to enrich the order.
+    Firefox only records the JS-readable types (`navigate`, `xhr_get`,
+    `xhr_post`) since it has no DevTools protocol to read subresource bodies.
 - **HTTP/3 (QUIC)** via <https://quic.tools.scrapfly.io/api/fp/quic>
   - `ja4` / `ja4_r` for the QUIC handshake (connection forced over h3)
 

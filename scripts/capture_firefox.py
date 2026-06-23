@@ -70,6 +70,26 @@ def main():
         tls = data.get("tls", {})
         h2 = data.get("http2", {})
         result["user_agent"] = data.get("user_agent")
+        orders = {"navigate": header_keys(data)}
+
+        # Firefox has no CDP, so we can only read response bodies for requests
+        # JS can read: same-origin fetch GET/POST. Subresource (script/image)
+        # orders aren't readable without a proxy, so they're omitted here.
+        def fetch_order(key, opts):
+            try:
+                txt = driver.execute_async_script(
+                    "var cb=arguments[arguments.length-1];"
+                    "fetch(arguments[0],%s).then(r=>r.text()).then(t=>cb(t))"
+                    ".catch(e=>cb('ERR:'+e));" % opts, PEET_API)
+                orders[key] = header_keys(json.loads(txt))
+            except Exception as e:  # noqa: BLE001
+                orders[key] = None
+                orders.setdefault("_errors", {})[key] = str(e)
+
+        fetch_order("xhr_get", "{credentials:'include'}")
+        fetch_order("xhr_post", "{method:'POST',headers:{'Content-Type':'application/json'},"
+                                "body:'{\"fp\":1}',credentials:'include'}")
+
         result["h2"] = {
             "protocol": data.get("http_version"),
             "user_agent": data.get("user_agent"),
@@ -78,26 +98,13 @@ def main():
             "peetprint": tls.get("peetprint"), "peetprint_hash": tls.get("peetprint_hash"),
             "akamai_fingerprint": h2.get("akamai_fingerprint"),
             "akamai_fingerprint_hash": h2.get("akamai_fingerprint_hash"),
-            "header_order": header_keys(data),
             "raw_tls_version": tls.get("tls_version_negotiated"),
+            "header_order": orders.get("navigate"),
+            "header_order_post": orders.get("xhr_post"),
+            "method_post": "POST",
+            "orders_kind": "v2",
+            "header_orders": orders,
         }
-        # POST: a real same-origin fetch POST with a JSON body (cors-mode order:
-        # content-type application/json, origin, sec-fetch-mode cors ...).
-        result["h2"]["post_kind"] = "fetch"
-        try:
-            ptext = driver.execute_async_script(
-                "var cb=arguments[arguments.length-1];"
-                "fetch(arguments[0],{method:'POST',"
-                "headers:{'Content-Type':'application/json'},"
-                "body:'{\"fp\":1}',credentials:'include'})"
-                ".then(r=>r.text()).then(t=>cb(t)).catch(e=>cb('ERR:'+e));",
-                PEET_API)
-            pdata = json.loads(ptext)
-            result["h2"]["method_post"] = pdata.get("method")
-            result["h2"]["header_order_post"] = header_keys(pdata)
-        except Exception as e:  # noqa: BLE001
-            result["h2"]["header_order_post"] = None
-            result["h2"]["post_error"] = str(e)
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h2: %s" % e)
         result["h2"] = None

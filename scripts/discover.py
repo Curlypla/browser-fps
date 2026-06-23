@@ -49,9 +49,9 @@ def main():
             # treat a record without a captured h2 as not-done when retrying errors
             if existing and args.retry_errors and not existing.get("h2"):
                 done = False
-            # backfill: re-capture once if the record predates POST support, or
-            # captured POST a different way than the current fetch-based method.
-            if existing and existing.get("h2") and existing["h2"].get("post_kind") != "fetch":
+            # backfill: re-capture once if the record predates the current
+            # per-initiator header-order capture (orders_kind v2).
+            if existing and existing.get("h2") and existing["h2"].get("orders_kind") != "v2":
                 done = False
             if not done:
                 pending.append(entry)
