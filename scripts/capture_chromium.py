@@ -121,6 +121,8 @@ INITIATORS = [
     # key, javascript that triggers the request, method to match
     ("xhr_get",
      "fetch(%r,{credentials:'include'});", "GET"),
+    ("xhr_get_nocors",
+     "fetch(%r,{mode:'no-cors',credentials:'include'});", "GET"),
     ("xhr_post",
      "fetch(%r,{method:'POST',headers:{'Content-Type':'application/json'},"
      "body:'{\"fp\":1}',credentials:'include'});", "POST"),
@@ -210,7 +212,7 @@ def capture_h2(binary, port, profile, hflags):
             "header_order": orders.get("navigate"),
             "header_order_post": orders.get("xhr_post"),
             "method_post": "POST",
-            "orders_kind": "v3",
+            "orders_kind": "v4",
             "header_orders": orders,
         }
     finally:

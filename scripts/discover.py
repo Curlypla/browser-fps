@@ -51,7 +51,7 @@ def main():
                 done = False
             # backfill: re-capture once if the record predates the current
             # per-initiator header-order capture (orders_kind v2).
-            if existing and existing.get("h2") and existing["h2"].get("orders_kind") != "v3":
+            if existing and existing.get("h2") and existing["h2"].get("orders_kind") != "v4":
                 done = False
             if not done:
                 pending.append(entry)

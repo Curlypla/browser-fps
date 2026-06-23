@@ -14,7 +14,7 @@ fingerprinting endpoints, and records what the server actually observed:
     pseudo-headers), captured **per request type** in `header_orders` because
     Chrome emits a different order depending on the initiator
     (`sec-fetch-dest`/mode), not just which headers are present:
-    `navigate` (document), `xhr_get`, `xhr_post` (JSON fetch), `script`,
+    `navigate` (document), `xhr_get`, `xhr_get_nocors`, `xhr_post` (JSON fetch), `script`,
     `stylesheet`, `beacon`. (`image` ≈ `script`; cross-site only adds `origin`;
     `preflight`/`image` bodies aren't readable headless, so they're omitted.)
     `header_order` (= `navigate`) and `header_order_post` (= `xhr_post`) are

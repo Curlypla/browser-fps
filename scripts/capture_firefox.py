@@ -87,6 +87,7 @@ def main():
                 orders.setdefault("_errors", {})[key] = str(e)
 
         fetch_order("xhr_get", "{credentials:'include'}")
+        fetch_order("xhr_get_nocors", "{mode:'no-cors',credentials:'include'}")
         fetch_order("xhr_post", "{method:'POST',headers:{'Content-Type':'application/json'},"
                                 "body:'{\"fp\":1}',credentials:'include'}")
 
@@ -102,7 +103,7 @@ def main():
             "header_order": orders.get("navigate"),
             "header_order_post": orders.get("xhr_post"),
             "method_post": "POST",
-            "orders_kind": "v3",
+            "orders_kind": "v4",
             "header_orders": orders,
         }
     except Exception as e:  # noqa: BLE001
