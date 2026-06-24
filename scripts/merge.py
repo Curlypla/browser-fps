@@ -26,8 +26,7 @@ def build_sqlite(store):
         os.remove(DB)
     con = sqlite3.connect(DB)
     con.execute("""CREATE TABLE fingerprints(
-        browser TEXT, version TEXT, major INTEGER, engine TEXT, channel TEXT,
-        fingerprint_source TEXT, captured_at TEXT,
+        browser TEXT, version TEXT, major INTEGER, engine TEXT, channel TEXT, captured_at TEXT,
         user_agent TEXT,
         h2_ja4 TEXT, h2_ja4_r TEXT, h2_akamai TEXT, h2_akamai_hash TEXT,
         h2_peetprint TEXT, h2_peetprint_hash TEXT, h2_ja3 TEXT, h2_ja3_hash TEXT,
@@ -38,18 +37,11 @@ def build_sqlite(store):
     rows = []
     for browser, vers in store["browsers"].items():
         for version, r in vers.items():
-            # inherited rows carry no fingerprint of their own — denormalize the
-            # measured source's fingerprint into the row so every version is
-            # directly queryable.
-            src = r
-            if r.get("inherited_from"):
-                src = vers.get(r["inherited_from"], r)
-            h2 = src.get("h2") or {}
-            h3 = src.get("h3") or {}
+            h2 = r.get("h2") or {}
+            h3 = r.get("h3") or {}
             rows.append((
                 browser, version, _major(version), r.get("engine"),
-                r.get("channel"), r.get("fingerprint_source", "measured"),
-                r.get("captured_at"), r.get("user_agent"),
+                r.get("channel"), r.get("captured_at"), r.get("user_agent"),
                 h2.get("ja4"), h2.get("ja4_r"), h2.get("akamai_fingerprint"),
                 h2.get("akamai_fingerprint_hash"), h2.get("peetprint"),
                 h2.get("peetprint_hash"), h2.get("ja3"), h2.get("ja3_hash"),
@@ -59,7 +51,7 @@ def build_sqlite(store):
                 json.dumps(r.get("errors") or []),
             ))
     con.executemany("INSERT OR REPLACE INTO fingerprints VALUES (%s)"
-                    % ",".join("?" * 23), rows)
+                    % ",".join("?" * 22), rows)
     con.commit()
     con.close()
     return len(rows)
@@ -96,24 +88,15 @@ def main():
         store["browsers"][b][v] = rec
         added += 1
 
-    # fill every stable Chrome release by inheriting the milestone fingerprint
-    import expand
-    inherited = expand.expand_chrome(store)
-
     store["generated_at"] = args.captured_at
     counts = {b: len(v) for b, v in store["browsers"].items()}
-    measured = {b: sum(1 for e in v.values()
-                       if e.get("fingerprint_source", "measured") == "measured")
-                for b, v in store["browsers"].items()}
     store["counts"] = counts
-    store["measured_counts"] = measured
 
     os.makedirs("data", exist_ok=True)
     with open(STORE, "w") as f:
         json.dump(store, f, indent=2, sort_keys=True)
     n = build_sqlite(store)
-    print("merged %d result(s); +%d inherited chrome; %d rows; counts=%s measured=%s"
-          % (added, inherited, n, counts, measured))
+    print("merged %d result file(s); store now has %d rows; counts=%s" % (added, n, counts))
 
 
 if __name__ == "__main__":

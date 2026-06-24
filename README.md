@@ -53,25 +53,9 @@ Two synchronized representations live under `data/`:
 - `data/fingerprints.sqlite` — queryable table `fingerprints` (rebuilt from the JSON)
 
 ```sql
-SELECT browser, version, h2_ja4, h2_akamai, h2_header_orders, h3_ja4
-FROM fingerprints WHERE browser='chrome' AND fingerprint_source='measured' ORDER BY major DESC;
+SELECT browser, version, channel, h2_ja4, h2_akamai, h2_header_orders, h3_ja4
+FROM fingerprints WHERE browser='chrome' ORDER BY major DESC;
 ```
-
-### Complete stable coverage (`fingerprint_source`)
-
-Google ships some stable versions only for Windows/Mac (e.g. `149.0.7827.156`,
-`.157`) that never get a Linux build, so they can't be captured directly. But
-the network fingerprint is determined by the Chromium **milestone**, not the
-patch — verified: across milestones 135-151 every measured patch in a milestone
-shares one identical ja4 / akamai / peetprint / header order. So every stable
-release (list from the official [version-history API](https://versionhistory.googleapis.com))
-is present:
-
-- `fingerprint_source = "measured"` — captured from a real binary.
-- `fingerprint_source = "inherited"` — no Linux build; fingerprint inherited from
-  a measured version of the same milestone (`inherited_from`). In the JSON these
-  are lightweight pointers; in the SQLite the fingerprint is denormalized onto
-  the row, so **every version is directly queryable**.
 
 ## Workflow
 
