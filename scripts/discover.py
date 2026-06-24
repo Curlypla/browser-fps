@@ -65,6 +65,10 @@ def main():
             # treat a record without a captured h2 as not-done when retrying errors
             if existing and args.retry_errors and not existing.get("h2"):
                 done = False
+            # an inherited (milestone-derived) row must still be captured for real
+            # once a downloadable build for that exact version exists.
+            if existing and existing.get("fingerprint_source", "measured") != "measured":
+                done = False
             # backfill: re-capture once if the record predates the current
             # per-initiator header-order capture (orders_kind v2).
             if existing and existing.get("h2") and existing["h2"].get("orders_kind") != "v4":
