@@ -42,7 +42,7 @@ on `runs-on: macos-*`, the rest on `ubuntu-latest`).
 Safari can't be pinned to a version (it ships with macOS), so it's **always
 re-captured** and stored under the version detected at runtime: as GitHub bumps
 Safari in `macos-latest`, new versions accumulate into a history. To keep macOS
-runner cost down, Safari runs on a separate **weekly** schedule (linux browsers
+runner cost down, Safari runs on a separate **daily** schedule (linux browsers
 stay on the 6-hourly one).
 
 ## Data store

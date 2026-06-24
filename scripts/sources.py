@@ -128,18 +128,19 @@ def firefox_versions(token=None):
 # Safari  (not downloadable — its version is whatever ships with the macOS
 # runner image, driven by the preinstalled safaridriver)
 # --------------------------------------------------------------------------- #
-# `macos-latest` auto-follows GitHub's newest image, so it tracks the newest
-# Safari over time; `macos-14` keeps an older line for breadth. Safari records
-# are always re-captured (see discover.py) and stored under the detected
-# version, so the store accumulates a version history as the images update.
-SAFARI_IMAGES = ["macos-latest", "macos-14"]
+# `macos-latest` is re-captured every run (track=True) so it follows the newest
+# Safari and the store accumulates a version history as GitHub bumps the image;
+# `macos-14` is captured once (track=False) for older-line breadth, to spare
+# (×10-billed) macOS runner minutes.
+SAFARI_IMAGES = [("macos-latest", True), ("macos-14", False)]
 
 
 def safari_versions(token=None):
     # `version` is a placeholder (the runner image); the real Safari version is
     # detected at capture time from the user-agent and used as the store key.
     return [{"version": img, "image": img, "os": img, "engine": "webkit",
-             "kind": "safari", "binary": "safari", "url": ""} for img in SAFARI_IMAGES]
+             "kind": "safari", "binary": "safari", "url": "", "track": track}
+            for img, track in SAFARI_IMAGES]
 
 
 def _verkey(v):

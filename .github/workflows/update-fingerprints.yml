@@ -4,8 +4,9 @@ on:
   schedule:
     # every 6 hours: linux browsers (chrome/edge/brave/firefox)
     - cron: "17 */6 * * *"
-    # weekly: Safari (runs on macOS runners, so kept sparse to limit cost)
-    - cron: "41 7 * * 1"
+    # daily: Safari (macOS runners are billed x10, so only once a day, and only
+    # macos-latest is re-captured each run — see discover.py)
+    - cron: "41 7 * * *"
   workflow_dispatch:
     inputs:
       browsers:
@@ -43,7 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/discover.py \
-            --browsers "${{ github.event.inputs.browsers || (github.event.schedule == '41 7 * * 1' && 'safari' || 'chrome,edge,brave,firefox') }}" \
+            --browsers "${{ github.event.inputs.browsers || (github.event.schedule == '41 7 * * *' && 'safari' || 'chrome,edge,brave,firefox') }}" \
             --batch "${{ github.event.inputs.batch || '12' }}" \
             ${{ github.event.inputs.retry_errors == 'true' && '--retry-errors' || '' }} \
             --out "$GITHUB_OUTPUT"

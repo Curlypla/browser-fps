@@ -44,11 +44,20 @@ def main():
         pending = []
         for entry in versions:
             if browser == "safari":
-                # Safari's version isn't knowable before running the macOS job,
-                # and the runner images update Safari in place. So we always
-                # re-capture and store under the detected version — the store
-                # accumulates a version history as the images bump over time.
-                pending.append(entry)
+                # Safari's version isn't knowable before running the macOS job.
+                # `track` images (macos-latest) are always re-captured so the
+                # store accumulates a version history as the image bumps Safari;
+                # non-track images are captured once (dedup by runner image) to
+                # save ×10-billed macOS minutes.
+                if entry.get("track"):
+                    pending.append(entry)
+                else:
+                    img = entry["image"]
+                    seen = next((r for r in have.values()
+                                 if r.get("runner_image") == img
+                                 and (r.get("h2") or {}).get("orders_kind") == "v4"), None)
+                    if seen is None:
+                        pending.append(entry)
                 continue
             v = entry["version"]
             existing = have.get(v)
