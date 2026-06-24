@@ -40,11 +40,14 @@ jobs:
           # HTTP/2 (default over TLS/TCP)
           $CH $COMMON --user-data-dir=/tmp/u1 --dump-dom "https://localhost:4433/over-h2" >/dev/null 2>&1 || true
           sleep 2
-          # HTTP/3 (force QUIC to the origin)
+          # HTTP/3 (force QUIC to the origin) — with logging to see why QUIC fails
           $CH $COMMON --enable-quic --origin-to-force-quic-on=localhost:4433 \
-            --user-data-dir=/tmp/u2 --dump-dom "https://localhost:4433/over-h3" >/dev/null 2>&1 || true
+            --enable-logging=stderr --v=1 \
+            --user-data-dir=/tmp/u2 --dump-dom "https://localhost:4433/over-h3" >/tmp/ch_h3.log 2>&1 || true
           sleep 3
           kill $SV 2>/dev/null || true
+          echo "=== chrome h3 QUIC log ==="
+          grep -aiE 'quic|http3|http/3|cert|handshake|ERR_|verify' /tmp/ch_h3.log | head -25 || true
           echo "=== raw hits ==="; cat /tmp/hits.jsonl || true
       - name: compare
         run: |
