@@ -17,10 +17,19 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet hypercorn aioquic
-      - name: self-signed cert
+      - name: CA + leaf cert, trusted in Chrome's NSS db
         run: |
-          openssl req -x509 -newkey rsa:2048 -nodes -keyout key.pem -out cert.pem -days 1 \
-            -subj "/CN=localhost" -addext "subjectAltName=IP:127.0.0.1,DNS:localhost"
+          set -x
+          openssl req -x509 -newkey rsa:2048 -nodes -keyout ca.key -out ca.pem -days 1 \
+            -subj "/CN=diag-ca" -addext "basicConstraints=critical,CA:TRUE"
+          openssl req -newkey rsa:2048 -nodes -keyout key.pem -out leaf.csr -subj "/CN=localhost"
+          openssl x509 -req -in leaf.csr -CA ca.pem -CAkey ca.key -CAcreateserial -out cert.pem -days 1 \
+            -extfile <(printf "subjectAltName=DNS:localhost,IP:127.0.0.1")
+          sudo apt-get install -y -qq libnss3-tools
+          mkdir -p "$HOME/.pki/nssdb"
+          certutil -d sql:"$HOME/.pki/nssdb" -N --empty-password || true
+          certutil -d sql:"$HOME/.pki/nssdb" -A -t "C,," -n diag-ca -i ca.pem
+          certutil -d sql:"$HOME/.pki/nssdb" -L
       - name: serve + drive chrome over h2 and h3
         run: |
           set -x
@@ -29,25 +38,19 @@ jobs:
             --certfile cert.pem --keyfile key.pem diag.h3srv:app &
           SV=$!
           sleep 5
-          # SPKI pin — Chrome honours this for QUIC cert validation (plain
-          # --ignore-certificate-errors does not cover the QUIC handshake)
-          SPKI=$(openssl x509 -in cert.pem -pubkey -noout \
-            | openssl pkey -pubin -outform der \
-            | openssl dgst -sha256 -binary | openssl enc -base64)
-          echo "SPKI=$SPKI"
           CH=/opt/google/chrome/google-chrome
-          COMMON="--headless=new --no-sandbox --disable-gpu --no-first-run --ignore-certificate-errors-spki-list=$SPKI"
+          COMMON="--headless=new --no-sandbox --disable-gpu --no-first-run"
           # HTTP/2 (default over TLS/TCP)
-          $CH $COMMON --user-data-dir=/tmp/u1 --dump-dom "https://localhost:4433/over-h2" >/dev/null 2>&1 || true
+          $CH $COMMON --user-data-dir="$HOME/u1" --dump-dom "https://localhost:4433/over-h2" >/dev/null 2>&1 || true
           sleep 2
-          # HTTP/3 (force QUIC to the origin) — with logging to see why QUIC fails
+          # HTTP/3 (force QUIC to the origin)
           $CH $COMMON --enable-quic --origin-to-force-quic-on=localhost:4433 \
-            --enable-logging=stderr --v=1 \
-            --user-data-dir=/tmp/u2 --dump-dom "https://localhost:4433/over-h3" >/tmp/ch_h3.log 2>&1 || true
+            --log-net-log=/tmp/netlog.json \
+            --user-data-dir="$HOME/u2" --dump-dom "https://localhost:4433/over-h3" >/dev/null 2>&1 || true
           sleep 3
           kill $SV 2>/dev/null || true
-          echo "=== chrome h3 QUIC log ==="
-          grep -aiE 'quic|http3|http/3|cert|handshake|ERR_|verify' /tmp/ch_h3.log | head -25 || true
+          echo "=== QUIC events in netlog (if h3 failed) ==="
+          grep -aoE '"(QUIC_SESSION|quic_error|connection_close|CERT_VERIFIER)[^"]*"|ERR_[A-Z_]+' /tmp/netlog.json 2>/dev/null | sort | uniq -c | sort -rn | head -15 || true
           echo "=== raw hits ==="; cat /tmp/hits.jsonl || true
       - name: compare
         run: |
