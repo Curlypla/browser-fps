@@ -1,0 +1,63 @@
+name: h2-vs-h3
+# Diagnostic: does HTTP/3 change the request header order vs HTTP/2? Run one
+# local server speaking both h2 (TCP/TLS) and h3 (QUIC/UDP), drive the runner's
+# Chrome to it over each protocol, and compare the wire header order it logged.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet hypercorn aioquic
+      - name: self-signed cert
+        run: |
+          openssl req -x509 -newkey rsa:2048 -nodes -keyout key.pem -out cert.pem -days 1 \
+            -subj "/CN=localhost" -addext "subjectAltName=IP:127.0.0.1,DNS:localhost"
+      - name: serve + drive chrome over h2 and h3
+        run: |
+          set -x
+          rm -f /tmp/hits.jsonl
+          hypercorn --bind 127.0.0.1:4433 --quic-bind 127.0.0.1:4433 \
+            --certfile cert.pem --keyfile key.pem diag.h3srv:app &
+          SV=$!
+          sleep 5
+          CH=/opt/google/chrome/google-chrome
+          COMMON="--headless=new --no-sandbox --disable-gpu --ignore-certificate-errors --no-first-run"
+          # HTTP/2 (default over TLS/TCP)
+          $CH $COMMON --user-data-dir=/tmp/u1 --dump-dom "https://127.0.0.1:4433/over-h2" >/dev/null 2>&1 || true
+          sleep 2
+          # HTTP/3 (force QUIC to the origin)
+          $CH $COMMON --enable-quic --origin-to-force-quic-on=127.0.0.1:4433 \
+            --user-data-dir=/tmp/u2 --dump-dom "https://127.0.0.1:4433/over-h3" >/dev/null 2>&1 || true
+          sleep 2
+          kill $SV 2>/dev/null || true
+          echo "=== raw hits ==="; cat /tmp/hits.jsonl || true
+      - name: compare
+        run: |
+          python3 - <<'PY'
+          import json
+          hits = [json.loads(l) for l in open("/tmp/hits.jsonl")]
+          for h in hits:
+              print("ver=%-3s path=%-10s headers=%s" % (h["http_version"], h["path"], h["headers"]))
+          def first(ver):
+              return next((h["headers"] for h in hits if str(h["http_version"]).startswith(ver)), None)
+          h2, h3 = first("2"), first("3")
+          print("\nHTTP/2 header order:", h2)
+          print("HTTP/3 header order:", h3)
+          if h2 and h3:
+              print("\nSAME regular-header order:", h2 == h3)
+              if h2 != h3:
+                  print("only in h2:", [x for x in h2 if x not in h3])
+                  print("only in h3:", [x for x in h3 if x not in h2])
+          else:
+              print("\nMISSING a protocol — h2:", bool(h2), "h3:", bool(h3),
+                    "(if h3 missing, Chrome didn't negotiate QUIC to the local server)")
+          PY
