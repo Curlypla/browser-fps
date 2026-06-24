@@ -43,6 +43,18 @@ def main():
             continue
         pending = []
         for entry in versions:
+            if browser == "safari":
+                # Safari isn't keyed by a downloadable version — match on the
+                # runner image the record was captured from.
+                img = entry["image"]
+                existing = next((r for r in have.values()
+                                 if r.get("runner_image") == img), None)
+                done = (existing is not None
+                        and not (existing.get("errors") and args.retry_errors)
+                        and (existing.get("h2") or {}).get("orders_kind") == "v4")
+                if not done:
+                    pending.append(entry)
+                continue
             v = entry["version"]
             existing = have.get(v)
             done = existing is not None and not (existing.get("errors") and args.retry_errors)
@@ -60,6 +72,7 @@ def main():
             include.append({
                 "browser": browser, "version": e["version"], "url": e["url"],
                 "kind": e["kind"], "engine": e["engine"], "binary": e["binary"],
+                "os": e.get("os", "ubuntu-latest"), "image": e.get("image", ""),
             })
         summary.append("%s: %d available, %d pending, %d queued"
                        % (browser, len(versions), len(pending), len(take)))

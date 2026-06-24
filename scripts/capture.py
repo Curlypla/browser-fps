@@ -18,6 +18,7 @@ def main():
     ap.add_argument("--kind", required=True)
     ap.add_argument("--engine", required=True)
     ap.add_argument("--binary", required=True)
+    ap.add_argument("--image", default="")
     ap.add_argument("--captured-at", default="")
     args = ap.parse_args()
 
@@ -38,10 +39,13 @@ def main():
         print("install failed:", e)
         return 0  # record the failure, don't fail the job
 
-    backend = "capture_firefox.py" if args.engine == "gecko" else "capture_chromium.py"
+    backend = {"gecko": "capture_firefox.py", "webkit": "capture_safari.py"}.get(
+        args.engine, "capture_chromium.py")
     cmd = [sys.executable, os.path.join(os.path.dirname(__file__), backend),
            "--binary", binary, "--browser", args.browser, "--version", args.version,
            "--out", out, "--captured-at", args.captured_at]
+    if args.engine == "webkit":
+        cmd += ["--image", args.image]
     print("+", " ".join(cmd), flush=True)
     r = subprocess.run(cmd)
     if not os.path.exists(out):

@@ -124,6 +124,20 @@ def firefox_versions(token=None):
     return out
 
 
+# --------------------------------------------------------------------------- #
+# Safari  (not downloadable — its version is whatever ships with the macOS
+# runner image, driven by the preinstalled safaridriver)
+# --------------------------------------------------------------------------- #
+SAFARI_IMAGES = ["macos-13", "macos-14", "macos-15"]
+
+
+def safari_versions(token=None):
+    # `version` is a placeholder (the runner image); the real Safari version is
+    # detected at capture time from the user-agent and used as the store key.
+    return [{"version": img, "image": img, "os": img, "engine": "webkit",
+             "kind": "safari", "binary": "safari", "url": ""} for img in SAFARI_IMAGES]
+
+
 def _verkey(v):
     parts = re.split(r"[.\-]", v)
     return [int(p) if p.isdigit() else 0 for p in parts]
@@ -134,6 +148,7 @@ BROWSERS = {
     "edge": edge_versions,
     "brave": brave_versions,
     "firefox": firefox_versions,
+    "safari": safari_versions,
 }
 
 
@@ -177,6 +192,8 @@ def _ensure_brave_keyring():
 
 
 def install(entry, workdir="/tmp/bfp"):
+    if entry["kind"] == "safari":
+        return entry["binary"]  # preinstalled on the macOS runner
     os.makedirs(workdir, exist_ok=True)
     if entry["kind"] == "deb":
         if "brave" in entry["binary"]:

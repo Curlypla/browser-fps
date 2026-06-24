@@ -32,9 +32,12 @@ fingerprinting endpoints, and records what the server actually observed:
 | Edge     | chromium | Microsoft package pool debs |
 | Brave    | chromium | `brave/brave-browser` release debs (stable channel) |
 | Firefox  | gecko    | `ftp.mozilla.org` release tarballs |
+| Safari   | webkit   | preinstalled on macOS runner images (`macos-13/14/15`) — version isn't separately downloadable, it's whatever ships with the image |
 
 Chromium browsers are driven through the DevTools Protocol directly (`scripts/cdp.py`),
-so no version-matched driver is needed. Firefox is driven with Selenium + geckodriver.
+so no version-matched driver is needed. Firefox is driven with Selenium + geckodriver,
+and Safari with the built-in safaridriver on macOS runners (so Safari capture jobs run
+on `runs-on: macos-*`, the rest on `ubuntu-latest`).
 
 ## Data store
 
