@@ -128,7 +128,11 @@ def firefox_versions(token=None):
 # Safari  (not downloadable — its version is whatever ships with the macOS
 # runner image, driven by the preinstalled safaridriver)
 # --------------------------------------------------------------------------- #
-SAFARI_IMAGES = ["macos-13", "macos-14", "macos-15"]
+# `macos-latest` auto-follows GitHub's newest image, so it tracks the newest
+# Safari over time; `macos-14` keeps an older line for breadth. Safari records
+# are always re-captured (see discover.py) and stored under the detected
+# version, so the store accumulates a version history as the images update.
+SAFARI_IMAGES = ["macos-latest", "macos-14"]
 
 
 def safari_versions(token=None):
