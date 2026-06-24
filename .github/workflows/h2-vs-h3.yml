@@ -1,9 +1,15 @@
 name: h2-vs-h3
-# Diagnostic: does HTTP/3 change the request header order vs HTTP/2? Run one
-# local server speaking both h2 (TCP/TLS) and h3 (QUIC/UDP), drive the runner's
-# Chrome to it over each protocol, and compare the wire header order it logged.
+# Diagnostic: does HTTP/3 change the request header order vs HTTP/2?
+# No local server needed — Chrome's own net-log records the exact headers it
+# sends (order + pseudo-headers). We force QUIC to a real public h3 server
+# (valid cert, no handshake issues) for the h3 run, and use plain h2 otherwise,
+# then read both header lists from the net-logs.
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      host:
+        description: "an h3-capable host to probe"
+        default: "cloudflare-quic.com"
 
 permissions:
   contents: read
@@ -16,60 +22,42 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install --quiet hypercorn aioquic
-      - name: CA + leaf cert, trusted in Chrome's NSS db
+      - name: drive chrome over h2 and h3, capture net-logs
         run: |
           set -x
-          openssl req -x509 -newkey rsa:2048 -nodes -keyout ca.key -out ca.pem -days 1 \
-            -subj "/CN=diag-ca" -addext "basicConstraints=critical,CA:TRUE"
-          openssl req -newkey rsa:2048 -nodes -keyout key.pem -out leaf.csr -subj "/CN=localhost"
-          openssl x509 -req -in leaf.csr -CA ca.pem -CAkey ca.key -CAcreateserial -out cert.pem -days 1 \
-            -extfile <(printf "subjectAltName=DNS:localhost,IP:127.0.0.1")
-          sudo apt-get install -y -qq libnss3-tools
-          mkdir -p "$HOME/.pki/nssdb"
-          certutil -d sql:"$HOME/.pki/nssdb" -N --empty-password || true
-          certutil -d sql:"$HOME/.pki/nssdb" -A -t "C,," -n diag-ca -i ca.pem
-          certutil -d sql:"$HOME/.pki/nssdb" -L
-      - name: serve + drive chrome over h2 and h3
-        run: |
-          set -x
-          rm -f /tmp/hits.jsonl
-          hypercorn --bind localhost:4433 --quic-bind localhost:4433 \
-            --certfile cert.pem --keyfile key.pem diag.h3srv:app &
-          SV=$!
-          sleep 5
+          HOST="${{ github.event.inputs.host || 'cloudflare-quic.com' }}"
           CH=/opt/google/chrome/google-chrome
           COMMON="--headless=new --no-sandbox --disable-gpu --no-first-run"
-          # HTTP/2 (default over TLS/TCP)
-          $CH $COMMON --user-data-dir="$HOME/u1" --dump-dom "https://localhost:4433/over-h2" >/dev/null 2>&1 || true
+          # h2: normal HTTPS (QUIC disabled so it stays on h2)
+          $CH $COMMON --disable-quic --log-net-log=/tmp/h2.json \
+            --user-data-dir=/tmp/u_h2 --dump-dom "https://$HOST/" >/dev/null 2>&1 || true
           sleep 2
-          # HTTP/3 (force QUIC to the origin)
-          $CH $COMMON --enable-quic --origin-to-force-quic-on=localhost:4433 \
-            --log-net-log=/tmp/netlog.json \
-            --user-data-dir="$HOME/u2" --dump-dom "https://localhost:4433/over-h3" >/dev/null 2>&1 || true
-          sleep 3
-          kill $SV 2>/dev/null || true
-          echo "=== QUIC events in netlog (if h3 failed) ==="
-          grep -aoE '"(QUIC_SESSION|quic_error|connection_close|CERT_VERIFIER)[^"]*"|ERR_[A-Z_]+' /tmp/netlog.json 2>/dev/null | sort | uniq -c | sort -rn | head -15 || true
-          echo "=== raw hits ==="; cat /tmp/hits.jsonl || true
-      - name: compare
+          # h3: force QUIC to the real server
+          $CH $COMMON --enable-quic --origin-to-force-quic-on="$HOST:443" --log-net-log=/tmp/h3.json \
+            --user-data-dir=/tmp/u_h3 --dump-dom "https://$HOST/" >/dev/null 2>&1 || true
+      - name: compare header order h2 vs h3
         run: |
+          echo "===== HTTP/2 ====="; python3 diag/parse_netlog.py /tmp/h2.json
+          echo "===== HTTP/3 ====="; python3 diag/parse_netlog.py /tmp/h3.json
           python3 - <<'PY'
-          import json
-          hits = [json.loads(l) for l in open("/tmp/hits.jsonl")]
-          for h in hits:
-              print("ver=%-3s path=%-10s headers=%s" % (h["http_version"], h["path"], h["headers"]))
-          def first(ver):
-              return next((h["headers"] for h in hits if str(h["http_version"]).startswith(ver)), None)
-          h2, h3 = first("2"), first("3")
-          print("\nHTTP/2 header order:", h2)
-          print("HTTP/3 header order:", h3)
+          import subprocess, ast
+          def order(p):
+              out = subprocess.check_output(["python3", "diag/parse_netlog.py", p]).decode()
+              for line in out.splitlines():
+                  if line.startswith("order:"):
+                      return ast.literal_eval(line.split("order:", 1)[1].strip())
+              return None
+          h2, h3 = order("/tmp/h2.json"), order("/tmp/h3.json")
+          print("\nh2:", h2)
+          print("h3:", h3)
           if h2 and h3:
-              print("\nSAME regular-header order:", h2 == h3)
+              print("\nSAME header order (incl. pseudo):", h2 == h3)
               if h2 != h3:
-                  print("only in h2:", [x for x in h2 if x not in h3])
-                  print("only in h3:", [x for x in h3 if x not in h2])
+                  import itertools
+                  for i,(a,b) in enumerate(itertools.zip_longest(h2,h3)):
+                      if a != b: print("  first diff at %d: h2=%s h3=%s" % (i,a,b))
+                  print("  only in h2:", [x for x in h2 if x not in h3])
+                  print("  only in h3:", [x for x in h3 if x not in h2])
           else:
-              print("\nMISSING a protocol — h2:", bool(h2), "h3:", bool(h3),
-                    "(if h3 missing, Chrome didn't negotiate QUIC to the local server)")
+              print("\nmissing data — h2:", bool(h2), "h3:", bool(h3))
           PY
