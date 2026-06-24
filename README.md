@@ -28,7 +28,7 @@ fingerprinting endpoints, and records what the server actually observed:
 
 | browser  | engine   | version source |
 |----------|----------|----------------|
-| Chrome   | chromium | [`NDViet/google-chrome-stable`](https://github.com/NDViet/google-chrome-stable) release debs (every sub-version) |
+| Chrome   | chromium | [`NDViet/google-chrome-stable`](https://github.com/NDViet/google-chrome-stable) release debs (full history) + newest stable from [`berstend/chrome-versions`](https://github.com/berstend/chrome-versions) (any platform) via Chrome-for-Testing linux64 when not yet in the deb archive. Versions are the clean official number (no debian `-N`). |
 | Edge     | chromium | Microsoft package pool debs |
 | Brave    | chromium | `brave/brave-browser` release debs (stable channel) |
 | Firefox  | gecko    | `ftp.mozilla.org` release tarballs |
