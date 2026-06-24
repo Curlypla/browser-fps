@@ -26,7 +26,7 @@ def build_sqlite(store):
         os.remove(DB)
     con = sqlite3.connect(DB)
     con.execute("""CREATE TABLE fingerprints(
-        browser TEXT, version TEXT, major INTEGER, engine TEXT, captured_at TEXT,
+        browser TEXT, version TEXT, major INTEGER, engine TEXT, channel TEXT, captured_at TEXT,
         user_agent TEXT,
         h2_ja4 TEXT, h2_ja4_r TEXT, h2_akamai TEXT, h2_akamai_hash TEXT,
         h2_peetprint TEXT, h2_peetprint_hash TEXT, h2_ja3 TEXT, h2_ja3_hash TEXT,
@@ -40,7 +40,8 @@ def build_sqlite(store):
             h2 = r.get("h2") or {}
             h3 = r.get("h3") or {}
             rows.append((
-                browser, version, _major(version), r.get("engine"), r.get("captured_at"),
+                browser, version, _major(version), r.get("engine"),
+                r.get("channel"), r.get("captured_at"),
                 r.get("user_agent"),
                 h2.get("ja4"), h2.get("ja4_r"), h2.get("akamai_fingerprint"),
                 h2.get("akamai_fingerprint_hash"), h2.get("peetprint"),
@@ -51,7 +52,7 @@ def build_sqlite(store):
                 json.dumps(r.get("errors") or []),
             ))
     con.executemany("INSERT OR REPLACE INTO fingerprints VALUES (%s)"
-                    % ",".join("?" * 21), rows)
+                    % ",".join("?" * 22), rows)
     con.commit()
     con.close()
     return len(rows)

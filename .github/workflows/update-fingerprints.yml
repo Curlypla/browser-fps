@@ -99,6 +99,7 @@ jobs:
             --engine "${{ matrix.engine }}" \
             --binary "${{ matrix.binary }}" \
             --image "${{ matrix.image }}" \
+            --channel "${{ matrix.channel }}" \
             --captured-at "${{ github.run_id }}"
       - name: Show result
         run: cat results/*.json || true

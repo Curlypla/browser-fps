@@ -19,6 +19,7 @@ def main():
     ap.add_argument("--engine", required=True)
     ap.add_argument("--binary", required=True)
     ap.add_argument("--image", default="")
+    ap.add_argument("--channel", default="")
     ap.add_argument("--captured-at", default="")
     args = ap.parse_args()
 
@@ -54,6 +55,16 @@ def main():
                        "engine": args.engine, "captured_at": args.captured_at,
                        "errors": ["capture backend produced no output (rc=%d)" % r.returncode],
                        "h2": None, "h3": None}, f, indent=2)
+    # record which Google channel (stable/beta/dev) the build came from
+    if args.channel:
+        try:
+            with open(out) as f:
+                doc = json.load(f)
+            doc["channel"] = args.channel
+            with open(out, "w") as f:
+                json.dump(doc, f, indent=2)
+        except Exception:  # noqa: BLE001
+            pass
     return 0
 
 

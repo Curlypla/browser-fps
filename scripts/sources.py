@@ -43,17 +43,35 @@ def _gh_paginate(url, token, max_pages=15):
 # --------------------------------------------------------------------------- #
 # Chrome  (archived debs from NDViet/google-chrome-stable releases)
 # --------------------------------------------------------------------------- #
-# newest stable versions across all platforms (clean versions, no debian -N
-# suffix); Windows/Mac are often ahead of the Linux .deb, so this surfaces
-# versions the NDViet archive doesn't have yet.
-BERSTEND = ("https://cdn.jsdelivr.net/gh/berstend/chrome-versions/"
-            "data/stable/all/version/list.json")
-CFT_KGV = "https://googlechromelabs.github.io/chrome-for-testing/known-good-versions.json"
+# Real Google Chrome debs for the current build of each channel. Chrome for
+# Testing was tried here but rejected: for an identical version it emits a
+# DIFFERENT ja4 / ja4_r (an extra TLS extension) and different header orders, so
+# it is not a faithful stand-in for real Chrome (see .github/workflows/cft-vs-deb.yml).
+GOOGLE_PACKAGES = "https://dl.google.com/linux/chrome/deb/dists/stable/main/binary-amd64/Packages"
+GOOGLE_CHANNELS = {
+    "google-chrome-stable": ("stable", "/opt/google/chrome/google-chrome"),
+    "google-chrome-beta": ("beta", "/opt/google/chrome-beta/google-chrome-beta"),
+    "google-chrome-unstable": ("dev", "/opt/google/chrome-unstable/google-chrome-unstable"),
+}
 
 
-def _cft_versions():
-    d = json.loads(_get(CFT_KGV))
-    return {x["version"] for x in d.get("versions", [])}
+def _google_channel_versions():
+    out = []
+    txt = _get(GOOGLE_PACKAGES).decode("utf-8", "replace")
+    pkg = ver = fn = None
+    for line in txt.splitlines() + [""]:
+        if line.startswith("Package:"):
+            pkg = line.split(":", 1)[1].strip()
+        elif line.startswith("Version:"):
+            ver = line.split(":", 1)[1].strip()
+        elif line.startswith("Filename:"):
+            fn = line.split(":", 1)[1].strip()
+        elif not line.strip():
+            if pkg in GOOGLE_CHANNELS and ver and fn:
+                ch, binp = GOOGLE_CHANNELS[pkg]
+                out.append((ch, ver, "https://dl.google.com/linux/chrome/deb/" + fn, binp))
+            pkg = ver = fn = None
+    return out
 
 
 def chrome_versions(token=None):
@@ -76,22 +94,20 @@ def chrome_versions(token=None):
         url = ("https://github.com/NDViet/google-chrome-stable/releases/download/"
                "%s/google-chrome-stable_%s_amd64.deb" % (tag, tag))
         out.append({"version": clean, "url": url, "kind": "deb", "engine": "chromium",
-                    "binary": "/opt/google/chrome/google-chrome", "source": "ndviet"})
-    # 2. newest stable versions (any platform) not yet in the NDViet archive ->
-    #    fall back to the Chrome-for-Testing linux64 build of that exact version.
+                    "binary": "/opt/google/chrome/google-chrome",
+                    "source": "ndviet", "channel": "stable"})
+    # 2. the current build of each official channel (stable/beta/dev) — real
+    #    Chrome, so faithful fingerprints. This covers the newest stable before
+    #    NDViet archives it, plus the ahead-of-stable beta/dev versions (which on
+    #    other platforms are already "stable"). Labelled with their channel.
     try:
-        cft = _cft_versions()
-        berstend = json.loads(_get(BERSTEND))
-        for plat in ("linux", "windows", "mac"):
-            for item in berstend.get(plat, []):
-                v = item.get("version")
-                if not v or v in seen or v not in cft:
-                    continue
-                seen.add(v)
-                url = ("https://storage.googleapis.com/chrome-for-testing-public/"
-                       "%s/linux64/chrome-linux64.zip" % v)
-                out.append({"version": v, "url": url, "kind": "cft", "engine": "chromium",
-                            "binary": "", "source": "cft"})
+        for ch, tagver, url, binp in _google_channel_versions():
+            clean = re.sub(r"-\d+$", "", tagver)
+            if clean in seen:
+                continue
+            seen.add(clean)
+            out.append({"version": clean, "url": url, "kind": "deb", "engine": "chromium",
+                        "binary": binp, "source": "google", "channel": ch})
     except Exception:  # noqa: BLE001
         pass
     out.sort(key=lambda e: _verkey(e["version"]), reverse=True)
@@ -239,18 +255,6 @@ def install(entry, workdir="/tmp/bfp"):
     if entry["kind"] == "safari":
         return entry["binary"]  # preinstalled on the macOS runner
     os.makedirs(workdir, exist_ok=True)
-    if entry["kind"] == "cft":
-        import zipfile
-        z = download(entry["url"], os.path.join(workdir, "cft.zip"))
-        dest = os.path.join(workdir, "cft")
-        subprocess.run(["rm", "-rf", dest])
-        with zipfile.ZipFile(z) as zf:
-            zf.extractall(dest)
-        chrome_dir = os.path.join(dest, "chrome-linux64")
-        # zip extraction drops the exec bit (the runner image already has all of
-        # Chrome's shared-lib deps, so the binary itself just needs to run)
-        subprocess.run(["chmod", "-R", "+x", chrome_dir])
-        return os.path.join(chrome_dir, "chrome")
     if entry["kind"] == "deb":
         if "brave" in entry["binary"]:
             _ensure_brave_keyring()

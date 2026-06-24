@@ -77,6 +77,7 @@ def main():
                 "browser": browser, "version": e["version"], "url": e["url"],
                 "kind": e["kind"], "engine": e["engine"], "binary": e["binary"],
                 "os": e.get("os", "ubuntu-latest"), "image": e.get("image", ""),
+                "channel": e.get("channel", ""),
             })
         summary.append("%s: %d available, %d pending, %d queued"
                        % (browser, len(versions), len(pending), len(take)))
