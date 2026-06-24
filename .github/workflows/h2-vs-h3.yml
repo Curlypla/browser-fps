@@ -36,13 +36,16 @@ jobs:
           $CH $COMMON --enable-quic --origin-to-force-quic-on="$HOST:443" --log-net-log=/tmp/h3.json \
             --user-data-dir=/tmp/u_h3 --dump-dom "https://$HOST/" >/dev/null 2>&1 || true
       - name: compare header order h2 vs h3
+        env:
+          HOST: ${{ github.event.inputs.host || 'cloudflare-quic.com' }}
         run: |
-          echo "===== HTTP/2 ====="; python3 diag/parse_netlog.py /tmp/h2.json
-          echo "===== HTTP/3 ====="; python3 diag/parse_netlog.py /tmp/h3.json
+          echo "===== HTTP/2 ====="; python3 diag/parse_netlog.py /tmp/h2.json "$HOST"
+          echo "===== HTTP/3 ====="; python3 diag/parse_netlog.py /tmp/h3.json "$HOST"
           python3 - <<'PY'
-          import subprocess, ast
+          import subprocess, ast, os
+          HOST = os.environ["HOST"]
           def order(p):
-              out = subprocess.check_output(["python3", "diag/parse_netlog.py", p]).decode()
+              out = subprocess.check_output(["python3", "diag/parse_netlog.py", p, HOST]).decode()
               for line in out.splitlines():
                   if line.startswith("order:"):
                       return ast.literal_eval(line.split("order:", 1)[1].strip())

@@ -15,7 +15,11 @@ def keys(hlist):
     return out
 
 
-def main(path):
+def _field(h, name):
+    return next((x.split(": ", 1)[1] for x in h if x.startswith(name + ": ")), "")
+
+
+def main(path, host=None):
     d = json.load(open(path))
     types = {v: k for k, v in d.get("constants", {}).get("logEventTypes", {}).items()}
     found = []
@@ -23,20 +27,15 @@ def main(path):
         p = e.get("params") or {}
         h = p.get("headers")
         if isinstance(h, list) and any(str(x).startswith(":method") for x in h):
-            tname = types.get(e.get("type"), str(e.get("type")))
-            found.append((tname, h))
-    # the main document is the first GET to path "/"
+            found.append((types.get(e.get("type"), str(e.get("type"))), h))
+    # pin to the main-document request: GET to the probed host, path "/"
     for tname, h in found:
-        if any(x in (":path: /", ":method: GET") for x in h):
+        if _field(h, ":path") == "/" and (not host or host in _field(h, ":authority")):
             print("event:", tname)
             print("order:", keys(h))
             return
-    if found:
-        print("event:", found[0][0])
-        print("order:", keys(found[0][1]))
-    else:
-        print("no header-send event found")
+    print("no main-document header-send event found (host=%s)" % host)
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
