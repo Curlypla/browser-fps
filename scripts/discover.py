@@ -56,7 +56,10 @@ def main():
                     seen = next((r for r in have.values()
                                  if r.get("runner_image") == img
                                  and (r.get("h2") or {}).get("orders_kind") == "v4"), None)
-                    if seen is None:
+                    # (re)capture if unseen, or if a previous run failed to get
+                    # the (flaky, Alt-Svc-based) h3 fingerprint
+                    needs_h3 = seen is not None and not (seen.get("h3") or {}).get("ja4")
+                    if seen is None or needs_h3:
                         pending.append(entry)
                 continue
             v = entry["version"]

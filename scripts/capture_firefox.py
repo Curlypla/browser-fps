@@ -111,13 +111,17 @@ def main():
     try:
         if driver is None:
             driver = make_driver(args.binary)
-        txt = body_text(driver, QUIC_API)
-        time.sleep(2.0)
-        txt = body_text(driver, QUIC_API)
-        try:
-            qd = json.loads(txt)
-        except Exception:  # noqa: BLE001
-            qd = {"_raw_text": txt[:2000]}
+        # Firefox upgrades to QUIC via Alt-Svc on a later request, which can take
+        # several tries — poll until it reports an h3 fingerprint.
+        qd = {}
+        for attempt in range(8):
+            try:
+                qd = json.loads(body_text(driver, QUIC_API))
+            except Exception:  # noqa: BLE001
+                qd = {}
+            if find_ja4(qd).get("ja4"):
+                break
+            time.sleep(3.0)
         ja4 = find_ja4(qd)
         result["h3"] = {"http3_supported": qd.get("http3_supported"),
                         "protocol": qd.get("protocol"), "ja4": ja4.get("ja4"),

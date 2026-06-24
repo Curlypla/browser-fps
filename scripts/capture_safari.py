@@ -114,17 +114,21 @@ def main():
         result["errors"].append("h2: %s" % e)
         result["h2"] = None
 
-    # HTTP/3: Safari upgrades via Alt-Svc, so hit the endpoint twice.
+    # HTTP/3: Safari only upgrades to QUIC via Alt-Svc, i.e. on a *later* request
+    # after it has seen the alt-svc header. That can take several tries, so we
+    # poll the endpoint until it actually reports an h3 fingerprint.
     try:
         if driver is None:
             driver = webdriver.Safari(options=Options())
-        read_body(driver, QUIC_API)
-        time.sleep(2.0)
-        txt = read_body(driver, QUIC_API)
-        try:
-            qd = json.loads(txt)
-        except Exception:  # noqa: BLE001
-            qd = {"_raw_text": txt[:2000]}
+        qd = {}
+        for attempt in range(8):
+            try:
+                qd = json.loads(read_body(driver, QUIC_API))
+            except Exception:  # noqa: BLE001
+                qd = {}
+            if find_ja4(qd).get("ja4"):
+                break
+            time.sleep(3.0)
         ja4 = find_ja4(qd)
         result["h3"] = {"http3_supported": qd.get("http3_supported"),
                         "protocol": qd.get("protocol"), "ja4": ja4.get("ja4"),
