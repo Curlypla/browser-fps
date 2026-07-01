@@ -14,7 +14,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 
-from capture_chromium import header_keys, find_ja4, PEET_API, QUIC_API
+from capture_chromium import header_keys, find_ja4, ja4_quic_from_tls, PEET_API, QUIC_API
 
 
 def make_driver(binary):
@@ -123,8 +123,9 @@ def main():
                 break
             time.sleep(3.0)
         ja4 = find_ja4(qd)
-        result["h3"] = {"ja4": qd.get("ja4") or ja4.get("ja4"),
-                        "ja4_r": qd.get("ja4_r") or ja4.get("ja4_r"),
+        r_ja4, r_ja4r = ja4_quic_from_tls(qd)
+        result["h3"] = {"ja4": r_ja4 or qd.get("ja4") or ja4.get("ja4"),
+                        "ja4_r": r_ja4r or qd.get("ja4_r") or ja4.get("ja4_r"),
                         "h3_text": qd.get("h3_text")}
         result["h3_raw"] = qd
     except Exception as e:  # noqa: BLE001

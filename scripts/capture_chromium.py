@@ -87,6 +87,42 @@ def header_keys(peet_json):
     return []
 
 
+_GREASE = {0x0a0a, 0x1a1a, 0x2a2a, 0x3a3a, 0x4a4a, 0x5a5a, 0x6a6a, 0x7a7a,
+           0x8a8a, 0x9a9a, 0xaaaa, 0xbaba, 0xcaca, 0xdada, 0xeaea, 0xfafa}
+
+
+def ja4_quic_from_tls(data):
+    """Recompute the QUIC JA4 from the raw TLS ClientHello.
+
+    The scrapfly endpoint *sorts* the signature algorithms in JA4_c, which
+    violates the JA4 spec (they must stay in wire order) — so its ja4 differs
+    from spec-compliant tools (browserleaks, thumbprint). We recompute correctly
+    from tls.extensions. Session-resumption extensions (pre_shared_key 0x29,
+    early_data 0x2a) are excluded so the fingerprint is stable regardless of
+    whether the connection resumed. Returns (ja4, ja4_r) or (None, None).
+    """
+    import hashlib
+    tls = (data or {}).get("tls") or {}
+    exts, ciphers = tls.get("extensions"), tls.get("cipher_suites")
+    if not exts or not ciphers:
+        return None, None
+    try:
+        ext_ids = [e["id"] for e in exts
+                   if e["id"] not in _GREASE and e["id"] not in (0x29, 0x2a)]
+        hash_exts = sorted(e for e in ext_ids if e not in (0, 16))  # drop SNI/ALPN from hash
+        ext_hex = ",".join("%04x" % e for e in hash_exts)
+        cip = sorted(c["id"] for c in ciphers if c["id"] not in _GREASE)
+        cip_hex = ",".join("%04x" % c for c in cip)
+        sig = next((e for e in exts if e["id"] == 13), None)
+        sig_hex = ",".join("%04x" % d["id"] for d in (sig or {}).get("data", []))
+        a = "q13d%02d%02dh3" % (len(cip), len(ext_ids))
+        jb = hashlib.sha256(cip_hex.encode()).hexdigest()[:12]
+        jc = hashlib.sha256((ext_hex + "_" + sig_hex).encode()).hexdigest()[:12]
+        return "%s_%s_%s" % (a, jb, jc), "%s_%s_%s_%s" % (a, cip_hex, ext_hex, sig_hex)
+    except Exception:  # noqa: BLE001
+        return None, None
+
+
 def find_ja4(obj):
     """Recursively pull ja4 / ja4_r style values out of an arbitrary json."""
     out = {}
@@ -240,9 +276,10 @@ def capture_h3(binary, port, profile, hflags):
         except Exception:  # noqa: BLE001
             data = {}
         ja4 = find_ja4(data)
+        r_ja4, r_ja4r = ja4_quic_from_tls(data)  # spec-correct (wire-order sig)
         h3 = {
-            "ja4": data.get("ja4") or ja4.get("ja4"),
-            "ja4_r": data.get("ja4_r") or ja4.get("ja4_r"),
+            "ja4": r_ja4 or data.get("ja4") or ja4.get("ja4"),
+            "ja4_r": r_ja4r or data.get("ja4_r") or ja4.get("ja4_r"),
             "h3_text": data.get("h3_text"),
         }
         return h3, data  # (trimmed, full raw for big_raw.json)
