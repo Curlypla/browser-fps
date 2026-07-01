@@ -80922,6 +80922,114 @@
         "major": "152",
         "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:152.0) Gecko/20100101 Firefox/152.0"
       },
+      "65.0.2": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "66.0": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "66.0.1": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "66.0.2": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "66.0.3": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "66.0.4": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "66.0.5": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "67.0": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "67.0.1": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "67.0.2": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "67.0.3": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
+      "67.0.4": {
+        "captured_at": "28527813027",
+        "engine": "gecko",
+        "errors": [
+          "install: HTTP Error 404: Not Found"
+        ],
+        "h2": null,
+        "h3": null
+      },
       "68.0": {
         "captured_at": "28510277233",
         "engine": "gecko",
@@ -82302,9 +82410,9 @@
     "brave": 67,
     "chrome": 228,
     "edge": 171,
-    "firefox": 385,
+    "firefox": 397,
     "safari": 3
   },
-  "generated_at": "2026-07-01T11:29:59Z",
+  "generated_at": "2026-07-01T15:14:48Z",
   "schema": 1
 }
