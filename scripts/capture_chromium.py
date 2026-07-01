@@ -224,11 +224,6 @@ def capture_h3(binary, port, profile, hflags):
     flags = list(hflags) + [
         "--enable-quic",
         "--origin-to-force-quic-on=%s:443" % QUIC_HOST,
-        # Disable ECH: with Encrypted Client Hello the server sees the outer
-        # (GREASE) ClientHello, giving a fingerprint that differs from what
-        # non-ECH observers (e.g. browserleaks, most anti-bot) see. Disabling it
-        # yields the commonly-observed QUIC fingerprint.
-        "--disable-features=EncryptedClientHello",
     ]
     proc = cdplib.launch(binary, port, extra_flags=flags, user_data_dir=profile)
     cdp = cdplib.CDP(port)
