@@ -12,13 +12,18 @@ import sqlite3
 
 STORE = "data/fingerprints.json"
 DB = "data/fingerprints.sqlite"
+BIG = "data/big_raw.json"  # full, un-trimmed capture payloads (kept out of the lean store)
+
+
+def _load(path):
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+    return {"schema": 1, "browsers": {}}
 
 
 def load():
-    if os.path.exists(STORE):
-        with open(STORE) as f:
-            return json.load(f)
-    return {"schema": 1, "browsers": {}}
+    return _load(STORE)
 
 
 def build_sqlite(store):
@@ -70,6 +75,7 @@ def main():
     args = ap.parse_args()
 
     store = load()
+    big = _load(BIG)
     added = 0
     for path in sorted(glob.glob(os.path.join(args.results, "**", "*.json"), recursive=True)):
         with open(path) as f:
@@ -80,22 +86,29 @@ def main():
         b, v = r.get("browser"), r.get("version")
         if not b or not v:
             continue
-        store["browsers"].setdefault(b, {})
         rec = dict(r)
         rec.pop("browser", None)
         rec.pop("version", None)
-        store["browsers"][b][v] = rec
+        # the full QUIC payload goes to big_raw.json, not the lean store
+        raw = rec.pop("h3_raw", None)
+        if raw:
+            big["browsers"].setdefault(b, {})[v] = {"h3": raw}
+        store["browsers"].setdefault(b, {})[v] = rec
         added += 1
 
     store["generated_at"] = args.captured_at
     counts = {b: len(v) for b, v in store["browsers"].items()}
     store["counts"] = counts
+    big["generated_at"] = args.captured_at
 
     os.makedirs("data", exist_ok=True)
     with open(STORE, "w") as f:
         json.dump(store, f, indent=2, sort_keys=True)
+    with open(BIG, "w") as f:
+        json.dump(big, f, indent=2, sort_keys=True)
     n = build_sqlite(store)
-    print("merged %d result file(s); store now has %d rows; counts=%s" % (added, n, counts))
+    print("merged %d result file(s); store now has %d rows; big_raw has %d; counts=%s"
+          % (added, n, sum(len(x) for x in big["browsers"].values()), counts))
 
 
 if __name__ == "__main__":

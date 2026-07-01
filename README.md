@@ -49,8 +49,12 @@ stay on the 6-hourly one).
 
 Two synchronized representations live under `data/`:
 
-- `data/fingerprints.json` — canonical, human-diffable, keyed `browsers[browser][version]`
+- `data/fingerprints.json` — canonical, human-diffable, keyed `browsers[browser][version]`.
+  The `h3` record is trimmed to `ja4`/`ja4_r`/`h3_text`.
 - `data/fingerprints.sqlite` — queryable table `fingerprints` (rebuilt from the JSON)
+- `data/big_raw.json` — the full, un-trimmed capture payloads (complete QUIC/h3
+  reflection: frames, settings, reproduction, etc.), keyed the same way, kept out
+  of the lean store so it stays small.
 
 ```sql
 SELECT browser, version, channel, h2_ja4, h2_akamai, h2_header_orders, h3_ja4

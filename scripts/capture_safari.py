@@ -133,6 +133,7 @@ def main():
         result["h3"] = {"ja4": qd.get("ja4") or ja4.get("ja4"),
                         "ja4_r": qd.get("ja4_r") or ja4.get("ja4_r"),
                         "h3_text": qd.get("h3_text")}
+        result["h3_raw"] = qd
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h3: %s" % e)
         result["h3"] = None

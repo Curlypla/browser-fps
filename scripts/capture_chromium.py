@@ -240,11 +240,12 @@ def capture_h3(binary, port, profile, hflags):
         except Exception:  # noqa: BLE001
             data = {}
         ja4 = find_ja4(data)
-        return {
+        h3 = {
             "ja4": data.get("ja4") or ja4.get("ja4"),
             "ja4_r": data.get("ja4_r") or ja4.get("ja4_r"),
             "h3_text": data.get("h3_text"),
         }
+        return h3, data  # (trimmed, full raw for big_raw.json)
     finally:
         cdp.close()
         proc.terminate()
@@ -279,7 +280,7 @@ def main():
         result["errors"].append("h2: %s" % e)
         result["h2"] = None
     try:
-        result["h3"] = capture_h3(args.binary, 9333, "/tmp/prof-h3", hflags)
+        result["h3"], result["h3_raw"] = capture_h3(args.binary, 9333, "/tmp/prof-h3", hflags)
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h3: %s" % e)
         result["h3"] = None
