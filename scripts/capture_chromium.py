@@ -238,15 +238,12 @@ def capture_h3(binary, port, profile, hflags):
         try:
             data = json.loads(body)
         except Exception:  # noqa: BLE001
-            data = {"_raw_text": body[:2000]}
+            data = {}
         ja4 = find_ja4(data)
         return {
-            "protocol": proto or data.get("protocol"),
-            "http3_supported": data.get("http3_supported"),
-            "ja4": ja4.get("ja4"),
-            "ja4_r": ja4.get("ja4_r"),
-            "extracted": ja4,
-            "raw": data,
+            "ja4": data.get("ja4") or ja4.get("ja4"),
+            "ja4_r": data.get("ja4_r") or ja4.get("ja4_r"),
+            "h3_text": data.get("h3_text"),
         }
     finally:
         cdp.close()

@@ -123,9 +123,9 @@ def main():
                 break
             time.sleep(3.0)
         ja4 = find_ja4(qd)
-        result["h3"] = {"http3_supported": qd.get("http3_supported"),
-                        "protocol": qd.get("protocol"), "ja4": ja4.get("ja4"),
-                        "ja4_r": ja4.get("ja4_r"), "extracted": ja4, "raw": qd}
+        result["h3"] = {"ja4": qd.get("ja4") or ja4.get("ja4"),
+                        "ja4_r": qd.get("ja4_r") or ja4.get("ja4_r"),
+                        "h3_text": qd.get("h3_text")}
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h3: %s" % e)
         result["h3"] = None
