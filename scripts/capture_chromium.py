@@ -123,6 +123,30 @@ def ja4_quic_from_tls(data):
         return None, None
 
 
+def quic_tp_from_raw(data):
+    """QUIC transport-parameters fingerprint (thumbprint-style `quic_tp`).
+
+    q13_ + sha256(sorted param IDs)[:12], GREASE removed. `initial_rtt` (0x3127)
+    is excluded because Chrome only sends it once it has a cached RTT (i.e. on a
+    resumed connection), so excluding it keeps the fingerprint stable.
+    Returns (quic_tp, quic_tp_r) or (None, None).
+    """
+    import hashlib
+    rep = ((data or {}).get("reproduction") or {}).get("quic") or {}
+    tps = rep.get("transport_params")
+    if not tps:
+        return None, None
+    try:
+        ids = sorted({p["id"] for p in tps
+                      if not p.get("is_grease")
+                      and p["id"] % 31 != 27  # QUIC GREASE reserved pattern
+                      and p["id"] != 0x3127})
+        hexids = ",".join("%04x" % i for i in ids)
+        return "q13_" + hashlib.sha256(hexids.encode()).hexdigest()[:12], "q13_" + hexids
+    except Exception:  # noqa: BLE001
+        return None, None
+
+
 def find_ja4(obj):
     """Recursively pull ja4 / ja4_r style values out of an arbitrary json."""
     out = {}
@@ -277,10 +301,13 @@ def capture_h3(binary, port, profile, hflags):
             data = {}
         ja4 = find_ja4(data)
         r_ja4, r_ja4r = ja4_quic_from_tls(data)  # spec-correct (wire-order sig)
+        tp, tpr = quic_tp_from_raw(data)
         h3 = {
             "ja4": r_ja4 or data.get("ja4") or ja4.get("ja4"),
             "ja4_r": r_ja4r or data.get("ja4_r") or ja4.get("ja4_r"),
             "h3_text": data.get("h3_text"),
+            "quic_tp": tp,
+            "quic_tp_r": tpr,
         }
         return h3, data  # (trimmed, full raw for big_raw.json)
     finally:

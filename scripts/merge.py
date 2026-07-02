@@ -36,7 +36,7 @@ def build_sqlite(store):
         h2_ja4 TEXT, h2_ja4_r TEXT, h2_akamai TEXT, h2_akamai_hash TEXT,
         h2_peetprint TEXT, h2_peetprint_hash TEXT, h2_ja3 TEXT, h2_ja3_hash TEXT,
         h2_header_orders TEXT, h2_protocol TEXT,
-        h3_ja4 TEXT, h3_ja4_r TEXT, h3_text TEXT,
+        h3_ja4 TEXT, h3_ja4_r TEXT, h3_text TEXT, h3_quic_tp TEXT, h3_quic_tp_r TEXT,
         errors TEXT,
         PRIMARY KEY(browser, version))""")
     rows = []
@@ -52,10 +52,11 @@ def build_sqlite(store):
                 h2.get("peetprint_hash"), h2.get("ja3"), h2.get("ja3_hash"),
                 json.dumps(h2.get("header_orders")), h2.get("protocol"),
                 h3.get("ja4"), h3.get("ja4_r"), h3.get("h3_text"),
+                h3.get("quic_tp"), h3.get("quic_tp_r"),
                 json.dumps(r.get("errors") or []),
             ))
     con.executemany("INSERT OR REPLACE INTO fingerprints VALUES (%s)"
-                    % ",".join("?" * 21), rows)
+                    % ",".join("?" * 23), rows)
     con.commit()
     con.close()
     return len(rows)
@@ -92,7 +93,9 @@ def main():
         # the full QUIC payload goes to big_raw.json, not the lean store
         raw = rec.pop("h3_raw", None)
         if raw:
-            big["browsers"].setdefault(b, {})[v] = {"h3": raw}
+            h3d = rec.get("h3") or {}
+            big["browsers"].setdefault(b, {})[v] = {
+                "h3": raw, "quic_tp": h3d.get("quic_tp"), "quic_tp_r": h3d.get("quic_tp_r")}
         store["browsers"].setdefault(b, {})[v] = rec
         added += 1
 
