@@ -110,7 +110,7 @@ def main():
             "raw_tls_version": tls.get("tls_version_negotiated"),
             "orders_kind": "v4",
             "header_orders": orders,
-            "header_values": header_values(data),
+            "header_values": header_values(base),
         }
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h2: %s" % e)
