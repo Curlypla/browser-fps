@@ -66973,91 +66973,12 @@
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
       },
       "26.5": {
-        "captured_at": "28582735356",
+        "captured_at": "28605780198",
         "engine": "webkit",
-        "errors": [],
-        "h2": {
-          "akamai_fingerprint": "2:0;3:100;4:2097152;9:1|10420225|0|m,s,a,p",
-          "akamai_fingerprint_hash": "c52879e43202aeb92740be6e8c86ea96",
-          "header_orders": {
-            "navigate": [
-              ":method",
-              ":scheme",
-              ":authority",
-              ":path",
-              "sec-fetch-dest",
-              "user-agent",
-              "accept",
-              "sec-fetch-site",
-              "sec-fetch-mode",
-              "accept-language",
-              "priority",
-              "accept-encoding",
-              "cookie"
-            ],
-            "xhr_get": [
-              ":method",
-              ":scheme",
-              ":authority",
-              ":path",
-              "sec-fetch-dest",
-              "user-agent",
-              "accept",
-              "referer",
-              "sec-fetch-site",
-              "sec-fetch-mode",
-              "accept-language",
-              "priority",
-              "accept-encoding",
-              "cookie"
-            ],
-            "xhr_get_nocors": [
-              ":method",
-              ":scheme",
-              ":authority",
-              ":path",
-              "sec-fetch-dest",
-              "user-agent",
-              "accept",
-              "referer",
-              "sec-fetch-site",
-              "sec-fetch-mode",
-              "accept-language",
-              "priority",
-              "accept-encoding",
-              "cookie"
-            ],
-            "xhr_post": [
-              ":method",
-              ":scheme",
-              ":authority",
-              ":path",
-              "accept",
-              "content-type",
-              "origin",
-              "sec-fetch-site",
-              "sec-fetch-mode",
-              "user-agent",
-              "referer",
-              "sec-fetch-dest",
-              "content-length",
-              "accept-language",
-              "priority",
-              "accept-encoding",
-              "cookie"
-            ]
-          },
-          "ja3": "771,4865-4866-4867-49196-49195-52393-49200-49199-52392-49162-49161-49172-49171-157-156-53-47-49160-49170-10,0-23-65281-10-11-16-5-13-18-51-45-43-27-21,29-23-24-25,0",
-          "ja3_hash": "773906b0efdefa24a7f2b8eb6985bf37",
-          "ja4": "t13d2014h2_a09f3c656075_7f0f34a4126d",
-          "ja4_r": "t13d2014h2_000a,002f,0035,009c,009d,1301,1302,1303,c008,c009,c00a,c012,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,002b,002d,0033,ff01_0403,0804,0401,0503,0805,0805,0501,0806,0601,0201",
-          "orders_kind": "v4",
-          "peetprint": "GREASE-772-771-770-769|2-1.1|GREASE-29-23-24-25|1027-2052-1025-1283-2053-2053-1281-2054-1537-513|1|1|GREASE-4865-4866-4867-49196-49195-52393-49200-49199-52392-49162-49161-49172-49171-157-156-53-47-49160-49170-10|0-10-11-13-16-18-21-23-27-43-45-5-51-65281-GREASE-GREASE",
-          "peetprint_hash": "fdf2c64009327d63a456cbab56a7bdde",
-          "protocol": "h2",
-          "raw_tls_version": "772",
-          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15"
-        },
+        "errors": [
+          "h2: name 'data' is not defined"
+        ],
+        "h2": null,
         "h3": {
           "h3_text": "1:16383;7:100;GREASE",
           "http3": "1:16383;7:100;GREASE|m,s,a,p",
@@ -67092,6 +67013,6 @@
     "firefox": 443,
     "safari": 3
   },
-  "generated_at": "2026-07-02T16:43:42Z",
+  "generated_at": "2026-07-02T16:45:19Z",
   "schema": 1
 }
