@@ -84930,7 +84930,7 @@
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15"
       },
       "26.5": {
-        "captured_at": "28512474225",
+        "captured_at": "28582735356",
         "engine": "webkit",
         "errors": [],
         "h2": {
@@ -85017,6 +85017,7 @@
         },
         "h3": {
           "h3_text": "1:16383;7:100;GREASE",
+          "http3": "1:16383;7:100;GREASE|m,s,a,p",
           "ja4": "q13d0311h3_55b375c5d22e_f2a83c8e78ae",
           "ja4_r": "q13d0311h3_1301,1302,1303_0005,000a,000d,0012,001b,002b,002d,0033,0039_0403,0804,0401,0503,0805,0805,0501,0806,0601,0201",
           "quic_tp": "q13_52ebd28059b7",
@@ -85048,6 +85049,6 @@
     "firefox": 431,
     "safari": 3
   },
-  "generated_at": "2026-07-02T09:36:31Z",
+  "generated_at": "2026-07-02T10:20:36Z",
   "schema": 1
 }
