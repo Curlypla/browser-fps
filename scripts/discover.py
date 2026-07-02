@@ -72,6 +72,10 @@ def main():
             # per-initiator header-order capture (orders_kind v2).
             if existing and existing.get("h2") and existing["h2"].get("orders_kind") != "v4":
                 done = False
+            # backfill: re-capture entries missing the newer header VALUES field
+            # (added later) — reliably populated from peet, so a good done-marker.
+            if existing and existing.get("h2") and not existing["h2"].get("header_values"):
+                done = False
             if not done:
                 pending.append(entry)
         take = pending[: args.batch]
