@@ -83538,6 +83538,204 @@
         "major": "152",
         "user_agent": "Mozilla/5.0 (X11; Linux x86_64; rv:152.0) Gecko/20100101 Firefox/152.0"
       },
+      "57.0": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Unable to locate window\nStacktrace:\nWebDriverError@chrome://marionette/content/error.js:235:5\nNoSuchWindowError@chrome://marionette/content/error.js:477:5\nassert.that/<@chrome://marionette/content/assert.js:384:13\nassert.window@chrome://marionette/content/assert.js:118:10\nGeckoDriver.prototype.get@chrome://marionette/content/driver.js:1099:3\ndespatch@chrome://marionette/content/server.js:553:20\nexecute@chrome://marionette/content/server.js:527:11\nonPacket/<@chrome://marionette/content/server.js:502:15\nonPacket@chrome://marionette/content/server.js:501:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:501:9\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "57"
+      },
+      "57.0.1": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Unable to locate window\nStacktrace:\nWebDriverError@chrome://marionette/content/error.js:235:5\nNoSuchWindowError@chrome://marionette/content/error.js:477:5\nassert.that/<@chrome://marionette/content/assert.js:384:13\nassert.window@chrome://marionette/content/assert.js:118:10\nGeckoDriver.prototype.get@chrome://marionette/content/driver.js:1099:3\ndespatch@chrome://marionette/content/server.js:553:20\nexecute@chrome://marionette/content/server.js:527:11\nonPacket/<@chrome://marionette/content/server.js:502:15\nonPacket@chrome://marionette/content/server.js:501:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:501:9\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "57"
+      },
+      "57.0.2": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Unable to locate window\nStacktrace:\nWebDriverError@chrome://marionette/content/error.js:235:5\nNoSuchWindowError@chrome://marionette/content/error.js:477:5\nassert.that/<@chrome://marionette/content/assert.js:384:13\nassert.window@chrome://marionette/content/assert.js:118:10\nGeckoDriver.prototype.get@chrome://marionette/content/driver.js:1099:3\ndespatch@chrome://marionette/content/server.js:553:20\nexecute@chrome://marionette/content/server.js:527:11\nonPacket/<@chrome://marionette/content/server.js:502:15\nonPacket@chrome://marionette/content/server.js:501:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:501:9\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "57"
+      },
+      "57.0.3": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Unable to locate window\nStacktrace:\nWebDriverError@chrome://marionette/content/error.js:235:5\nNoSuchWindowError@chrome://marionette/content/error.js:477:5\nassert.that/<@chrome://marionette/content/assert.js:384:13\nassert.window@chrome://marionette/content/assert.js:118:10\nGeckoDriver.prototype.get@chrome://marionette/content/driver.js:1099:3\ndespatch@chrome://marionette/content/server.js:553:20\nexecute@chrome://marionette/content/server.js:527:11\nonPacket/<@chrome://marionette/content/server.js:502:15\nonPacket@chrome://marionette/content/server.js:501:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:501:9\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "57"
+      },
+      "57.0.4": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Unable to locate window\nStacktrace:\nWebDriverError@chrome://marionette/content/error.js:235:5\nNoSuchWindowError@chrome://marionette/content/error.js:477:5\nassert.that/<@chrome://marionette/content/assert.js:384:13\nassert.window@chrome://marionette/content/assert.js:118:10\nGeckoDriver.prototype.get@chrome://marionette/content/driver.js:1099:3\ndespatch@chrome://marionette/content/server.js:553:20\nexecute@chrome://marionette/content/server.js:527:11\nonPacket/<@chrome://marionette/content/server.js:502:15\nonPacket@chrome://marionette/content/server.js:501:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:501:9\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "57"
+      },
+      "58.0": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Failed to decode response from marionette\n",
+          "h3: Message: Process (pid=2734) unexpectedly closed with status 0\n"
+        ],
+        "h2": null,
+        "h3": null,
+        "major": "58"
+      },
+      "58.0.1": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Failed to decode response from marionette\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "58"
+      },
+      "58.0.2": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Unable to locate window\nStacktrace:\nWebDriverError@chrome://marionette/content/error.js:172:5\nNoSuchWindowError@chrome://marionette/content/error.js:414:5\nassert.that/<@chrome://marionette/content/assert.js:385:13\nassert.window@chrome://marionette/content/assert.js:118:10\nGeckoDriver.prototype.get@chrome://marionette/content/driver.js:1103:3\ndespatch@chrome://marionette/content/server.js:560:20\nexecute@chrome://marionette/content/server.js:534:11\nonPacket/<@chrome://marionette/content/server.js:509:15\nonPacket@chrome://marionette/content/server.js:508:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:500:9\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "58"
+      },
+      "59.0": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Failed to decode response from marionette\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "59"
+      },
+      "59.0.1": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Failed to decode response from marionette\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "59"
+      },
+      "59.0.2": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Browsing context has been discarded\nStacktrace:\nWebDriverError@chrome://marionette/content/error.js:172:5\nNoSuchWindowError@chrome://marionette/content/error.js:414:5\nassert.that/<@chrome://marionette/content/assert.js:407:13\nassert.open@chrome://marionette/content/assert.js:163:10\nGeckoDriver.prototype.get@chrome://marionette/content/driver.js:1037:3\ndespatch@chrome://marionette/content/server.js:557:20\nexecute@chrome://marionette/content/server.js:531:11\nonPacket/<@chrome://marionette/content/server.js:506:15\nonPacket@chrome://marionette/content/server.js:505:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:500:9\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "59"
+      },
+      "59.0.3": {
+        "captured_at": "28597937819",
+        "engine": "gecko",
+        "errors": [
+          "h2: Message: Browsing context has been discarded\nStacktrace:\nWebDriverError@chrome://marionette/content/error.js:172:5\nNoSuchWindowError@chrome://marionette/content/error.js:414:5\nassert.that/<@chrome://marionette/content/assert.js:407:13\nassert.open@chrome://marionette/content/assert.js:163:10\nGeckoDriver.prototype.get@chrome://marionette/content/driver.js:1037:3\ndespatch@chrome://marionette/content/server.js:557:20\nexecute@chrome://marionette/content/server.js:531:11\nonPacket/<@chrome://marionette/content/server.js:506:15\nonPacket@chrome://marionette/content/server.js:505:8\n_onJSONObjectReady/<@chrome://marionette/content/transport.js:500:9\n"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": null,
+          "http3": null,
+          "ja4": null,
+          "ja4_r": null,
+          "quic_tp": null,
+          "quic_tp_r": null
+        },
+        "major": "59"
+      },
       "60.0": {
         "captured_at": "28580118013",
         "engine": "gecko",
@@ -85369,9 +85567,9 @@
     "brave": 68,
     "chrome": 228,
     "edge": 171,
-    "firefox": 431,
+    "firefox": 443,
     "safari": 3
   },
-  "generated_at": "2026-07-02T14:05:52Z",
+  "generated_at": "2026-07-02T14:33:47Z",
   "schema": 1
 }
