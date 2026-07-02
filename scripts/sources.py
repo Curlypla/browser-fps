@@ -172,6 +172,10 @@ def firefox_versions(token=None):
         ver = rel["version"]
         if not re.match(r"^\d+\.\d+(\.\d+)?$", ver):
             continue
+        # Firefox < 91 (2017-2021) crashes on launch on modern runner images
+        # (glibc / system libs too new) — never capturable, so skip it.
+        if int(ver.split(".")[0]) < 91:
+            continue
         # ESR point releases (140.9.1, 128.13.0, 115.x…) live under an "esr"-
         # suffixed dir/filename; product-details flags them in the release key.
         is_esr = key.endswith("esr")
@@ -195,10 +199,11 @@ def firefox_versions(token=None):
 # runner image, driven by the preinstalled safaridriver)
 # --------------------------------------------------------------------------- #
 # `macos-latest` is re-captured every run (track=True) so it follows the newest
-# Safari and the store accumulates a version history as GitHub bumps the image;
-# `macos-14` is captured once (track=False) for older-line breadth, to spare
-# (×10-billed) macOS runner minutes.
-SAFARI_IMAGES = [("macos-latest", True), ("macos-14", False)]
+# Safari and the store accumulates a version history as GitHub bumps the image.
+# (macos-14 was dropped: its preinstalled safaridriver crashes on start every
+# run — "Service /usr/bin/safaridriver unexpectedly exited" — so it never yields
+# a usable capture and only wastes ×10-billed macOS minutes.)
+SAFARI_IMAGES = [("macos-latest", True)]
 
 
 def safari_versions(token=None):
