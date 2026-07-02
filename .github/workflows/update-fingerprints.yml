@@ -136,7 +136,7 @@ jobs:
             git reset -q --hard origin/main
             TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
             python3 scripts/merge.py --results results --captured-at "$TS"
-            git add data/fingerprints.json data/fingerprints.sqlite
+            git add data/fingerprints.json data/fingerprints.sqlite data/big_raw.json
             if git diff --cached --quiet; then
               echo "no changes to commit"; exit 0
             fi
