@@ -164,19 +164,28 @@ def brave_versions(token=None, max_pages=8):
 def firefox_versions(token=None):
     data = json.loads(_get("https://product-details.mozilla.org/1.0/firefox.json"))
     out = []
-    for _, rel in data.get("releases", {}).items():
+    byver = {}
+    for key, rel in data.get("releases", {}).items():
         cat = rel.get("category", "")
-        if cat not in ("major", "stability"):
+        if cat not in ("major", "stability", "esr"):
             continue
         ver = rel["version"]
         if not re.match(r"^\d+\.\d+(\.\d+)?$", ver):
             continue
+        # ESR point releases (140.9.1, 128.13.0, 115.x…) live under an "esr"-
+        # suffixed dir/filename; product-details flags them in the release key.
+        is_esr = key.endswith("esr")
+        sfx = "esr" if is_esr else ""
         # Mozilla switched the linux tarball from .tar.bz2 to .tar.xz at Firefox 135
         ext = "tar.xz" if int(ver.split(".")[0]) >= 135 else "tar.bz2"
-        url = ("https://ftp.mozilla.org/pub/firefox/releases/%s/linux-x86_64/"
-               "en-US/firefox-%s.%s" % (ver, ver, ext))
-        out.append({"version": ver, "url": url, "kind": "tar", "engine": "gecko",
-                    "binary": "/opt/firefox/firefox"})
+        url = ("https://ftp.mozilla.org/pub/firefox/releases/%s%s/linux-x86_64/"
+               "en-US/firefox-%s%s.%s" % (ver, sfx, ver, sfx, ext))
+        # a version can exist as both regular and ESR (e.g. 115.0) — prefer the
+        # regular build so each version key is unique.
+        if ver not in byver or (byver[ver][1] and not is_esr):
+            byver[ver] = ({"version": ver, "url": url, "kind": "tar",
+                           "engine": "gecko", "binary": "/opt/firefox/firefox"}, is_esr)
+    out = [e for e, _esr in byver.values()]
     out.sort(key=lambda e: _verkey(e["version"]), reverse=True)
     return out
 
