@@ -149,6 +149,34 @@ def quic_tp_from_raw(data):
         return None, None
 
 
+def header_values(peet_json):
+    """{header: value} the browser actually sent (from the HTTP/2 HEADERS frame).
+
+    Captures the *values* of client-hint / sec-* headers — especially sec-ch-ua
+    (brand+version list, incl. the greased brand) — not just their order. Cookie
+    is dropped (it's the injected placeholder); pseudo-headers are skipped.
+    """
+    h2 = peet_json.get("http2", {})
+    for fr in h2.get("sent_frames", []):
+        if fr.get("frame_type") == "HEADERS":
+            out = {}
+            for h in fr.get("headers", []):
+                if h.startswith(":"):
+                    continue
+                k, _, v = h.partition(": ")
+                if k != "cookie":
+                    out[k] = v
+            return out
+    if "http1" in peet_json:
+        out = {}
+        for h in peet_json["http1"].get("headers", []):
+            k, _, v = h.partition(": ")
+            if k.lower() != "cookie":
+                out[k] = v
+        return out
+    return {}
+
+
 def find_ja4(obj):
     """Recursively pull ja4 / ja4_r style values out of an arbitrary json."""
     out = {}
@@ -272,6 +300,7 @@ def capture_h2(binary, port, profile, hflags):
             "raw_tls_version": tls.get("tls_version_negotiated"),
             "orders_kind": "v4",
             "header_orders": orders,
+            "header_values": header_values(data),
         }
     finally:
         cdp.close()

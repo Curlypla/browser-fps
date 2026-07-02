@@ -14,7 +14,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 
-from capture_chromium import (header_keys, find_ja4, ja4_quic_from_tls,
+from capture_chromium import (header_keys, header_values, find_ja4, ja4_quic_from_tls,
                               quic_tp_from_raw, PEET_API, QUIC_API, BL_API)
 
 
@@ -103,6 +103,7 @@ def main():
             "raw_tls_version": tls.get("tls_version_negotiated"),
             "orders_kind": "v4",
             "header_orders": orders,
+            "header_values": header_values(data),
         }
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h2: %s" % e)

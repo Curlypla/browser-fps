@@ -35,7 +35,7 @@ def build_sqlite(store):
         user_agent TEXT,
         h2_ja4 TEXT, h2_ja4_r TEXT, h2_akamai TEXT, h2_akamai_hash TEXT,
         h2_peetprint TEXT, h2_peetprint_hash TEXT, h2_ja3 TEXT, h2_ja3_hash TEXT,
-        h2_header_orders TEXT, h2_protocol TEXT,
+        h2_header_orders TEXT, h2_header_values TEXT, h2_sec_ch_ua TEXT, h2_protocol TEXT,
         h3_ja4 TEXT, h3_ja4_r TEXT, h3_text TEXT, h3_http3 TEXT,
         h3_quic_tp TEXT, h3_quic_tp_r TEXT,
         errors TEXT,
@@ -51,13 +51,15 @@ def build_sqlite(store):
                 h2.get("ja4"), h2.get("ja4_r"), h2.get("akamai_fingerprint"),
                 h2.get("akamai_fingerprint_hash"), h2.get("peetprint"),
                 h2.get("peetprint_hash"), h2.get("ja3"), h2.get("ja3_hash"),
-                json.dumps(h2.get("header_orders")), h2.get("protocol"),
+                json.dumps(h2.get("header_orders")),
+                json.dumps(h2.get("header_values")),
+                (h2.get("header_values") or {}).get("sec-ch-ua"), h2.get("protocol"),
                 h3.get("ja4"), h3.get("ja4_r"), h3.get("h3_text"), h3.get("http3"),
                 h3.get("quic_tp"), h3.get("quic_tp_r"),
                 json.dumps(r.get("errors") or []),
             ))
     con.executemany("INSERT OR REPLACE INTO fingerprints VALUES (%s)"
-                    % ",".join("?" * 24), rows)
+                    % ",".join("?" * 26), rows)
     con.commit()
     con.close()
     return len(rows)
