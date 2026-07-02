@@ -171,8 +171,10 @@ def firefox_versions(token=None):
         ver = rel["version"]
         if not re.match(r"^\d+\.\d+(\.\d+)?$", ver):
             continue
+        # Mozilla switched the linux tarball from .tar.bz2 to .tar.xz at Firefox 135
+        ext = "tar.xz" if int(ver.split(".")[0]) >= 135 else "tar.bz2"
         url = ("https://ftp.mozilla.org/pub/firefox/releases/%s/linux-x86_64/"
-               "en-US/firefox-%s.tar.xz" % (ver, ver))
+               "en-US/firefox-%s.%s" % (ver, ver, ext))
         out.append({"version": ver, "url": url, "kind": "tar", "engine": "gecko",
                     "binary": "/opt/firefox/firefox"})
     out.sort(key=lambda e: _verkey(e["version"]), reverse=True)

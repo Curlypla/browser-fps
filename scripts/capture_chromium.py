@@ -19,6 +19,8 @@ PEET_BASE = "https://tls.peet.ws/"
 PEET_API = "https://tls.peet.ws/api/all"
 QUIC_HOST = "quic.tools.scrapfly.io"
 QUIC_API = "https://quic.tools.scrapfly.io/api/fp/quic"
+BL_HOST = "quic.browserleaks.com"
+BL_API = "https://quic.browserleaks.com/"
 
 
 def _drain(cdp, seconds=0.3):
@@ -283,7 +285,7 @@ def capture_h2(binary, port, profile, hflags):
 def capture_h3(binary, port, profile, hflags):
     flags = list(hflags) + [
         "--enable-quic",
-        "--origin-to-force-quic-on=%s:443" % QUIC_HOST,
+        "--origin-to-force-quic-on=%s:443,%s:443" % (QUIC_HOST, BL_HOST),
     ]
     proc = cdplib.launch(binary, port, extra_flags=flags, user_data_dir=profile)
     cdp = cdplib.CDP(port)
@@ -299,17 +301,29 @@ def capture_h3(binary, port, profile, hflags):
             data = json.loads(body)
         except Exception:  # noqa: BLE001
             data = {}
+        # second source: browserleaks — gives the full HTTP/3 fingerprint string
+        # (settings|frames|pseudo) and everything else, browser-measured.
+        bl = {}
+        try:
+            _drain(cdp, 0.4)
+            bbody, _ = get_body(
+                cdp, lambda: cdp.send("Runtime.evaluate", {"expression": "location.href=%r" % BL_API}),
+                lambda u: u.rstrip("/") == BL_API.rstrip("/"), timeout=40, method="GET")
+            bl = json.loads(bbody)
+        except Exception:  # noqa: BLE001
+            bl = {}
         ja4 = find_ja4(data)
         r_ja4, r_ja4r = ja4_quic_from_tls(data)  # spec-correct (wire-order sig)
         tp, tpr = quic_tp_from_raw(data)
         h3 = {
-            "ja4": r_ja4 or data.get("ja4") or ja4.get("ja4"),
-            "ja4_r": r_ja4r or data.get("ja4_r") or ja4.get("ja4_r"),
+            "ja4": r_ja4 or bl.get("ja4") or data.get("ja4") or ja4.get("ja4"),
+            "ja4_r": r_ja4r or bl.get("ja4_r") or data.get("ja4_r") or ja4.get("ja4_r"),
             "h3_text": data.get("h3_text"),
+            "http3": bl.get("h3_text"),   # full browserleaks HTTP/3 fp string
             "quic_tp": tp,
             "quic_tp_r": tpr,
         }
-        return h3, data  # (trimmed, full raw for big_raw.json)
+        return h3, data, bl  # (trimmed, scrapfly raw, browserleaks full)
     finally:
         cdp.close()
         proc.terminate()
@@ -344,7 +358,8 @@ def main():
         result["errors"].append("h2: %s" % e)
         result["h2"] = None
     try:
-        result["h3"], result["h3_raw"] = capture_h3(args.binary, 9333, "/tmp/prof-h3", hflags)
+        result["h3"], result["h3_raw"], result["browserleaks"] = capture_h3(
+            args.binary, 9333, "/tmp/prof-h3", hflags)
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h3: %s" % e)
         result["h3"] = None
