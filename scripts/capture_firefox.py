@@ -62,12 +62,28 @@ def main():
               "captured_at": args.captured_at, "errors": []}
     driver = None
     try:
-        driver = make_driver(args.binary)
-        # warm up + set cookies to enrich header order
-        driver.get("https://tls.peet.ws/")
-        for n in ("fp_session", "fp_consent", "fp_prefs"):
-            driver.add_cookie({"name": n, "value": "1", "domain": "tls.peet.ws"})
-        data = json.loads(body_text(driver, PEET_API))
+        # geckodriver/marionette is flaky ("failed to decode response", "unable
+        # to locate window", "browsing context discarded"); recreate the driver
+        # and retry a few times before giving up.
+        data = None
+        for attempt in range(3):
+            try:
+                if driver:
+                    try:
+                        driver.quit()
+                    except Exception:  # noqa: BLE001
+                        pass
+                driver = make_driver(args.binary)
+                driver.get("https://tls.peet.ws/")
+                for n in ("fp_session", "fp_consent", "fp_prefs"):
+                    driver.add_cookie({"name": n, "value": "1", "domain": "tls.peet.ws"})
+                data = json.loads(body_text(driver, PEET_API))
+                break
+            except Exception:  # noqa: BLE001
+                data = None
+                time.sleep(3)
+        if data is None:
+            raise RuntimeError("peet h2 read failed after 3 attempts (marionette flaky)")
         tls = data.get("tls", {})
         h2 = data.get("http2", {})
         result["user_agent"] = data.get("user_agent")
