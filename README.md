@@ -55,6 +55,8 @@ Two synchronized representations live under `data/`:
 - `data/big_raw.json` — the full, un-trimmed capture payloads (complete QUIC/h3
   reflection: frames, settings, reproduction, etc.), keyed the same way, kept out
   of the lean store so it stays small.
+- `h3.http3` — the full HTTP/3 fingerprint string (settings|frames|pseudo, browserleaks convention), captured from a 2nd h3 source (quic.browserleaks.com). `big_raw.json` also keeps the complete browserleaks payload (correct ja4, tls extensions in wire order, quic, http3 frames) where scrapfly's parser is incomplete.
+
 
 ```sql
 SELECT browser, version, channel, h2_ja4, h2_akamai, h2_header_orders, h3_ja4
