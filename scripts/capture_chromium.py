@@ -21,6 +21,10 @@ QUIC_HOST = "quic.tools.scrapfly.io"
 QUIC_API = "https://quic.tools.scrapfly.io/api/fp/quic"
 BL_HOST = "quic.browserleaks.com"
 BL_API = "https://quic.browserleaks.com/"
+# TCP TLS fingerprint — sourced from browserleaks directly (its ClientHello
+# parser is the reference we trust for JA4; peet's ja4 differs slightly).
+TLS_BL_HOST = "tls.browserleaks.com"
+TLS_BL_API = "https://tls.browserleaks.com/json"
 
 
 def _drain(cdp, seconds=0.3):
@@ -284,15 +288,32 @@ def capture_h2(binary, port, profile, hflags):
         data = json.loads(nav_body)
         orders["navigate"] = header_keys(data)
 
+        # JA4 sourced from browserleaks directly (reference ClientHello parser);
+        # best-effort navigation to its TLS json — falls back to peet's ja4.
+        blt = {}
+        try:
+            bt, _ = get_body(
+                cdp,
+                lambda: cdp.send("Runtime.evaluate",
+                                 {"expression": "location.href=%r" % TLS_BL_API}),
+                lambda u: u.split("#")[0].split("?")[0].rstrip("/") == TLS_BL_API,
+                timeout=35, method="GET")
+            blt = json.loads(bt)
+        except Exception:  # noqa: BLE001
+            blt = {}
+
         tls = data.get("tls", {})
         h2 = data.get("http2", {})
-        return {
+        h2res = {
             "protocol": data.get("http_version") or proto,
             "user_agent": data.get("user_agent"),
             "ja3": tls.get("ja3"),
             "ja3_hash": tls.get("ja3_hash"),
-            "ja4": tls.get("ja4"),
-            "ja4_r": tls.get("ja4_r"),
+            "ja4": blt.get("ja4") or tls.get("ja4"),
+            "ja4_r": blt.get("ja4_r") or tls.get("ja4_r"),
+            "ja4_o": blt.get("ja4_o"),
+            "ja4_ro": blt.get("ja4_ro"),
+            "ja4_source": "browserleaks" if blt.get("ja4") else "peet",
             "peetprint": tls.get("peetprint"),
             "peetprint_hash": tls.get("peetprint_hash"),
             "akamai_fingerprint": h2.get("akamai_fingerprint"),
@@ -302,6 +323,7 @@ def capture_h2(binary, port, profile, hflags):
             "header_orders": orders,
             "header_values": header_values(data),
         }
+        return h2res, blt
     finally:
         cdp.close()
         proc.terminate()
@@ -381,7 +403,7 @@ def main():
     }
     hflags = headless_flags(args.version)
     try:
-        result["h2"] = capture_h2(args.binary, 9222, "/tmp/prof-h2", hflags)
+        result["h2"], result["h2_raw"] = capture_h2(args.binary, 9222, "/tmp/prof-h2", hflags)
         result["user_agent"] = result["h2"].get("user_agent")
     except Exception as e:  # noqa: BLE001
         result["errors"].append("h2: %s" % e)
@@ -390,8 +412,17 @@ def main():
         result["h3"], result["h3_raw"], result["browserleaks"] = capture_h3(
             args.binary, 9333, "/tmp/prof-h3", hflags)
     except Exception as e:  # noqa: BLE001
-        result["errors"].append("h3: %s" % e)
         result["h3"] = None
+        try:
+            maj = int(str(args.version).split(".")[0])
+        except Exception:  # noqa: BLE001
+            maj = 999
+        # QUIC v1 (RFC 9000) predates Chrome ~93, so a QUIC protocol error on an
+        # older build is expected — record it as unsupported, not an error.
+        if "ERR_QUIC" in str(e) and maj < 93:
+            result["h3_unsupported"] = True
+        else:
+            result["errors"].append("h3: %s" % e)
 
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w") as f:

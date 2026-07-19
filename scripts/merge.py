@@ -96,13 +96,16 @@ def main():
         # the full QUIC payloads go to big_raw.json, not the lean store
         raw = rec.pop("h3_raw", None)
         bl = rec.pop("browserleaks", None)
-        if raw or bl:
+        htls = rec.pop("h2_raw", None)  # raw browserleaks TCP-TLS json
+        if raw or bl or htls:
             h3d = rec.get("h3") or {}
             entry = {"quic_tp": h3d.get("quic_tp"), "quic_tp_r": h3d.get("quic_tp_r")}
             if raw:
                 entry["h3"] = raw
             if bl:
                 entry["browserleaks"] = bl
+            if htls:
+                entry["tls_browserleaks"] = htls
             big["browsers"].setdefault(b, {})[v] = entry
         store["browsers"].setdefault(b, {})[v] = rec
         added += 1

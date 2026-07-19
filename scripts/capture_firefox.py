@@ -15,7 +15,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 
 from capture_chromium import (header_keys, header_values, find_ja4, ja4_quic_from_tls,
-                              quic_tp_from_raw, PEET_API, QUIC_API, BL_API)
+                              quic_tp_from_raw, PEET_API, QUIC_API, BL_API, TLS_BL_API)
 
 
 def make_driver(binary):
@@ -108,11 +108,22 @@ def main():
         fetch_order("xhr_post", "{method:'POST',headers:{'Content-Type':'application/json'},"
                                 "body:'{\"fp\":1}',credentials:'include'}")
 
+        # JA4 from browserleaks directly (reference parser), best-effort
+        blt = {}
+        try:
+            blt = json.loads(body_text(driver, TLS_BL_API))
+        except Exception:  # noqa: BLE001
+            blt = {}
+        result["h2_raw"] = blt
+
         result["h2"] = {
             "protocol": data.get("http_version"),
             "user_agent": data.get("user_agent"),
             "ja3": tls.get("ja3"), "ja3_hash": tls.get("ja3_hash"),
-            "ja4": tls.get("ja4"), "ja4_r": tls.get("ja4_r"),
+            "ja4": blt.get("ja4") or tls.get("ja4"),
+            "ja4_r": blt.get("ja4_r") or tls.get("ja4_r"),
+            "ja4_o": blt.get("ja4_o"), "ja4_ro": blt.get("ja4_ro"),
+            "ja4_source": "browserleaks" if blt.get("ja4") else "peet",
             "peetprint": tls.get("peetprint"), "peetprint_hash": tls.get("peetprint_hash"),
             "akamai_fingerprint": h2.get("akamai_fingerprint"),
             "akamai_fingerprint_hash": h2.get("akamai_fingerprint_hash"),

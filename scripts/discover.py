@@ -76,6 +76,11 @@ def main():
             # (added later) — reliably populated from peet, so a good done-marker.
             if existing and existing.get("h2") and not existing["h2"].get("header_values"):
                 done = False
+            # reset: JA4 must now come from browserleaks (not peet). Re-capture any
+            # entry whose ja4 still originates from peet. (Safari is handled in its
+            # own branch above and is intentionally left untouched.)
+            if existing and existing.get("h2") and existing["h2"].get("ja4_source") != "browserleaks":
+                done = False
             if not done:
                 pending.append(entry)
         take = pending[: args.batch]
