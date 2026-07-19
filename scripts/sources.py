@@ -227,9 +227,17 @@ BROWSERS = {
     "safari": safari_versions,
 }
 
+# Builds that launch but never yield a capture ("no response body" on every
+# endpoint across many retries — broken debs / headless regression). Skipped so
+# they don't get re-queued forever.
+SKIP = {
+    "chrome": {"130.0.6723.116", "130.0.6723.91"},
+}
+
 
 def list_versions(browser, token=None):
-    return BROWSERS[browser](token)
+    skip = SKIP.get(browser, set())
+    return [v for v in BROWSERS[browser](token) if v.get("version") not in skip]
 
 
 # --------------------------------------------------------------------------- #
