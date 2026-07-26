@@ -122709,6 +122709,23 @@
         },
         "runner_image": "macos-latest",
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15"
+      },
+      "macos-latest": {
+        "captured_at": "30196768009",
+        "engine": "webkit",
+        "errors": [
+          "h2: no reflected response could be read"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": "1:16383;7:100;GREASE",
+          "http3": "1:16383;7:100;GREASE|m,s,a,p",
+          "ja4": "q13d0311h3_55b375c5d22e_f2a83c8e78ae",
+          "ja4_r": "q13d0311h3_1301,1302,1303_0005,000a,000d,0012,001b,002b,002d,0033,0039_0403,0804,0401,0503,0805,0805,0501,0806,0601,0201",
+          "quic_tp": "q13_e80dd4933807",
+          "quic_tp_r": "q13_0004,0005,0006,0007,0009,000e,000f"
+        },
+        "runner_image": "macos-latest"
       }
     }
   },
@@ -122717,8 +122734,8 @@
     "chrome": 233,
     "edge": 177,
     "firefox": 302,
-    "safari": 2
+    "safari": 3
   },
-  "generated_at": "2026-07-25T09:20:38Z",
+  "generated_at": "2026-07-26T09:37:34Z",
   "schema": 1
 }
