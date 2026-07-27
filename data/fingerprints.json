@@ -122711,7 +122711,7 @@
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15"
       },
       "macos-latest": {
-        "captured_at": "30196768009",
+        "captured_at": "30259925622",
         "engine": "webkit",
         "errors": [
           "h2: no reflected response could be read"
@@ -122736,6 +122736,6 @@
     "firefox": 302,
     "safari": 3
   },
-  "generated_at": "2026-07-26T09:37:34Z",
+  "generated_at": "2026-07-27T10:56:13Z",
   "schema": 1
 }
