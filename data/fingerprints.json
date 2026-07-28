@@ -122698,16 +122698,13 @@
     },
     "safari": {
       "26.4": {
-        "captured_at": "30152609216",
+        "captured_at": "30349823020",
         "engine": "webkit",
         "errors": [],
         "h2": {
           "akamai_fingerprint": "2:0;3:100;4:2097152;9:1|10420225|0|m,s,a,p",
           "akamai_fingerprint_hash": "c52879e43202aeb92740be6e8c86ea96",
           "header_orders": {
-            "_errors": {
-              "xhr_post": "Expecting value: line 1 column 1 (char 0)"
-            },
             "navigate": [
               ":method",
               ":scheme",
@@ -122755,7 +122752,25 @@
               "accept-encoding",
               "cookie"
             ],
-            "xhr_post": null
+            "xhr_post": [
+              ":method",
+              ":scheme",
+              ":authority",
+              ":path",
+              "accept",
+              "content-type",
+              "origin",
+              "sec-fetch-site",
+              "sec-fetch-mode",
+              "user-agent",
+              "referer",
+              "sec-fetch-dest",
+              "content-length",
+              "accept-language",
+              "priority",
+              "accept-encoding",
+              "cookie"
+            ]
           },
           "header_values": {
             "accept": "*/*",
@@ -122924,6 +122939,6 @@
     "firefox": 302,
     "safari": 3
   },
-  "generated_at": "2026-07-27T19:57:36Z",
+  "generated_at": "2026-07-28T10:13:34Z",
   "schema": 1
 }
