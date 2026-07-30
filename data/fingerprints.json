@@ -123398,7 +123398,7 @@
     },
     "safari": {
       "26.4": {
-        "captured_at": "30442912516",
+        "captured_at": "30533025716",
         "engine": "webkit",
         "errors": [],
         "h2": {
@@ -123639,6 +123639,6 @@
     "firefox": 303,
     "safari": 3
   },
-  "generated_at": "2026-07-30T09:04:37Z",
+  "generated_at": "2026-07-30T10:02:27Z",
   "schema": 1
 }
