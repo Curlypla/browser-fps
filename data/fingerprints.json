@@ -47991,6 +47991,24 @@
         "major": "152",
         "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36"
       },
+      "152.0.7977.54": {
+        "captured_at": "32289945940",
+        "channel": "beta",
+        "engine": "chromium",
+        "errors": [
+          "h2: loadingFailed: net::ERR_CERT_AUTHORITY_INVALID"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+          "http3": "1:65536;6:262144;7:100;51:1;GREASE|GREASE|984832|m,a,s,p",
+          "ja4": "q13d0312h3_55b375c5d22e_178839b6cec1",
+          "ja4_r": "q13d0312h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,ca34,fe0d_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+          "quic_tp": "q13_97eeb91f9c98",
+          "quic_tp_r": "q13_0001,0003,0004,0005,0006,0007,0008,0009,000f,0011,0020,3128"
+        },
+        "major": "152"
+      },
       "152.0.7977.8": {
         "captured_at": "30576749171",
         "channel": "beta",
@@ -127722,11 +127740,11 @@
   },
   "counts": {
     "brave": 76,
-    "chrome": 245,
+    "chrome": 246,
     "edge": 183,
     "firefox": 309,
     "safari": 4
   },
-  "generated_at": "2026-08-19T13:11:27Z",
+  "generated_at": "2026-08-19T18:55:14Z",
   "schema": 1
 }
