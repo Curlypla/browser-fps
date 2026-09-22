@@ -136003,7 +136003,7 @@
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
       },
       "26.6.2": {
-        "captured_at": "35612661121",
+        "captured_at": "35729437565",
         "engine": "webkit",
         "errors": [],
         "h2": {
@@ -136136,6 +136136,6 @@
     "firefox": 319,
     "safari": 5
   },
-  "generated_at": "2026-09-22T11:43:07Z",
+  "generated_at": "2026-09-22T12:49:48Z",
   "schema": 1
 }
