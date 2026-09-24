@@ -136829,10 +136829,10 @@
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15"
       },
       "macos-latest": {
-        "captured_at": "34691744418",
+        "captured_at": "36001849188",
         "engine": "webkit",
         "errors": [
-          "h2: Message: Could not create a session: The session timed out while connecting to a Safari instance. The following asynchronous operation timed out: Finding or launching a compatible local Safari and waiting for its RWIApplication to appear and become ready.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception\n"
+          "h2: no reflected response could be read"
         ],
         "h2": null,
         "h3": {
@@ -136854,6 +136854,6 @@
     "firefox": 320,
     "safari": 5
   },
-  "generated_at": "2026-09-24T11:50:11Z",
+  "generated_at": "2026-09-24T12:54:21Z",
   "schema": 1
 }
