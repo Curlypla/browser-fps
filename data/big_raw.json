@@ -116458,6 +116458,1190 @@
           "ja4_ro": "t13d1516h2_1301,1302,1303,c02b,c02f,c02c,c030,cca9,cca8,c013,c014,009c,009d,002f,0035_000d,0000,0012,44cd,000a,0017,001b,0033,002d,0010,fe0d,0005,ff01,0023,002b,000b_0904,0905,0906,0403,0804,0401,0503,0805,0501,0806,0601",
           "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
         }
+      },
+      "1.98.57": {
+        "browserleaks": {
+          "h3_hash": "ba909fc3dc419ea5c5b26c6323ac1879",
+          "h3_text": "1:65536;6:262144;7:100;51:1;GREASE|GREASE|984832|m,a,s,p",
+          "http3": [
+            {
+              "id": 4,
+              "length": 31,
+              "name": "SETTINGS",
+              "settings": [
+                {
+                  "id": 1,
+                  "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                  "value": 65536
+                },
+                {
+                  "id": 6,
+                  "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                  "value": 262144
+                },
+                {
+                  "id": 7,
+                  "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                  "value": 100
+                },
+                {
+                  "id": 51,
+                  "name": "SETTINGS_H3_DATAGRAM",
+                  "value": 1
+                },
+                {
+                  "id": 128529064321,
+                  "name": "GREASE",
+                  "value": 2300396734
+                }
+              ],
+              "stream_id": 2
+            },
+            {
+              "id": 66484139400,
+              "length": 1,
+              "name": "GREASE",
+              "raw": "da",
+              "stream_id": 2
+            },
+            {
+              "id": 984832,
+              "length": 7,
+              "name": "PRIORITY_UPDATE",
+              "prioritized_stream_id": 0,
+              "raw": "753d302c2069",
+              "stream_id": 2
+            },
+            {
+              "headers": {
+                ":authority": "quic.browserleaks.com",
+                ":method": "GET",
+                ":path": "/",
+                ":scheme": "https",
+                "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8",
+                "accept-encoding": "gzip, deflate, br, zstd",
+                "accept-language": "en-US,en;q=0.8",
+                "priority": "u=0, i",
+                "referer": "https://quic.tools.scrapfly.io/",
+                "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"Brave\";v=\"156\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"Linux\"",
+                "sec-fetch-dest": "document",
+                "sec-fetch-mode": "navigate",
+                "sec-fetch-site": "cross-site",
+                "sec-gpc": "1",
+                "upgrade-insecure-requests": "1",
+                "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+              },
+              "id": 1,
+              "length": 430,
+              "name": "HEADERS",
+              "stream_id": 0
+            }
+          ],
+          "ja4": "q13d0311h3_55b375c5d22e_653d80c3fe9d",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+          "quic": {
+            "0-rtt": false,
+            "conn_creation_time": "2026-10-15 11:33:59.798",
+            "conn_duration": 0.062,
+            "conn_idle_timeout": 5,
+            "conn_packets": 8,
+            "conn_requests": 1,
+            "dcid": "f8afd3ad6c76d20a",
+            "dcid_length": 8,
+            "initial_packets": [
+              {
+                "frames": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  6,
+                  0,
+                  6,
+                  0,
+                  6,
+                  1,
+                  1,
+                  6,
+                  6
+                ],
+                "has_token": false,
+                "packet_length": 1250,
+                "packet_number": 1,
+                "packet_number_length": 1,
+                "packet_number_raw": "d6",
+                "padding_length": 342,
+                "version": {
+                  "id": 1,
+                  "name": "QUICv1"
+                }
+              },
+              {
+                "frames": [
+                  6,
+                  0,
+                  1,
+                  1,
+                  0,
+                  1,
+                  6,
+                  6,
+                  0,
+                  1,
+                  1,
+                  0,
+                  1,
+                  0,
+                  6,
+                  6,
+                  1,
+                  6,
+                  6,
+                  6,
+                  1
+                ],
+                "has_token": false,
+                "packet_length": 1250,
+                "packet_number": 2,
+                "packet_number_length": 2,
+                "packet_number_raw": "b1f4",
+                "padding_length": 319,
+                "version": {
+                  "id": 1,
+                  "name": "QUICv1"
+                }
+              }
+            ],
+            "iso_code": "US",
+            "mtu_estimate": 1280,
+            "rtt": 56.814796,
+            "scid": "",
+            "scid_length": 0,
+            "src_ip": "20.171.38.217",
+            "src_port": 57440
+          },
+          "tls": {
+            "cipher_suite": {
+              "id": 4865,
+              "name": "TLS_AES_128_GCM_SHA256"
+            },
+            "cipher_suites": [
+              {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              {
+                "id": 4866,
+                "name": "TLS_AES_256_GCM_SHA384"
+              },
+              {
+                "id": 4867,
+                "name": "TLS_CHACHA20_POLY1305_SHA256"
+              }
+            ],
+            "ech": {
+              "ech_success": false,
+              "outer_sni": "quic.browserleaks.com"
+            },
+            "extensions": [
+              {
+                "data": {
+                  "transport_parameters": [
+                    {
+                      "id": 1,
+                      "name": "max_idle_timeout",
+                      "value": 30000
+                    },
+                    {
+                      "id": 1103951037182708683,
+                      "name": "GREASE",
+                      "raw": "f3fc6bc1848c2ed06a"
+                    },
+                    {
+                      "id": 32,
+                      "name": "max_datagram_frame_size",
+                      "value": 65536
+                    },
+                    {
+                      "id": 15,
+                      "name": "initial_source_connection_id",
+                      "raw": ""
+                    },
+                    {
+                      "id": 4,
+                      "name": "initial_max_data",
+                      "value": 15728640
+                    },
+                    {
+                      "id": 6,
+                      "name": "initial_max_stream_data_bidi_remote",
+                      "value": 6291456
+                    },
+                    {
+                      "id": 12584,
+                      "name": "google_connection_options",
+                      "options": [
+                        "ORIG"
+                      ]
+                    },
+                    {
+                      "available_versions": [
+                        {
+                          "id": 3936017082,
+                          "name": "GREASE"
+                        },
+                        {
+                          "id": 1,
+                          "name": "QUICv1"
+                        }
+                      ],
+                      "chosen_version": {
+                        "id": 1,
+                        "name": "QUICv1"
+                      },
+                      "id": 17,
+                      "name": "version_information"
+                    },
+                    {
+                      "id": 8,
+                      "name": "initial_max_streams_bidi",
+                      "value": 100
+                    },
+                    {
+                      "id": 3,
+                      "name": "max_udp_payload_size",
+                      "value": 1472
+                    },
+                    {
+                      "id": 5,
+                      "name": "initial_max_stream_data_bidi_local",
+                      "value": 6291456
+                    },
+                    {
+                      "id": 9,
+                      "name": "initial_max_streams_uni",
+                      "value": 103
+                    },
+                    {
+                      "id": 7,
+                      "name": "initial_max_stream_data_uni",
+                      "value": 6291456
+                    }
+                  ]
+                },
+                "id": 57,
+                "name": "quic_transport_parameters"
+              },
+              {
+                "data": {
+                  "protocol_name_list": [
+                    "h3"
+                  ]
+                },
+                "id": 16,
+                "name": "application_layer_protocol_negotiation"
+              },
+              {
+                "data": {
+                  "algorithms": [
+                    {
+                      "id": 2,
+                      "name": "brotli"
+                    }
+                  ]
+                },
+                "id": 27,
+                "name": "compress_certificate"
+              },
+              {
+                "data": {
+                  "server_name": "quic.browserleaks.com"
+                },
+                "id": 0,
+                "name": "server_name"
+              },
+              {
+                "data": {
+                  "supported_signature_algorithms": [
+                    {
+                      "id": 1027,
+                      "name": "ecdsa_secp256r1_sha256"
+                    },
+                    {
+                      "id": 2052,
+                      "name": "rsa_pss_rsae_sha256"
+                    },
+                    {
+                      "id": 1025,
+                      "name": "rsa_pkcs1_sha256"
+                    },
+                    {
+                      "id": 1283,
+                      "name": "ecdsa_secp384r1_sha384"
+                    },
+                    {
+                      "id": 2053,
+                      "name": "rsa_pss_rsae_sha384"
+                    },
+                    {
+                      "id": 1281,
+                      "name": "rsa_pkcs1_sha384"
+                    },
+                    {
+                      "id": 2054,
+                      "name": "rsa_pss_rsae_sha512"
+                    },
+                    {
+                      "id": 1537,
+                      "name": "rsa_pkcs1_sha512"
+                    },
+                    {
+                      "id": 513,
+                      "name": "rsa_pkcs1_sha1"
+                    }
+                  ]
+                },
+                "id": 13,
+                "name": "signature_algorithms"
+              },
+              {
+                "data": {
+                  "versions": [
+                    {
+                      "id": 772,
+                      "name": "TLS 1.3"
+                    }
+                  ]
+                },
+                "id": 43,
+                "name": "supported_versions"
+              },
+              {
+                "data": {
+                  "ke_modes": [
+                    {
+                      "id": 1,
+                      "name": "psk_dhe_ke"
+                    }
+                  ]
+                },
+                "id": 45,
+                "name": "psk_key_exchange_modes"
+              },
+              {
+                "data": {
+                  "aead_id": {
+                    "id": 1,
+                    "name": "AES-128-GCM"
+                  },
+                  "config_id": 4,
+                  "enc_length": 32,
+                  "kdf_id": {
+                    "id": 1,
+                    "name": "HKDF-SHA256"
+                  },
+                  "payload_length": 144,
+                  "type": "outer"
+                },
+                "id": 65037,
+                "name": "encrypted_client_hello"
+              },
+              {
+                "data": {
+                  "named_group_list": [
+                    {
+                      "id": 4588,
+                      "name": "X25519MLKEM768"
+                    },
+                    {
+                      "id": 29,
+                      "name": "x25519"
+                    },
+                    {
+                      "id": 23,
+                      "name": "secp256r1"
+                    },
+                    {
+                      "id": 24,
+                      "name": "secp384r1"
+                    }
+                  ]
+                },
+                "id": 10,
+                "name": "supported_groups"
+              },
+              {
+                "data": {
+                  "client_shares": [
+                    {
+                      "group": {
+                        "id": 4588,
+                        "name": "X25519MLKEM768"
+                      },
+                      "key_exchange_length": 1216
+                    },
+                    {
+                      "group": {
+                        "id": 29,
+                        "name": "x25519"
+                      },
+                      "key_exchange_length": 32
+                    }
+                  ]
+                },
+                "id": 51,
+                "name": "key_share"
+              },
+              {
+                "data": {
+                  "supported_protocols": [
+                    "h3"
+                  ]
+                },
+                "id": 17613,
+                "name": "application_settings"
+              }
+            ],
+            "handshake_version": {
+              "id": 771,
+              "name": "TLS 1.2"
+            },
+            "key_exchange": {
+              "id": 4588,
+              "name": "X25519MLKEM768"
+            },
+            "random": "a735aec4da46e3f4dda9bea493d358d229cd22b00196d16d42ab73d1291e1eba",
+            "selected_version": {
+              "id": 772,
+              "name": "TLS 1.3"
+            },
+            "session_id": "",
+            "signature_scheme": {
+              "id": 1027,
+              "name": "ecdsa_secp256r1_sha256"
+            }
+          },
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+        },
+        "h3": {
+          "h3_hash": "049704d97f9b",
+          "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+          "http3": [
+            {
+              "id": 4,
+              "name": "SETTINGS",
+              "settings": [
+                {
+                  "id": 1,
+                  "name": "SETTINGS_QPACK_MAX_TABLE_CAPACITY",
+                  "value": 65536
+                },
+                {
+                  "id": 6,
+                  "name": "SETTINGS_MAX_FIELD_SECTION_SIZE",
+                  "value": 262144
+                },
+                {
+                  "id": 7,
+                  "name": "SETTINGS_QPACK_BLOCKED_STREAMS",
+                  "value": 100
+                },
+                {
+                  "id": 51,
+                  "name": "SETTINGS_H3_DATAGRAM",
+                  "value": 1
+                },
+                {
+                  "id": 108950863196,
+                  "name": "GREASE",
+                  "value": 465955736
+                }
+              ],
+              "stream_id": 2
+            }
+          ],
+          "ja4": "q13d0311h3_55b375c5d22e_653d80c3fe9d",
+          "ja4_hash": "60a690bee826",
+          "ja4_r": "q13d0311h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,fe0d_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+          "quic": {
+            "0-rtt": false,
+            "conn_creation_time": "2026-10-15 11:33:58.997",
+            "dcid": "460cded795067ab6",
+            "dcid_length": 8,
+            "initial_packets": [
+              {
+                "frames": [
+                  1,
+                  6,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  6,
+                  1,
+                  6,
+                  1,
+                  1,
+                  6,
+                  6,
+                  6,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  6,
+                  1,
+                  1,
+                  0,
+                  1
+                ],
+                "has_token": false,
+                "packet_length": 0,
+                "packet_number": 1,
+                "packet_number_length": 0,
+                "packet_number_raw": "",
+                "padding_length": 333,
+                "version": {
+                  "id": 1,
+                  "name": "QUICv1"
+                }
+              }
+            ],
+            "scid": "b60a4203",
+            "scid_length": 4,
+            "transport_parameters": {
+              "ack_delay_exponent": 3,
+              "active_connection_id_limit": 2,
+              "disable_active_migration": false,
+              "initial_max_data": 15728640,
+              "initial_max_stream_data_bidi_local": 6291456,
+              "initial_max_stream_data_bidi_remote": 6291456,
+              "initial_max_stream_data_uni": 6291456,
+              "initial_max_streams_bidi": 100,
+              "initial_max_streams_uni": 103,
+              "max_ack_delay_ms": 25,
+              "max_datagram_frame_size": 65536,
+              "max_idle_timeout_ms": 30000,
+              "max_udp_payload_size": 1472
+            },
+            "version": {
+              "id": 1,
+              "name": "QUICv1"
+            }
+          },
+          "reproduction": {
+            "http3": {
+              "settings": [
+                {
+                  "id": 1,
+                  "value": 65536
+                },
+                {
+                  "id": 6,
+                  "value": 262144
+                },
+                {
+                  "id": 7,
+                  "value": 100
+                },
+                {
+                  "id": 51,
+                  "value": 1
+                },
+                {
+                  "id": 0,
+                  "is_grease": true,
+                  "value": 0
+                }
+              ]
+            },
+            "quic": {
+              "dcid_length": 8,
+              "grease": {
+                "addend": 33,
+                "multiplier": 31
+              },
+              "initial_packet_size": 1250,
+              "tls_extension_order": [
+                0,
+                43,
+                10,
+                51,
+                16,
+                13,
+                57,
+                27,
+                45,
+                65037,
+                17613
+              ],
+              "transport_params": [
+                {
+                  "id": 12584,
+                  "raw": "T1JJRw=="
+                },
+                {
+                  "id": 5,
+                  "raw": "gGAAAA=="
+                },
+                {
+                  "id": 3,
+                  "raw": "RcA="
+                },
+                {
+                  "id": 17,
+                  "raw": "AAAAAQAAAAH6+prq"
+                },
+                {
+                  "id": 0,
+                  "is_grease": true
+                },
+                {
+                  "id": 1,
+                  "raw": "gAB1MA=="
+                },
+                {
+                  "id": 8,
+                  "raw": "QGQ="
+                },
+                {
+                  "id": 6,
+                  "raw": "gGAAAA=="
+                },
+                {
+                  "id": 15
+                },
+                {
+                  "id": 9,
+                  "raw": "QGc="
+                },
+                {
+                  "id": 32,
+                  "raw": "gAEAAA=="
+                },
+                {
+                  "id": 7,
+                  "raw": "gGAAAA=="
+                },
+                {
+                  "id": 4,
+                  "raw": "gPAAAA=="
+                }
+              ]
+            }
+          },
+          "tls": {
+            "cipher_suite": {
+              "id": 4865,
+              "name": "TLS_AES_128_GCM_SHA256"
+            },
+            "cipher_suites": [
+              {
+                "id": 4865,
+                "name": "TLS_AES_128_GCM_SHA256"
+              },
+              {
+                "id": 4866,
+                "name": "TLS_AES_256_GCM_SHA384"
+              },
+              {
+                "id": 4867,
+                "name": "TLS_CHACHA20_POLY1305_SHA256"
+              }
+            ],
+            "ech": {
+              "ech_success": true,
+              "outer_sni": "quic.tools.scrapfly.io"
+            },
+            "extensions": [
+              {
+                "data": {
+                  "server_name": "quic.tools.scrapfly.io"
+                },
+                "id": 0,
+                "name": "server_name"
+              },
+              {
+                "data": [
+                  772
+                ],
+                "id": 43,
+                "name": "supported_versions"
+              },
+              {
+                "data": [
+                  {
+                    "id": 4588,
+                    "name": "X25519MLKEM768 (4588)"
+                  },
+                  {
+                    "id": 29,
+                    "name": "X25519 (29)"
+                  },
+                  {
+                    "id": 23,
+                    "name": "secp256r1 (23)"
+                  },
+                  {
+                    "id": 24,
+                    "name": "secp384r1 (24)"
+                  }
+                ],
+                "id": 10,
+                "name": "supported_groups"
+              },
+              {
+                "data": [
+                  {
+                    "id": 4588,
+                    "name": "X25519MLKEM768 (4588)"
+                  },
+                  {
+                    "id": 29,
+                    "name": "X25519 (29)"
+                  }
+                ],
+                "id": 51,
+                "name": "key_share"
+              },
+              {
+                "data": {
+                  "protocol_name_list": [
+                    "h3"
+                  ]
+                },
+                "id": 16,
+                "name": "application_layer_protocol_negotiation"
+              },
+              {
+                "data": [
+                  {
+                    "id": 1027,
+                    "name": "ecdsa_secp256r1_sha256"
+                  },
+                  {
+                    "id": 2052,
+                    "name": "rsa_pss_rsae_sha256"
+                  },
+                  {
+                    "id": 1025,
+                    "name": "rsa_pkcs1_sha256"
+                  },
+                  {
+                    "id": 1283,
+                    "name": "ecdsa_secp384r1_sha384"
+                  },
+                  {
+                    "id": 2053,
+                    "name": "rsa_pss_rsae_sha384"
+                  },
+                  {
+                    "id": 1281,
+                    "name": "rsa_pkcs1_sha384"
+                  },
+                  {
+                    "id": 2054,
+                    "name": "rsa_pss_rsae_sha512"
+                  },
+                  {
+                    "id": 1537,
+                    "name": "rsa_pkcs1_sha512"
+                  },
+                  {
+                    "id": 513,
+                    "name": "rsa_pkcs1_sha1"
+                  }
+                ],
+                "id": 13,
+                "name": "signature_algorithms"
+              },
+              {
+                "id": 57,
+                "name": "quic_transport_parameters"
+              },
+              {
+                "id": 27,
+                "name": "compress_certificate"
+              },
+              {
+                "id": 45,
+                "name": "psk_key_exchange_modes"
+              },
+              {
+                "id": 65037,
+                "name": "encrypted_client_hello"
+              },
+              {
+                "id": 17613,
+                "name": "application_settings_new_codepoint"
+              }
+            ],
+            "random": "91e99d8e2dc4d6f4e92fcb616e89f6709fc76e10373ef2d12fc73bb40fbd845f",
+            "selected_version": {
+              "id": 772,
+              "name": "TLS 1.3"
+            }
+          },
+          "udp_ip": {
+            "estimated": {
+              "distance_hops": 6,
+              "initial_ttl": 64,
+              "link_type": "QUIC Minimum",
+              "mtu": 1278
+            },
+            "ip_df": true,
+            "ip_id": 56880,
+            "ip_tos": 0,
+            "ip_ttl": 58,
+            "ip_version": 4
+          },
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+        },
+        "quic_tp": "q13_97eeb91f9c98",
+        "quic_tp_r": "q13_0001,0003,0004,0005,0006,0007,0008,0009,000f,0011,0020,3128",
+        "tls_browserleaks": {
+          "akamai_hash": "52d84b11737d980aef856699f885ca86",
+          "akamai_text": "1:65536;2:0;4:6291456;6:262144|15663105|0|m,a,s,p",
+          "ja3_hash": "543e666c56d17d5103ac530d67447c8b",
+          "ja3_text": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,11-17613-23-35-5-27-16-51-0-43-18-65037-45-10-13-65281,4588-29-23-24,0",
+          "ja3n_hash": "8e19337e7524d2573be54efb2b0784c9",
+          "ja3n_text": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,0-5-10-11-13-16-18-23-27-35-43-45-51-17613-65037-65281,4588-29-23-24,0",
+          "ja4": "t13d1516h2_8daaf6152771_806a8c22fdea",
+          "ja4_o": "t13d1516h2_acb858a92679_33af9f6d575d",
+          "ja4_r": "t13d1516h2_002f,0035,009c,009d,1301,1302,1303,c013,c014,c02b,c02c,c02f,c030,cca8,cca9_0005,000a,000b,000d,0012,0017,001b,0023,002b,002d,0033,44cd,fe0d,ff01_0904,0905,0906,0403,0804,0401,0503,0805,0501,0806,0601",
+          "ja4_ro": "t13d1516h2_1301,1302,1303,c02b,c02f,c02c,c030,cca9,cca8,c013,c014,009c,009d,002f,0035_000b,44cd,0017,0023,0005,001b,0010,0033,0000,002b,0012,fe0d,002d,000a,000d,ff01_0904,0905,0906,0403,0804,0401,0503,0805,0501,0806,0601",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+        }
       }
     },
     "chrome": {
@@ -940825,6 +942009,6 @@
       }
     }
   },
-  "generated_at": "2026-10-14T13:04:11Z",
+  "generated_at": "2026-10-15T11:34:09Z",
   "schema": 1
 }
