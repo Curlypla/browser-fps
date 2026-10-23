@@ -59765,6 +59765,24 @@
         "major": "158",
         "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36"
       },
+      "158.0.8117.2": {
+        "captured_at": "39992837586",
+        "channel": "dev",
+        "engine": "chromium",
+        "errors": [
+          "h2: loadingFailed: net::ERR_TIMED_OUT"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+          "http3": "1:65536;6:262144;7:100;51:1;GREASE|GREASE|984832|m,a,s,p",
+          "ja4": "q13d0312h3_55b375c5d22e_178839b6cec1",
+          "ja4_r": "q13d0312h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,ca34,fe0d_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+          "quic_tp": "q13_97eeb91f9c98",
+          "quic_tp_r": "q13_0001,0003,0004,0005,0006,0007,0008,0009,000f,0011,0020,3128"
+        },
+        "major": "158"
+      },
       "71.0.3578.98": {
         "captured_at": "29699396637",
         "channel": "stable",
@@ -144434,11 +144452,11 @@
   },
   "counts": {
     "brave": 103,
-    "chrome": 279,
+    "chrome": 280,
     "edge": 199,
     "firefox": 331,
     "safari": 5
   },
-  "generated_at": "2026-10-23T12:51:44Z",
+  "generated_at": "2026-10-23T17:11:54Z",
   "schema": 1
 }
