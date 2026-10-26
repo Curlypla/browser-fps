@@ -144447,10 +144447,10 @@
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15"
       },
       "macos-latest": {
-        "captured_at": "36001849188",
+        "captured_at": "40340503387",
         "engine": "webkit",
         "errors": [
-          "h2: no reflected response could be read"
+          "h2: Message: \n"
         ],
         "h2": null,
         "h3": {
@@ -144472,6 +144472,6 @@
     "firefox": 331,
     "safari": 5
   },
-  "generated_at": "2026-10-25T12:45:40Z",
+  "generated_at": "2026-10-26T14:33:55Z",
   "schema": 1
 }
