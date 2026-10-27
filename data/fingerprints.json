@@ -58820,6 +58820,24 @@
         "major": "156",
         "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
       },
+      "156.0.8078.73": {
+        "captured_at": "40593476593",
+        "channel": "stable",
+        "engine": "chromium",
+        "errors": [
+          "h2: loadingFailed: net::ERR_CONNECTION_REFUSED"
+        ],
+        "h2": null,
+        "h3": {
+          "h3_text": "1:65536;6:262144;7:100;51:1;GREASE",
+          "http3": "1:65536;6:262144;7:100;51:1;GREASE|GREASE|984832|m,a,s,p",
+          "ja4": "q13d0312h3_55b375c5d22e_178839b6cec1",
+          "ja4_r": "q13d0312h3_1301,1302,1303_000a,000d,001b,002b,002d,0033,0039,44cd,ca34,fe0d_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+          "quic_tp": "q13_97eeb91f9c98",
+          "quic_tp_r": "q13_0001,0003,0004,0005,0006,0007,0008,0009,000f,0011,0020,3128"
+        },
+        "major": "156"
+      },
       "157.0.8081.0": {
         "captured_at": "37099529316",
         "channel": "dev",
@@ -145007,11 +145025,11 @@
   },
   "counts": {
     "brave": 103,
-    "chrome": 280,
+    "chrome": 281,
     "edge": 200,
     "firefox": 334,
     "safari": 5
   },
-  "generated_at": "2026-10-27T18:05:28Z",
+  "generated_at": "2026-10-27T22:17:37Z",
   "schema": 1
 }
