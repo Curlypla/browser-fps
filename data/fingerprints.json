@@ -146232,13 +146232,16 @@
         "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Safari/605.1.15"
       },
       "26.6.2": {
-        "captured_at": "41071860926",
+        "captured_at": "41207388323",
         "engine": "webkit",
         "errors": [],
         "h2": {
           "akamai_fingerprint": "2:0;3:100;4:2097152;9:1|10420225|0|m,s,a,p",
           "akamai_fingerprint_hash": "c52879e43202aeb92740be6e8c86ea96",
           "header_orders": {
+            "_errors": {
+              "xhr_post": "Expecting value: line 1 column 1 (char 0)"
+            },
             "navigate": [
               ":method",
               ":scheme",
@@ -146286,25 +146289,7 @@
               "accept-encoding",
               "cookie"
             ],
-            "xhr_post": [
-              ":method",
-              ":scheme",
-              ":authority",
-              ":path",
-              "accept",
-              "content-type",
-              "origin",
-              "sec-fetch-site",
-              "sec-fetch-mode",
-              "user-agent",
-              "referer",
-              "sec-fetch-dest",
-              "content-length",
-              "accept-language",
-              "priority",
-              "accept-encoding",
-              "cookie"
-            ]
+            "xhr_post": null
           },
           "header_values": {
             "accept": "*/*",
@@ -146365,6 +146350,6 @@
     "firefox": 334,
     "safari": 5
   },
-  "generated_at": "2026-10-30T22:24:13Z",
+  "generated_at": "2026-10-31T13:51:45Z",
   "schema": 1
 }
