@@ -983778,9 +983778,9 @@
                   "value": 100
                 },
                 {
-                  "id": 39999569113,
+                  "id": 84121392178,
                   "name": "GREASE",
-                  "value": 2661236387
+                  "value": 1162288066
                 }
               ],
               "stream_id": 2
@@ -983806,16 +983806,16 @@
               "stream_id": 4
             }
           ],
-          "ja4": "q13d0313h3_55b375c5d22e_6bb9a3ac9a4b",
-          "ja4_r": "q13d0313h3_1301,1302,1303_0005,000a,000d,0012,001b,0029,002a,002b,002d,0033,0039_0403,0804,0401,0503,0805,0805,0501,0806,0601,0201",
+          "ja4": "q13d0311h3_55b375c5d22e_f2a83c8e78ae",
+          "ja4_r": "q13d0311h3_1301,1302,1303_0005,000a,000d,0012,001b,002b,002d,0033,0039_0403,0804,0401,0503,0805,0805,0501,0806,0601,0201",
           "quic": {
-            "0-rtt": true,
-            "conn_creation_time": "2026-11-09 17:47:28.168",
-            "conn_duration": 0.046,
+            "0-rtt": false,
+            "conn_creation_time": "2026-11-10 15:55:57.967",
+            "conn_duration": 0.017,
             "conn_idle_timeout": 5,
-            "conn_packets": 8,
+            "conn_packets": 7,
             "conn_requests": 1,
-            "dcid": "317276eb5b177bbf",
+            "dcid": "3a8dfe270b650901",
             "dcid_length": 8,
             "initial_packets": [
               {
@@ -983827,7 +983827,7 @@
                 "packet_length": 1200,
                 "packet_number": 0,
                 "packet_number_length": 1,
-                "packet_number_raw": "34",
+                "packet_number_raw": "f1",
                 "padding_length": 162,
                 "version": {
                   "id": 1,
@@ -983843,8 +983843,8 @@
                 "packet_length": 1200,
                 "packet_number": 1,
                 "packet_number_length": 1,
-                "packet_number_raw": "64",
-                "padding_length": 468,
+                "packet_number_raw": "a0",
+                "padding_length": 675,
                 "version": {
                   "id": 1,
                   "name": "QUICv1"
@@ -983853,11 +983853,11 @@
             ],
             "iso_code": "US",
             "mtu_estimate": 1280,
-            "rtt": 43.591401,
+            "rtt": 15.716123,
             "scid": "",
             "scid_length": 0,
-            "src_ip": "13.105.117.159",
-            "src_port": 45349
+            "src_ip": "13.105.117.214",
+            "src_port": 37125
           },
           "tls": {
             "cipher_suite": {
@@ -983866,7 +983866,7 @@
             },
             "cipher_suites": [
               {
-                "id": 31354,
+                "id": 14906,
                 "name": "GREASE"
               },
               {
@@ -983888,7 +983888,7 @@
             },
             "extensions": [
               {
-                "id": 43690,
+                "id": 60138,
                 "name": "GREASE"
               },
               {
@@ -983902,7 +983902,7 @@
                 "data": {
                   "named_group_list": [
                     {
-                      "id": 6682,
+                      "id": 39578,
                       "name": "GREASE"
                     },
                     {
@@ -984010,7 +984010,7 @@
                   "client_shares": [
                     {
                       "group": {
-                        "id": 6682,
+                        "id": 39578,
                         "name": "GREASE"
                       },
                       "key_exchange_length": 1
@@ -984047,14 +984047,10 @@
                 "name": "psk_key_exchange_modes"
               },
               {
-                "id": 42,
-                "name": "early_data"
-              },
-              {
                 "data": {
                   "versions": [
                     {
-                      "id": 43690,
+                      "id": 39578,
                       "name": "GREASE"
                     },
                     {
@@ -984069,6 +984065,16 @@
               {
                 "data": {
                   "transport_parameters": [
+                    {
+                      "id": 9,
+                      "name": "initial_max_streams_uni",
+                      "value": 8
+                    },
+                    {
+                      "id": 14,
+                      "name": "active_connection_id_limit",
+                      "value": 64
+                    },
                     {
                       "id": 15,
                       "name": "initial_source_connection_id",
@@ -984093,16 +984099,6 @@
                       "id": 7,
                       "name": "initial_max_stream_data_uni",
                       "value": 2097152
-                    },
-                    {
-                      "id": 9,
-                      "name": "initial_max_streams_uni",
-                      "value": 8
-                    },
-                    {
-                      "id": 14,
-                      "name": "active_connection_id_limit",
-                      "value": 64
                     }
                   ]
                 },
@@ -984122,21 +984118,8 @@
                 "name": "compress_certificate"
               },
               {
-                "id": 31354,
+                "id": 64250,
                 "name": "GREASE"
-              },
-              {
-                "data": {
-                  "binders_length": 33,
-                  "identities": [
-                    {
-                      "identity_length": 156,
-                      "obf_ticket_age": 2780966222
-                    }
-                  ]
-                },
-                "id": 41,
-                "name": "pre_shared_key"
               }
             ],
             "handshake_version": {
@@ -984147,7 +984130,7 @@
               "id": 4588,
               "name": "X25519MLKEM768"
             },
-            "random": "916161d4e48cbf0f963659edd8daf0c52884a10337aad52d348acb3d15801bf9",
+            "random": "72a84c30f3a770c57112bee348619210267ed87f8eb9d7696935b58c143d0e45",
             "selected_version": {
               "id": 772,
               "name": "TLS 1.3"
@@ -984179,9 +984162,9 @@
                   "value": 100
                 },
                 {
-                  "id": 56749889788,
+                  "id": 14886995679,
                   "name": "GREASE",
-                  "value": 1699862747
+                  "value": 1950585323
                 }
               ],
               "stream_id": 2
@@ -984192,8 +984175,8 @@
           "ja4_r": "q13d0313h3_1301,1302,1303_0005,000a,000d,0012,001b,0029,002a,002b,002d,0033,0039_0403,0804,0401,0503,0805,0805,0501,0806,0601,0201",
           "quic": {
             "0-rtt": true,
-            "conn_creation_time": "2026-11-09 17:47:17.876",
-            "dcid": "f9c6df0b945b8fca",
+            "conn_creation_time": "2026-11-10 15:55:56.470",
+            "dcid": "dc6b3800ad779ef4",
             "dcid_length": 8,
             "initial_packets": [
               {
@@ -984374,7 +984357,7 @@
                 }
               }
             ],
-            "scid": "f9499bce",
+            "scid": "c8b205d1",
             "scid_length": 4,
             "transport_parameters": {
               "ack_delay_exponent": 3,
@@ -984437,18 +984420,6 @@
               ],
               "transport_params": [
                 {
-                  "id": 6,
-                  "raw": "gCAAAA=="
-                },
-                {
-                  "id": 7,
-                  "raw": "gCAAAA=="
-                },
-                {
-                  "id": 9,
-                  "raw": "CA=="
-                },
-                {
                   "id": 14,
                   "raw": "QEA="
                 },
@@ -984462,6 +984433,18 @@
                 {
                   "id": 5,
                   "raw": "gCAAAA=="
+                },
+                {
+                  "id": 6,
+                  "raw": "gCAAAA=="
+                },
+                {
+                  "id": 7,
+                  "raw": "gCAAAA=="
+                },
+                {
+                  "id": 9,
+                  "raw": "CA=="
                 }
               ]
             }
@@ -984473,7 +984456,7 @@
             },
             "cipher_suites": [
               {
-                "id": 31354,
+                "id": 23130,
                 "name": "GREASE"
               },
               {
@@ -984491,7 +984474,7 @@
             ],
             "extensions": [
               {
-                "id": 51914,
+                "id": 35466,
                 "name": "GREASE"
               },
               {
@@ -984504,7 +984487,7 @@
               {
                 "data": [
                   {
-                    "id": 64250,
+                    "id": 14906,
                     "name": "GREASE"
                   },
                   {
@@ -984597,7 +984580,7 @@
               {
                 "data": [
                   {
-                    "id": 64250,
+                    "id": 14906,
                     "name": "GREASE"
                   },
                   {
@@ -984636,7 +984619,7 @@
                 "name": "compress_certificate"
               },
               {
-                "id": 14906,
+                "id": 19018,
                 "name": "GREASE"
               },
               {
@@ -984644,7 +984627,7 @@
                 "name": "pre_shared_key"
               }
             ],
-            "random": "d77543d0a3f5343b3a60c9faf4010ad0ef7d82c2968567c752520ad44242dc77",
+            "random": "1fce3a13343c04dab748663f1d07d28cb85ed2ad30a3b9377282de9dc83a1e60",
             "selected_version": {
               "id": 772,
               "name": "TLS 1.3"
@@ -986066,6 +986049,6 @@
       }
     }
   },
-  "generated_at": "2026-11-10T07:22:55Z",
+  "generated_at": "2026-11-10T15:56:12Z",
   "schema": 1
 }
